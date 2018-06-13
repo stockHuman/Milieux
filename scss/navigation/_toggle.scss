@@ -1,0 +1,111 @@
+
+#menu-toggle {
+	// overflow: hidden; // why was this there?
+	color: transparent;
+	cursor: pointer;
+	height: 45px;
+	position: fixed;
+	right: 2em;
+	top: 2em;
+	width: 45px;
+	z-index: 10;
+
+	// the word "menu"
+	p {
+		color: black;
+		@extend %monospaced;
+		font-size: 1.4em;
+		left: -45px;
+		position: absolute;
+		top: -4px;
+		transition: color 0.4s ease-in-out;
+	}
+
+	span,
+	span::after,
+	span::before {
+		backface-visibility: hidden;
+		background-color: #000;
+		height: 2px;
+		position: absolute;
+		width: 28px;
+	}
+	span {
+		left: 8px;
+		top: 21px;
+		transition: background .1s;
+	}
+	span::before,
+	span::after {
+		content: '';
+		left: 0;
+		transition: transform .2s;
+	}
+
+	span::before {
+		bottom: 8px;
+	}
+
+	span:after {
+		left: 8px;
+		top: 8px;
+		width: 20px;
+	}
+
+	&[aria-expanded='true'] {
+		p {
+			color: $color__brand-white;
+		}
+		span {
+			background-color: rgba(255, 255, 255, 0);
+		}
+	}
+
+	&[aria-expanded='true'] span:after,
+	&[aria-expanded='true'] span:before {
+		background-color: #fff;
+		left: 0;
+		width: 28px;
+	}
+
+	&[aria-expanded='true']  span:before {
+		transform: translate3D(0, 8px, 0) rotate(-45deg);
+	}
+
+	&[aria-expanded='true']  span:after {
+		transform: translate3D(0, -8px, 0) rotate(45deg);
+	}
+
+	&[aria-expanded='false']:hover {
+		span {
+			animation: burger-hover 1s infinite ease-in-out forwards 200ms
+		}
+		span:before {
+			animation: burger-hover 1s infinite ease-in-out alternate
+		}
+		span:after {
+			animation: burger-hover 1s infinite ease-in-out alternate forwards 400ms
+		}
+	}
+}
+
+//Animation Keyframes
+@keyframes burger-hover {
+	0% {
+		right: 25px;
+		width: 1;
+	}
+	50% {
+		right: 14px;
+		width: 14px;
+	}
+	100% {
+		right: 1px;
+		width: 27px;
+	}
+}
+
+
+.admin-bar #menu-toggle {
+	top: calc(2em + 32px);
+}

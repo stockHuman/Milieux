@@ -1,0 +1,81 @@
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+
+$breakpoints: (
+  'phone': 320px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'desktop-l': 1440px,
+  'desktop-xl': 1920px
+);
+
+$chevron-dip: 10em;
+
+// Typography
+
+// IBM+Plex+Mono: 400, 700
+// Lora: 400, 700
+
+$font__main: 'Lora', sans-serif;
+$font__mono: 'IBM Plex Mono', Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__code: $font__mono;
+$font__pre: $font__mono;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+$font__mono-bold: 700;
+$font__main-bold: 700;
+
+
+// Brand
+$color__brand-teal: #4BB9AA;
+$color__brand-blue: #11A9BB;
+$color__brand-grey: #EBEEF1;
+$color__brand-white: #fff;
+$color__brand-charcoal: #3B3B3B;
+
+
+// Element associations
+$color__background-body: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #e6e6e6;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__background-footer: $color__brand-charcoal;
+
+$color__text-screen: $color__brand-blue;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: $color__brand-blue;
+$color__link-visited: darken($color__link, 20%);
+$color__link-hover: lighten($color__link, 10%);
+$color__text-main: $color__brand-charcoal;
+
+$color__border-button: #ccc #ccc #bbb;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: #ccc;
+$color__border-abbr: #566;
+
+
+// UI Associations
+$color__nav-background: $color__brand-blue;
+
+
+// Set the number of columns you want to use on your layout.
+$flexboxgrid-grid-columns: 12 !default;
+// Set the gutter between columns.
+$flexboxgrid-gutter-width: 1rem !default;
+// Set a margin for the container sides.
+$flexboxgrid-outer-margin: 2rem !default;
+// Create or remove breakpoints for your project
+// Syntax:
+// name SIZErem,
+$flexboxgrid-breakpoints:
+  sm 48em 46rem,
+  md 62em 61rem,
+  lg 75em 71rem !default;
+$flexboxgrid-max-width: 1200px !default;

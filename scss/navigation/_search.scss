@@ -1,0 +1,53 @@
+// literally all magic numbers
+#header-search {
+	display: flex;
+	position: fixed;
+	top: $top-pad-desktop;
+	right: $top-pad-desktop * 5;
+	z-index: 9;
+	font-size: 1.2em;
+	width: calc(100% - 27.1em);
+	svg {
+		position: absolute;
+		right: 0;
+		padding: .5em;
+		height: $top-pad-desktop * 1.3;
+		width: $top-pad-desktop *1.3;
+		* {
+			fill: $color__brand-charcoal;
+		}
+	}
+	input {
+		opacity: 0;
+		transition: width .5s ease, opacity .2s ease;
+		margin-right: 3.5em;
+		width: 0;
+		border: none;
+		padding: .5em;
+		background: rgba(255, 255, 255, 0.5);
+		font-size: 1.1em;
+		&:focus {
+			brackground: rgba(255, 255, 255, .9);
+			outline: none;
+		}
+	}
+	&:hover {
+		
+	}
+
+	&.active {
+		input {
+			width: 100%; // shit code :P
+			border-radius: 1px;
+			opacity: 1;
+			
+		}
+		&~.overview-header {
+			transform: translateX(-100%);
+		}
+	}
+}
+
+// #header-search.active ~ .overview-header {
+// 	display: none;
+// }

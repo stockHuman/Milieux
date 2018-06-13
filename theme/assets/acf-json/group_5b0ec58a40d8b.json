@@ -1,0 +1,27 @@
+{
+    "key": "group_5b0ec58a40d8b",
+    "title": "Storyteller",
+    "fields": false,
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "discussion",
+        "comments",
+        "revisions"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1527694730
+}

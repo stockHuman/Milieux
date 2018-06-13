@@ -1,0 +1,30 @@
+a {
+  color: inherit;
+
+  &:visited {
+  	color: $color__link-visited;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+  	color: $color__link-hover;
+  }
+  &:focus {
+  	outline: thin dotted;
+  }
+  &:hover,
+  &:active {
+  	outline: 0;
+  }
+}
+
+.read-more-link {
+  margin-top: 8em;
+  a {
+    font-size: 2em;
+    font-weight: bold;
+    color: $color__brand-teal;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+}

@@ -1,0 +1,36 @@
+%box-shadow {
+	box-shadow: 0 3px 3px 0 rgba(25,25,25,.05);
+}
+
+%img-overlay {
+  background: black;
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 0;
+  opacity: .69;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 1s ease;
+}
+
+%monospaced {
+  font-family: $font__mono;
+}
+
+%inline-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 1em;
+}
+
+@include media('<desktop') {
+  %inline-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 1em;
+  }
+}

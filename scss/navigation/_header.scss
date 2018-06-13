@@ -1,0 +1,71 @@
+
+.site-header {
+	width: 100%;
+	height: 8em;
+	top: 0;
+	z-index: 20;
+	position: fixed;
+	transition: background .2s ease-in-out;
+}
+
+.custom-logo-link {
+	left: 2em;
+	position: fixed;
+	top: $top-pad-desktop;
+	width: 6em;
+}
+
+
+// contains local nav
+.overview-header {
+	z-index: 10;
+	position: fixed;
+	top: $top-pad-desktop;
+	left: 12em;
+	@include flexbox();
+	@extend .wrapper;
+	transition: transform .2s ease;
+	color: $color__brand-white;
+	.page-title {
+		margin-top: .1em;
+		font-size: 2em;
+		font-weight: $font__main-bold;
+		a {color: inherit; text-decoration: none;}
+	}
+}
+
+// page nav 
+.local-nav {
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0 0 3em;
+		@include flexbox();
+	}
+
+	.local-nav__item { // li 
+		padding: 1em;
+		a {
+			color: inherit;
+			text-decoration: none;
+			font-size: 1.2em;
+			@extend %monospaced;
+			&:hover, &.local-nav__selected {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.site-header.scrolled {
+	background: $color__brand-white;
+	@extend %box-shadow;
+	.overview-header {
+		color: $color__brand-teal;
+	}
+}
+
+.page-template-default .site-header:not(.scrolled) .overview-header {
+	color: $color__brand-charcoal;
+}
+
