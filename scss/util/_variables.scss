@@ -14,10 +14,15 @@ $chevron-dip: 10em;
 
 // Typography
 
-// IBM+Plex+Mono: 400, 700
-// Lora: 400, 700
 
-$font__main: 'Lora', sans-serif;
+
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
+// font-family: 'IBM Plex Mono', monospace;
+
+
+
+$font__main: 'Source Sans Pro', sans-serif;
 $font__mono: 'IBM Plex Mono', Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__code: $font__mono;
 $font__pre: $font__mono;
