@@ -2,6 +2,8 @@
   UI
 */
 
+const anime = typeof window !== 'undefined' ? require('animejs') : null
+
 const UI = {
 	onDOM () {
 		// preloader animation
