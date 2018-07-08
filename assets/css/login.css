@@ -1,0 +1,3 @@
+body.login{background:#fff;font-family:"your-font-here",monospace}body.login div#login h1 a{background-image:url(../icons/icon-logo-black.png?);background-image:none,url(../icons/icon-logo-black.svg)}body.login div#login form#loginform p label{font-size:12px}body.login div#login form#loginform p.submit input#wp-submit{background:#208bbe;border-color:#208bbe #1c7ba8 #1c7ba8;-webkit-box-shadow:0 1px 0 #1c7ba8;box-shadow:0 1px 0 #1c7ba8;color:#fff;text-decoration:none;text-shadow:none}.login #login_error,.login .message,.login .success{border-color:#1c7ba8}
+
+/*# sourceMappingURL=maps/login.css.map */

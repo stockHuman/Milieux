@@ -1,25 +1,24 @@
 @charset 'utf-8';
 
-/******************************************************************
-Theme Name: Your theme name here
-Theme URI:
-Description:
-Author: Michael Hemingway
-Author URI: http://www.mikemingway.com
-Version: 4.0
-License: GNU General Public License & MIT
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: Sass
-******************************************************************/
+/**
+	Theme Name: Your theme name here
+	Theme URI:
+	Description:
+	Author: Michael Hemingway
+	Author URI: http://www.michaelhemingway.com
+	Version: 4.0
+	License: GNU General Public License & MIT
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Tags: Sass
+*/
 
 @import
+	'utils/mixins/mixins',
 	'utils/variables',
-	'utils/mixins',
 	'utils/functions',
 	'utils/helpers';
 
 @import
-	'base/normalize',
 	'base/base',
 	'base/typography';
 
@@ -32,15 +31,11 @@ Tags: Sass
 	'elements/tables';
 
 @import
-	'layout/spacing',
-	'layout/nav',
 	'layout/grid';
 
 @import
-	'sections/content',
 	'sections/home';
 
 @import
 	'UX/animations',
 	'UX/preloader';
-
