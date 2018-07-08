@@ -35,7 +35,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const browserSync = require('browser-sync').create()
 
 const paths = {
-	domain: '',
+	domain: 'localhost/milieux/',
 	theme: 'theme/',
 	jsBase: 'scripts/',
 	jsBuild: 'theme/assets/js/', // this is where the minified and concat'd project js build file will go
