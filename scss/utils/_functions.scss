@@ -5,3 +5,27 @@
 @function grid-offset-length($n) {
 	@return grid-column-width($n) + $column-margin;
 }
+
+@function z ( $index, $mod: null ) {
+	$out: 0;
+	@if (map-has-key($z-index, $index)) {
+		$out: map-get($z-index, $index)
+	}
+	@else {
+		@if type-of($index) != 'number' {
+			@warn 'Argument passed to z() is not a number';
+			@return $out;
+		}
+		@else {
+			$out: unitless($index);
+		}
+	}
+
+	@if (is-null($mod)) {
+		@return $out;
+	}
+	@else {
+		$out: $out + $mod;
+		@return $out;
+	}
+}
