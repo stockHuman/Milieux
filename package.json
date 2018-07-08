@@ -28,12 +28,20 @@
   },
   "babel": {
     "presets": [
-      ["env", {
-        "targets": {
-          "uglify": true,
-          "browsers": ["last 2 versions"]
+      [
+        "env",
+        {
+          "targets": {
+            "uglify": true,
+            "browsers": [
+              "last 2 versions"
+            ]
+          }
         }
-      }
-    ]]
+      ]
+    ]
+  },
+  "dependencies": {
+    "animejs": "^2.2.0"
   }
 }
