@@ -38,9 +38,9 @@ const paths = {
 	domain: 'localhost/milieux/',
 	theme: 'theme/',
 	jsBase: 'scripts/',
-	jsBuild: 'theme/assets/js/', // this is where the minified and concat'd project js build file will go
-	styles: './scss/**/*.scss', // watch these directories
-	stylesBuild: 'assets/css/', // this is where the minified, compiled css will go
+	jsBuild: 'theme/assets/js/',
+	styles: './scss/**/*.scss',
+	stylesBuild: 'assets/css/',
 	scripts: [{
 		name: 'app',
 		main: 'app/app.js',
@@ -63,11 +63,11 @@ const config = {
 
 
 paths.scripts.forEach(script => {
-	// Compile each script
+	// Take each script and compile it (and the scripts it imports) as separate scripts
 	gulp.task(script.name + '-js', function (callback) {
 
 		let b = browserify({
-			entries: paths.jsBase + script.main , // 'stories/main.js'
+			entries: paths.jsBase + script.main , // say, 'stories/main.js'
 			presets: ['env'],
 			transform: ['babelify'],
 			extensions: ['.js'],
@@ -97,9 +97,9 @@ gulp.task('css', function (callback) {
 	return gulp.src(paths.styles)
 	.pipe(sourcemaps.init())
 	.pipe(sass(config.sass))
-	.pipe(sourcemaps.write())
 	.on('error', logError)
 	.pipe(autoprefixer(config.autoprefixer))
+	.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest(paths.stylesBuild))
 	.pipe(browserSync.reload({stream: true}))
 	.on('end', callback)
