@@ -1,15 +1,17 @@
-<?php get_header('sub'); ?>
+<?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" <?php post_class('site-main'); ?>>
+  <div class="container">
+    <main id="main" class="" role="main">
 
-		<?php
-		while ( have_posts() ) : the_post();
-			get_template_part( 'template-parts/content', 'page' );
-		endwhile;
-		?>
+  	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		</main>
-	</div>
-<?php
-get_footer("page");
+      <?php get_template_part( 'parts/loop', 'page' ); ?>
+
+    <?php endwhile; endif; ?>
+
+  	</main> <!-- end #main -->
+  </div>
+
+	<?php get_sidebar(); ?>
+
+<?php get_footer(); ?>

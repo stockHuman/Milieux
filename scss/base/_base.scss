@@ -1,0 +1,56 @@
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+body {
+	font-family: $font-sans-serif;
+	@include font-size($font-size-base);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga", "kern";
+	font-feature-settings: "liga", "kern";
+	text-rendering: optimizelegibility;
+	font-weight: $normal;
+	color: $black;
+	background: $white;
+	scrollbar-base-color: black;
+	touch-action: manipulation;
+}
+
+// styles the scrollbar on supported browsers (chrome & webkit-based, IE)
+::-webkit-scrollbar-thumb:vertical {
+	height: 10px;
+	background-color: $black;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+	height: 1px;
+	background:  $white;
+}
+
+::-moz-selection {
+	background: $brand;
+	color: $white;
+}
+
+::selection {
+	background: $brand;
+	color: $white;
+}

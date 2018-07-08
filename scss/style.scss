@@ -1,39 +1,46 @@
-/*!
-Theme Name: FPPSE
-Theme URI: http://underscores.me/
+@charset 'utf-8';
+
+/******************************************************************
+Theme Name: Your theme name here
+Theme URI:
+Description:
 Author: Michael Hemingway
-Author URI: https://michaelhemingway.com
-Description: Description
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: fppse
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Author URI: http://www.mikemingway.com
+Version: 4.0
+License: GNU General Public License & MIT
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Sass
+******************************************************************/
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+@import
+	'utils/variables',
+	'utils/mixins',
+	'utils/functions',
+	'utils/helpers';
 
-FPPSE is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
+@import
+	'base/normalize',
+	'base/base',
+	'base/typography';
 
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
+@import
+	'elements/buttons',
+	'elements/code',
+	'elements/forms',
+	'elements/lists',
+	'elements/images',
+	'elements/tables';
 
+@import
+	'layout/spacing',
+	'layout/nav',
+	'layout/grid';
 
-@import 'util/util'; // calls everything within folder
+@import
+	'sections/content',
+	'sections/home';
 
-@import 'common';
+@import
+	'UX/animations',
+	'UX/preloader';
 
-@import 'typography/typography';
-@import 'navigation/navigation';
-
-@import 'elements/elements';
-@import 'elements/buttons';
-
-@import 'layout/grid';
-@import 'layout/hero';
-@import 'layout/page';
-@import 'layout/singletons';
-@import 'layout/footer';
-@import 'layout/video';

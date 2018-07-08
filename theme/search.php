@@ -1,55 +1,29 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package milx
- */
+<?php get_header(); ?>
 
-get_header();
-?>
-
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'milx' ), '<span>' . get_search_query() . '</span>' );
-					?>
+	<div class="container">
+		<main id="main" class="" role="main">
+			<header>
+				<h1 class="archive-title"><?php _e( 'Search Results for:', 'arthemwp' ); ?>
+					<?php echo esc_attr(get_search_query()); ?>
 				</h1>
-			</header><!-- .page-header -->
+			</header>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+				<!-- To see additional archive styles, visit the /parts directory -->
+				<?php get_template_part( 'parts/loop', 'archive' ); ?>
 
-			endwhile;
+			<?php endwhile; ?>
 
-			the_posts_navigation();
+				<?php //arthem_page_navi(); ?>
 
-		else :
+			<?php else : ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+				<?php get_template_part( 'parts/content', 'missing' ); ?>
 
-		endif;
-		?>
+		    <?php endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	    </main> <!-- end #main -->
+	</div>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>
