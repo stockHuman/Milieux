@@ -1,9 +1,8 @@
-@import 'util/variables';
+@import 'utils/variables';
 
 body.login {
-	@extend %b-white;
-	@extend %c-green;
-	font-family: $font__mono;
+	background: $white;
+	font-family: $font-mono;
 }
 body.login div#login {}
 body.login div#login h1 {}
@@ -23,16 +22,16 @@ body.login div#login form#loginform p.forgetmenot {}
 body.login div#login form#loginform p.forgetmenot input#rememberme {}
 body.login div#login form#loginform p.submit {}
 body.login div#login form#loginform p.submit input#wp-submit {
-	background: lighten($color__brand-teal, 5%);
-	border-color: lighten($color__brand-teal, 5%) #{$color__brand-teal} #{$color__brand-teal};
-	box-shadow: 0 1px 0 #{$color__brand-teal};
+	background: lighten($color-brand, 5%);
+	border-color: lighten($color-brand, 5%) #{$color-brand} #{$color-brand};
+	box-shadow: 0 1px 0 #{$color-brand};
 	color: #fff;
 	text-decoration: none;
 	text-shadow: none;
 }
 
 .login #login_error, .login .message, .login .success {
-	border-color: $color__brand-teal;
+	border-color: $color-brand;
 }
 
 body.login div#login p#nav {}

@@ -20,13 +20,13 @@ html {
 
 body {
 	font-family: $font-sans-serif;
-	@include font-size($font-size-base);
+	@include font-size($font-s-base);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-moz-font-feature-settings: "liga", "kern";
 	font-feature-settings: "liga", "kern";
 	text-rendering: optimizelegibility;
-	font-weight: $normal;
+	font-weight: $font-w-normal;
 	color: $black;
 	background: $white;
 	scrollbar-base-color: black;
@@ -46,11 +46,11 @@ body {
 }
 
 ::-moz-selection {
-	background: $brand;
+	background: $color-brand;
 	color: $white;
 }
 
 ::selection {
-	background: $brand;
+	background: $color-brand;
 	color: $white;
 }
