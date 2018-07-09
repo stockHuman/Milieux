@@ -29,7 +29,7 @@ const buffer = require('vinyl-buffer')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
-const changed = require('gulp-changed')
+// const changed = require('gulp-changed')
 const browserify = require('browserify')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
@@ -96,7 +96,7 @@ paths.scripts.forEach(script => {
 // SCSS compile
 gulp.task('css', function (callback) {
 	return gulp.src(paths.styles)
-	.pipe(changed(paths.stylesBuild, {extension: '.css'}))
+	// .pipe(changed(paths.stylesBuild, {extension: '.css'}))
 	.pipe(sourcemaps.init())
 	.pipe(sass(config.sass))
 	.on('error', logError)
