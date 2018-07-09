@@ -3,7 +3,7 @@
 	<div class="container">
 		<main id="main" class="" role="main">
 			<header>
-				<h1 class="archive-title"><?php _e( 'Search Results for:', 'arthemwp' ); ?>
+				<h1 class="archive-title"><?php _e( 'Search Results for:', 'milieux' ); ?>
 					<?php echo esc_attr(get_search_query()); ?>
 				</h1>
 			</header>

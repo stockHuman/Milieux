@@ -71,7 +71,7 @@ function arthem_gallery_style($css) {
 function arthem_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-return '<a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'arthemwp') . get_the_title($post->ID).'">'. __('... Read more &raquo;', 'arthemwp') .'</a>';
+return '<a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'milieux') . get_the_title($post->ID).'">'. __('... Read more &raquo;', 'milieux') .'</a>';
 }
 
 // Adding svg support
@@ -100,7 +100,7 @@ function arthem_get_the_author_posts_link() {
 	$link = sprintf(
 		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s', 'arthemwp' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+		esc_attr( sprintf( __( 'Posts by %s', 'milieux' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
 		get_the_author()
 	);
 	return $link;

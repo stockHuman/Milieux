@@ -33,10 +33,16 @@ require_once(get_template_directory().'/functions/disable-emoji.php');
 // require_once(get_template_directory().'/functions/related-posts.php');
 
 // Use this as a template for custom post types
-// require_once(get_template_directory().'/functions/custom-post-type.php');
+require_once(get_template_directory().'/functions/custom-post-types.php');
+
+// Bylines feature to not have to create new users for every author
+require_once(get_template_directory().'/functions/bylines.php');
 
 // Customize the WordPress login menu
 require_once(get_template_directory().'/functions/login.php');
 
 // Customize the WordPress admin
 require_once(get_template_directory().'/functions/admin.php');
+
+// Add in misc function
+require_once(get_template_directory().'/functions/theme-functions.php');

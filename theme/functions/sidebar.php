@@ -3,8 +3,8 @@
 function arthem_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
-		'name' => __('Sidebar 1', 'arthemwp'),
-		'description' => __('The first (primary) sidebar.', 'arthemwp'),
+		'name' => __('Sidebar 1', 'milieux'),
+		'description' => __('The first (primary) sidebar.', 'milieux'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -13,8 +13,8 @@ function arthem_register_sidebars() {
 
 	register_sidebar(array(
 		'id' => 'offcanvas',
-		'name' => __('Offcanvas', 'arthemwp'),
-		'description' => __('The offcanvas sidebar.', 'arthemwp'),
+		'name' => __('Offcanvas', 'milieux'),
+		'description' => __('The offcanvas sidebar.', 'milieux'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -31,8 +31,8 @@ function arthem_register_sidebars() {
 
 	register_sidebar(array(
 		'id' => 'sidebar2',
-		'name' => __('Sidebar 2', 'arthemwp'),
-		'description' => __('The second (secondary) sidebar.', 'arthemwp'),
+		'name' => __('Sidebar 2', 'milieux'),
+		'description' => __('The second (secondary) sidebar.', 'milieux'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',

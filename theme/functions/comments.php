@@ -14,13 +14,13 @@ function arthem_comments($comment, $args, $depth) {
 							// create variable
 							$bgauthemail = get_comment_author_email();
 						?>
-						<?php printf(__('%s', 'arthemwp'), get_comment_author_link()) ?> on
-						<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__(' F jS, Y - g:ia', 'arthemwp')); ?> </a></time>
-						<?php edit_comment_link(__('(Edit)', 'arthemwp'),'  ','') ?>
+						<?php printf(__('%s', 'milieux'), get_comment_author_link()) ?> on
+						<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__(' F jS, Y - g:ia', 'milieux')); ?> </a></time>
+						<?php edit_comment_link(__('(Edit)', 'milieux'),'  ','') ?>
 					</header>
 					<?php if ($comment->comment_approved == '0') : ?>
 						<div class="alert alert-info">
-							<p><?php _e('Your comment is awaiting moderation.', 'arthemwp') ?></p>
+							<p><?php _e('Your comment is awaiting moderation.', 'milieux') ?></p>
 						</div>
 					<?php endif; ?>
 					<section class="comment_content clearfix">

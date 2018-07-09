@@ -39,12 +39,12 @@ $color-font--base: 		#222;
 $color-twitter:  #00aced;
 $color-facebook: #3b5998;
 
+
 // Typography
-$font-stack: 					 'your-font-here', sans-serif;
-$font-heading:         'your-font-here', sans-serif;
-$font-sans-serif:      'your-font-here', sans-serif;
-$font-sans-serif-bold: 'your-font-here', sans-serif;
-$font-mono:            'your-font-here', monospace;
+$font-stack: 					 'Source Sans Pro','system';
+$font-sans-serif:      'Source Sans Pro', sans-serif;
+$font-sans-serif-bold: 'Source Sans Pro', sans-serif;
+$font-mono:            'IBM Plex Mono', monospace;
 
 $font-w-ultra-light: 200;
 $font-w-light: 300;
@@ -57,8 +57,8 @@ $font-s-base: 16;
 $font-s-large: 18;
 $font-s-small: 11;
 
-$font-s-h1: 130;
-$font-s-h1-medium: 110;
+$font-s-h1: 30;
+$font-s-h1-medium: 34;
 $font-s-h2: 24;
 $font-s-h3: 20;
 $font-s-h4: 18;
@@ -66,8 +66,6 @@ $font-s-h5: 14;
 $font-s-h6: 12;
 
 // Easing
-// -------------------------
-
 $linear:         cubic-bezier(0.250, 0.250, 0.750, 0.750);
 $easeInQuad:     cubic-bezier(0.550, 0.085, 0.680, 0.530);
 $easeInCubic:    cubic-bezier(0.550, 0.055, 0.675, 0.190);
