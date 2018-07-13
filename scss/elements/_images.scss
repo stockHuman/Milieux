@@ -2,3 +2,8 @@ img {
 	width: 100%;
 	height: auto;
 }
+
+svg:not(:root) {
+  overflow: hidden; // Hide the overflow in IE
+  vertical-align: middle;
+}

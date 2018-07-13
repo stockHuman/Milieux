@@ -4,6 +4,37 @@
 	box-sizing: inherit;
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -18,7 +49,15 @@ html {
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+// IE10+ doesn't honor `<meta name="viewport">` in some cases.
+@at-root {
+  @-ms-viewport {
+    width: device-width;
+  }
+}
+
 body {
+	line-height: 1;
 	font-family: $font-sans-serif;
 	@include font-size($font-s-base);
 	-webkit-font-smoothing: antialiased;
@@ -53,4 +92,24 @@ body {
 ::selection {
 	background: $color-brand;
 	color: $white;
+}
+
+// via https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss
+output {
+  display: inline-block;
+}
+
+summary {
+  display: list-item; // Add the correct display in all browsers
+  cursor: pointer;
+}
+
+template {
+  display: none; // Add the correct display in IE
+}
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+// Needed for proper display in IE 10-.
+[hidden] {
+  display: none !important;
 }
