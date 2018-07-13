@@ -29,3 +29,13 @@ h6 { @include font-size($font-s-h6); line-height: 1.6;  letter-spacing: 0;      
 p {
   margin-top: 0;
 }
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
