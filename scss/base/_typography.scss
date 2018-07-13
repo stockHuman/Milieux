@@ -53,3 +53,9 @@ sup {
 
 sub { bottom: -.25em; }
 sup { top: -.5em; }
+
+// stylings for content sections and long-form text
+@import 'type/content';
+
+// atomic rules for specific styling
+@import 'type/atomic';
