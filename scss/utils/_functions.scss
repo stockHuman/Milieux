@@ -21,11 +21,11 @@
 		}
 	}
 
-	@if (is-null($mod)) {
+	@if ($mod != null) {
+		$out: $out + $mod;
 		@return $out;
 	}
 	@else {
-		$out: $out + $mod;
 		@return $out;
 	}
 }

@@ -31,10 +31,16 @@
 	'elements/tables';
 
 @import
-	'layout/grid';
+	'layout/grid',
+	'layout/base';
 
 @import
-	'sections/home';
+	'nav/nav',
+	'nav/footer';
+
+@import
+	'sections/home',
+	'sections/feature';
 
 @import
 	'UX/animations',

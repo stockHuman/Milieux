@@ -43,7 +43,7 @@ $color-facebook: #3b5998;
 // Typography
 $font-stack: 					 'Source Sans Pro','system';
 $font-sans-serif:      'Source Sans Pro', sans-serif;
-$font-sans-serif-bold: 'Source Sans Pro', sans-serif;
+$font-sans-serif-bold: 'Roboto', sans-serif;
 $font-mono:            'IBM Plex Mono', monospace;
 
 $font-w-ultra-light: 200;
@@ -94,8 +94,8 @@ $easeInOutExpo:  cubic-bezier(1.000, 0.000, 0.000, 1.000);
 $easeInOutCirc:  cubic-bezier(0.785, 0.135, 0.150, 0.860);
 $easeInOutBack:  cubic-bezier(0.680, 0, 0.265, 1);
 
-// Variables from Skeleton
-//––––––––––––––––––––––––––––––––––––––––––––––––––
+// Structure Variables
+$u: 1rem; // size unit
 
 //Grid Variables
 $container-width: 960px !default;
@@ -115,7 +115,7 @@ $breakpoints: (
 	'tablet': 768px,
 	'desktop': 1024px,
 	'ultrawide': 1200px
-) !default;
+);
 
 $media-expressions: (
 	'screen': 'screen',
@@ -132,7 +132,7 @@ $unit-intervals: (
 	'px': 1,
 	'em': 0.01,
 	'rem': 0.1
-) !default;
+);
 
 $im-media-support: true !default;
 $im-no-media-breakpoint: 'desktop' !default;

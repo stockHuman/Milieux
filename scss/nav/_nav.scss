@@ -1,0 +1,65 @@
+.nav-main {
+	position: fixed;
+	z-index: z('nav');
+
+	@at-root #{&}__quickbar, #{&}__content  {
+		background: black;
+		color: white;
+		justify-content: space-between;
+	}
+
+	@at-root #{&}__inner {
+		padding: $u;
+	}
+
+	@at-root #{&}__content {
+		padding-top: 30vh;
+		padding-bottom: 10vh;
+		li {
+			padding: .6em;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+	}
+
+	@at-root #{&}__quickbar {
+		display: flex;
+		padding: 10px;
+	}
+
+	@at-root #{&}__toggle {
+		padding: 10px;
+		display: block;
+	}
+
+	@at-root #{&}__search {
+		display: flex;
+		width: 100%;
+		.field {
+			display: none;
+			background: black;
+			width: 100%;
+			border: none;
+			border-bottom: 1px solid white;
+			color: white;
+		}
+	}
+
+	// default state
+	@at-root #{&}--collapsed {
+		bottom: 0;
+		height: 4 * $u;
+		width: 100%;
+		.nav-main__header, .nav-main__content {
+			display: none;
+		}
+	}
+
+	@at-root #{&}--expanded {
+
+	}
+}
+
+@import 'lt-tablet';

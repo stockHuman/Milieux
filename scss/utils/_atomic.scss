@@ -20,6 +20,19 @@
 	border: 0;
 }
 
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
 .clearfix {
 	&::after {
 		clear: both;
@@ -32,3 +45,47 @@
 	overflow: hidden;
 }
 
+// Sizing
+.w-100 {
+	width: 100%;
+}
+
+.vh-100 {
+	height: 100vh;
+}
+
+.vw-100 {
+	width: 100vw;
+}
+
+// Positioning
+.p-abs {
+	position: absolute;
+}
+
+.p-fix {
+	position: fixed;
+}
+
+// color
+%b-black {
+	background: $black;
+}
+
+%b-white {
+	background: $white;
+}
+
+%c-white {
+	color: $white;
+}
+
+%black-on-white {
+	color: $black;
+	background: $white;
+}
+
+%white-on-black {
+	color: $white;
+	background: $black;
+}

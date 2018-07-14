@@ -13,3 +13,11 @@
 .text-justify {
 	text-align: justify;
 }
+
+%text-up {
+	text-transform: uppercase;
+}
+
+%text-mono {
+	font-family: $font-mono;
+}

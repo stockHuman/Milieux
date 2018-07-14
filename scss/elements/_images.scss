@@ -7,3 +7,31 @@ svg:not(:root) {
   overflow: hidden; // Hide the overflow in IE
   vertical-align: middle;
 }
+
+// used in a few locations, namely nav search icon
+.icon {
+	width: 15px;
+	margin-left: 10px;
+	margin-top: -10px;
+}
+
+// @plugin https://github.com/aFarkas/lazysizes
+.no-js img.lazyload {
+	display: none;
+}
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+
+.alignnone.size-large {
+	z-index: z('nav', 1);
+	background: black;
+	position:relative;
+}

@@ -11,7 +11,7 @@ register_nav_menus(
 function arthem_nav() {
 	 wp_nav_menu(array(
 		'container' => false,                           // Remove nav container
-		'menu_class' => 'nav-main-content',       // Adding custom nav class
+		'menu_class' => 'nav-main__content',       // Adding custom nav class
 		'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 		'theme_location' => 'nav-main',        			// Where it's located in the theme
 		'depth' => 2,                                   // Limit the depth of the nav

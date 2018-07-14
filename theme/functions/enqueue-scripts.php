@@ -8,6 +8,7 @@ function site_scripts() {
 
   if ('feature' === get_post_type()) {
   	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/js/lightbox.js', array(), '', true);
+  	wp_enqueue_script( 'lazysizes', get_template_directory_uri() . '/assets/js/lazysizes.min.js', array(), '4.0.3', true);
   }
 }
 

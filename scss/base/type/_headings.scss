@@ -1,0 +1,31 @@
+// Heading types
+
+.article-title {
+	font-weight: $font-w-extra-bold;
+	letter-spacing: 0;
+	line-height: 38px;
+	@include font-size(28);
+	@include media('>phablet') {
+		& { @include font-size(36) }
+	}
+	// inherits font-family: $font-sans-serif-bold; from h's
+	@at-root #{&}--white {
+		color: $white;
+	}
+	@at-root #{&}--white#{&}--upper {
+		color: $white;
+		@extend %text-up;
+	}
+}
+.section-title {
+	font-weight: $font-w-bold;
+	font-family: $font-sans-serif;
+	@extend %text-up;
+
+	@at-root #{&}__element {
+		color: blue;
+	}
+	@at-root #{&}--modifier {
+		color: red;
+	}
+}
