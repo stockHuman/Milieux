@@ -17,6 +17,7 @@
 		@extend %text-up;
 	}
 }
+
 .section-title {
 	font-weight: $font-w-bold;
 	font-family: $font-sans-serif;
@@ -29,3 +30,13 @@
 		color: red;
 	}
 }
+
+// Cluster page title, the word 'event' on an event page
+.page-type-title {
+	font-weight: $font-w-bold;
+	color: rgba($black, .22);
+	@include font-size(36);
+	letter-spacing: .02rem;
+}
+
+// event title is only applicable to events and thus found in the event styling

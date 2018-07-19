@@ -1,5 +1,8 @@
+// Structure Variables
+$u: 1rem; // size unit
+
 // NAVIGATION
-// -Whatever you need-
+$nav-height--mobile: 5* $u;
 
 // Usage: "z-index: map-get($z-index, 'nav');"
 // or z(index), z(index, expression)
@@ -15,23 +18,25 @@ $z-index:(
 );
 
 // Brand colors
-$color-brand:         #1c7ba8;
+$color-brand:         #0090FC;
 $color-secondary: 		#f9a825;
 $color-tertiary:			#3b5998;
 $color-accent:        #ffffff;
 
 $white:               #FFFFFF;
 $black:               #000000;
+$off-black:						#1A1A1A;
 
 $gray-darker:         #181818;
 $gray-dark:           #6c767f;
-$gray:                #616161;
-$gray-light:          #979797;
-$gray-lighter:        #f2f2f2;
+$gray:                #AFAFAF;
+$gray-light:          #F0F0F0;
+$gray-lighter:        #F8F8F8;
 
 // UI Associations
 $color-border:	      $gray-light;
 $color-link: 	        $color-brand;
+$color-nav-bg:				$off-black;
 
 $color-font--base: 		#222;
 
@@ -93,9 +98,6 @@ $easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);
 $easeInOutExpo:  cubic-bezier(1.000, 0.000, 0.000, 1.000);
 $easeInOutCirc:  cubic-bezier(0.785, 0.135, 0.150, 0.860);
 $easeInOutBack:  cubic-bezier(0.680, 0, 0.265, 1);
-
-// Structure Variables
-$u: 1rem; // size unit
 
 //Grid Variables
 $container-width: 960px !default;

@@ -1,0 +1,10 @@
+.sidebar {
+	max-width: 400px;
+	background: $gray-lighter;
+	padding: $u;
+	h4 {
+		@extend %text-mono;
+		@extend %text-up;
+	}
+	// Sidebar in the 'features' post type
+}

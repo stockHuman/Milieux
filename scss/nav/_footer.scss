@@ -1,3 +1,25 @@
 .footer {
-	@extend %white-on-black;
+	@at-root #{&}__inner {
+		background: $color-nav-bg;
+		padding: $u;
+		color: rgba($white, 0.64);
+		font-weight: $font-w-light;
+		line-height: 1.1;
+		font-size: 13px;
+		h3 {
+			font-family: $font-sans-serif;
+			font-weight: $font-w-light;
+			text-transform: Capitalize;
+			letter-spacing: .01rem;
+			color: $white;
+		}
+	}
+
+	@at-root #{&}__copyright {
+		padding: $u;
+		padding-bottom: $nav-height--mobile;
+		@extend %white-on-black;
+		font-weight: $font-w-light;
+		font-size: 11px;
+	}
 }

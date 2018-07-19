@@ -1,6 +1,8 @@
 .nav-main {
 	position: fixed;
 	z-index: z('nav');
+	font-family: $font-sans-serif;
+	font-weight: $font-w-light;
 
 	@at-root #{&}__quickbar, #{&}__content  {
 		background: black;
@@ -50,7 +52,7 @@
 	// default state
 	@at-root #{&}--collapsed {
 		bottom: 0;
-		height: 4 * $u;
+		height: $nav-height--mobile;
 		width: 100%;
 		.nav-main__header, .nav-main__content {
 			display: none;
