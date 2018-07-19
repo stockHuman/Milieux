@@ -29,7 +29,6 @@ const buffer = require('vinyl-buffer')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
-// const changed = require('gulp-changed')
 const browserify = require('browserify')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
@@ -46,6 +45,10 @@ const paths = {
 		name: 'app',
 		main: 'app/app.js',
 		glob: ['app/*.js']
+	},{
+		name: 'twitter',
+		main: 'social-feed/main.js',
+		glob: ['social-feed/*.js']
 	}]
 }
 
@@ -84,7 +87,7 @@ paths.scripts.forEach(script => {
 			.pipe(buffer())
 			.pipe(uglify())
 			.on('error', logError)
-		.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest(paths.jsBuild))
 		.pipe(browserSync.reload({stream: true}))
 		.on('end', callback)
@@ -96,8 +99,7 @@ paths.scripts.forEach(script => {
 // SCSS compile
 gulp.task('css', function (callback) {
 	return gulp.src(paths.styles)
-	// .pipe(changed(paths.stylesBuild, {extension: '.css'}))
-	.pipe(sourcemaps.init())
+	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sass(config.sass))
 	.on('error', logError)
 	.pipe(autoprefixer(config.autoprefixer))

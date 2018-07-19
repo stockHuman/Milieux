@@ -1,0 +1,48 @@
+#twitter-panel {
+	top: 0;
+	right: 0;
+	background: $black;
+	position: fixed;
+	bottom: 0;
+	min-height: 100vh;
+	overflow: hidden;
+	width: 400px;
+	height: 200px;
+	z-index: z('super');
+	will-change: transform;
+	transition: .5s $easeOutExpo transform;
+	transform: translate3D(110%, 0, 0);
+	&.--active {
+		transition: .7s $easeOutQuint transform;
+		transform: translate3D(0, 0, 0);
+	}
+	header h2 {
+		padding:  $u 0 0 $u;
+		font-family: $font-sans-serif;
+		font-weight: $font-w-light;
+		color: white;
+	}
+}
+
+#twitter-panel__inner {
+	height: 90%;
+	margin-right: -50px; /* maximum width of scrollbar */
+	padding-right: 50px; /* maximum width of scrollbar */
+	overflow-y: scroll;
+}
+
+#twitter-toggle {
+	position: fixed;
+	top: 0;
+	right: 0;
+	// twitter image, hopefully cached in css
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Mi44NDEgNDIuODQxIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDojMGIwYjBiO29wYWNpdHk6MC4xNjt9LmJ7ZmlsbDojZmZmO29wYWNpdHk6MC42Mjk7fTwvc3R5bGU+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjMzKSI+PHJlY3QgY2xhc3M9ImEiIHdpZHRoPSI0Mi44NDEiIGhlaWdodD0iNDIuODQxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjMzKSIvPjxwYXRoIGNsYXNzPSJiIiBkPSJNMTIyNy4yNjYsMjg5Ljk1OWE5LjY2MSw5LjY2MSwwLDAsMS05LjExNSwxMC4xMTgsMTAuMDg2LDEwLjA4NiwwLDAsMS01LjY1MS0xLjQ1OCw3LjU4MSw3LjU4MSwwLDAsMCw0LjgzMS0xLjQ1OCwzLjU3NCwzLjU3NCwwLDAsMS0yLjkxNy0yLjM3LDIuOTkzLDIuOTkzLDAsMCwwLDEuNTUtLjA5MSwzLjUsMy41LDAsMCwxLTIuODI2LTMuMjgxLDMuNjU2LDMuNjU2LDAsMCwwLDEuMzY3LjI3MywzLjUxOSwzLjUxOSwwLDAsMS0uOTEyLTQuNDY2LDkuNjI0LDkuNjI0LDAsMCwwLDcuMDE5LDMuNTU1LDMuMzg0LDMuMzg0LDAsMCwxLDIuMTg4LTQuMTkzLDMuMywzLjMsMCwwLDEsMy41NTUsMS4wOTQsNS45MjEsNS45MjEsMCwwLDAsMi4xLS44MiwzLjU3NCwzLjU3NCwwLDAsMS0xLjU0OSwxLjkxNCw2LjYzLDYuNjMsMCwwLDAsMS45MTQtLjU0NywyLjY4NiwyLjY4NiwwLDAsMS0xLjU1LDEuNzMyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMy43MTcgLTI3MS43MjkpIi8+PC9nPjwvc3ZnPg==);
+	height: 3* $u;
+	width: 3* $u;
+	margin: 1em;
+	cursor: pointer;
+	z-index: z('super', 1);
+	&:hover {
+		background-color: $color-twitter;
+	}
+}
