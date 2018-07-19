@@ -18,7 +18,7 @@ require_once(get_template_directory().'/functions/sidebar.php');
 // require_once(get_template_directory().'/functions/comments.php');
 
 // Replace 'older/newer' post links with numbered navigation
-// require_once(get_template_directory().'/functions/page-navi.php');
+require_once(get_template_directory().'/functions/page-navi.php');
 
 // Adds support for multiple languages
 // require_once(get_template_directory().'/translation/translation.php');
@@ -31,6 +31,9 @@ require_once(get_template_directory().'/functions/disable-emoji.php');
 
 // Related post function - no need to rely on plugins
 // require_once(get_template_directory().'/functions/related-posts.php');
+
+// Related post function - no need to rely on plugins
+require_once(get_template_directory().'/functions/plugins.php');
 
 // Use this as a template for custom post types
 require_once(get_template_directory().'/functions/custom-post-types.php');

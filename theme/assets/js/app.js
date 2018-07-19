@@ -58,17 +58,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 },{"./navigation.js":3,"./ui.js":4}],3:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 /*
   Navigation
 */
 
 var Navigation = {
-  onDOM: function onDOM() {}
+	onDOM: function onDOM() {
+		var nav = document.getElementById('nav-main');
+		var navIsOpen = false;
+
+		nav.addEventListener('click', function () {
+			if (navIsOpen) {
+				nav.classList.replace('nav-main--expanded', 'nav-main--collapsed');
+			} else {
+				nav.classList.replace('nav-main--collapsed', 'nav-main--expanded');
+			}
+			navIsOpen = !navIsOpen;
+		});
+	}
 };
 
 exports.default = Navigation;

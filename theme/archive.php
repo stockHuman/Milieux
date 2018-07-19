@@ -15,7 +15,7 @@
 
 	<?php endwhile; ?>
 
-		<?php arthem_page_navi(); ?>
+		<?php milieux_page_navi(); ?>
 
 	<?php else : ?>
 

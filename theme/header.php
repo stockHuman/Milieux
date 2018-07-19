@@ -50,15 +50,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="preloader" aria-hidden="true"></div>
-<div class="innie"></div>
-<div class="outie"></div>
+	<div id="preloader" aria-hidden="true"></div>
+	<div class="innie" aria-hidden="true"></div>
+	<div class="outie" aria-hidden="true"></div>
+	<div id="background" aria-hidden="true"></div>
 
-<div id="background"></div>
 
-	<header class="header" role="banner">
-
-	</header>
-
-<?php get_template_part( 'parts/nav' ); ?>
-<!-- end of transition elements, header and nav -->
+	<?php get_template_part( 'parts/nav' ); ?>

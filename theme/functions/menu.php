@@ -28,7 +28,7 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 }
 
 // The Footer Menu
-function arthem_footer_links() {
+function milieux_footer_links() {
 	wp_nav_menu(array(
 		'container' => 'false',
 		'menu' => __( 'Footer Links', 'milieux' ),

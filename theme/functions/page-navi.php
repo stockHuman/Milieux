@@ -1,6 +1,6 @@
 <?php
 // Numeric Page Navi (built into the theme by default)
-function arthem_page_navi($before = '', $after = '') {
+function milieux_page_navi($before = '', $after = '') {
 	global $wpdb, $wp_query;
 	$request = $wp_query->request;
 	$posts_per_page = intval(get_query_var('posts_per_page'));
