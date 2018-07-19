@@ -32,15 +32,18 @@
 
 @import
 	'layout/grid',
-	'layout/base';
+	'layout/base',
+	'layout/twitter';
 
 @import
 	'nav/nav',
+	'nav/sidebar',
 	'nav/footer';
 
 @import
 	'sections/home',
-	'sections/feature';
+	'sections/feature',
+	'sections/event';
 
 @import
 	'UX/animations',
