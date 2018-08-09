@@ -1,6 +1,6 @@
 <?php
 /*
-	Arthem Custom Post Type Example
+	milieux Custom Post Type Example
 */
 
 

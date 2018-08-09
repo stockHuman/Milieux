@@ -1,6 +1,6 @@
 <?php
 // SIDEBARS AND WIDGETIZED AREAS
-function arthem_register_sidebars() {
+function milieux_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'feature-sidebar',
 		'name' => __('Feature Sidebar', 'milieux'),

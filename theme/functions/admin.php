@@ -25,7 +25,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 */
 
 // RSS Dashboard Widget
-function arthem_rss_dashboard_widget() {
+function milieux_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
 		$feed = fetch_feed('http://milieux.com/feed/rss/');        // specify the source feed
@@ -47,8 +47,8 @@ function arthem_rss_dashboard_widget() {
 }
 
 // Calling all custom dashboard widgets
-function arthem_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('arthem_rss_dashboard_widget', __('Custom RSS Feed (Customize in admin.php)', 'milieux'), 'arthem_rss_dashboard_widget');
+function milieux_custom_dashboard_widgets() {
+	wp_add_dashboard_widget('milieux_rss_dashboard_widget', __('Custom RSS Feed (Customize in admin.php)', 'milieux'), 'milieux_rss_dashboard_widget');
 	/*
 	Be sure to drop any other created Dashboard Widgets
 	in this function and they will all load.
@@ -57,13 +57,12 @@ function arthem_custom_dashboard_widgets() {
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 // adding any custom widgets
-add_action('wp_dashboard_setup', 'arthem_custom_dashboard_widgets');
+add_action('wp_dashboard_setup', 'milieux_custom_dashboard_widgets');
 
-/************* CUSTOMIZE ADMIN *******************/
-// Custom Backend Footer
-function arthem_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed with ♥ by <a href="https://arthem.co" target="_blank">Arthem</a></span>.', 'milieux');
+function milieux_modify_footer_admin () {
+  echo 'Developed by <a href="https://michaelhemingway">Michael Hemingway</a> with ❤ the Milieux Institute in Montreal, Canada.';
 }
+add_filter('admin_footer_text', 'milieux_modify_footer_admin');
 
-// adding it to the admin area
-add_filter('admin_footer_text', 'arthem_custom_admin_footer');
+
+add_filter('show_admin_bar', '__return_false');

@@ -8,7 +8,7 @@ register_nav_menus(
 );
 
 // The Off Canvas Menu
-function arthem_nav() {
+function milieux_nav() {
 	 wp_nav_menu(array(
 		'container' => false,                           // Remove nav container
 		'menu_class' => 'nav-main__content',       // Adding custom nav class
@@ -40,7 +40,7 @@ function milieux_footer_links() {
 } /* End Footer Menu */
 
 // Header Fallback Menu
-function arthem_main_nav_fallback() {
+function milieux_main_nav_fallback() {
 		wp_page_menu( array(
 			'show_home' => true,
 		'menu_class' => '',
@@ -54,7 +54,7 @@ function arthem_main_nav_fallback() {
 }
 
 // Footer Fallback Menu
-function arthem_footer_links_fallback() {
+function milieux_footer_links_fallback() {
 	/* You can put a default here if you like */
 }
 

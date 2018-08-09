@@ -32,7 +32,7 @@
 		<?php endif; // Check for comment navigation. ?>
 
 		<ol class="commentlist">
-			<?php wp_list_comments('type=comment&callback=arthem_comments'); ?>
+			<?php wp_list_comments('type=comment&callback=milieux_comments'); ?>
 		</ol>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>

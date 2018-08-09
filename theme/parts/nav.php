@@ -7,7 +7,7 @@
 			</a>
 		</div>
 
-		<?php arthem_nav(); // .nav-main__content ?>
+		<?php milieux_nav(); // .nav-main__content ?>
 
 		<div class="nav-main__quickbar">
 			<div class="nav-main__logo"></div>
