@@ -14,8 +14,8 @@ require_once(get_template_directory().'/functions/menu.php');
 // Register sidebars/widget areas
 require_once(get_template_directory().'/functions/sidebar.php');
 
-// Makes WordPress comments suck less
-// require_once(get_template_directory().'/functions/comments.php');
+// Register Customizer function
+require_once(get_template_directory().'/functions/customizer.php');
 
 // Replace 'older/newer' post links with numbered navigation
 require_once(get_template_directory().'/functions/page-navi.php');
