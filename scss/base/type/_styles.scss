@@ -1,0 +1,8 @@
+// Text Styles
+.ts {
+	&-number { // ts-number
+		font-weight: $font-w-ultra-light;
+		@include font-size($font-s-number);
+		font-family: $font-number;
+	}
+}

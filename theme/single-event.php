@@ -10,7 +10,7 @@
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		    	<?php get_template_part( 'parts/content', 'feature' ); ?>
+		    	<?php get_template_part( 'parts/content', 'event' ); ?>
 
 		    <?php endwhile; else : ?>
 

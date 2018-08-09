@@ -49,6 +49,8 @@ $color-facebook: #3b5998;
 $font-stack: 					 'Source Sans Pro','system';
 $font-sans-serif:      'Source Sans Pro', sans-serif;
 $font-sans-serif-bold: 'Roboto', sans-serif;
+$font-heading:				 'Roboto', sans-serif;
+$font-number:					 'Roboto', sans-serif;
 $font-mono:            'IBM Plex Mono', monospace;
 
 $font-w-ultra-light: 200;
@@ -62,7 +64,9 @@ $font-s-base: 16;
 $font-s-large: 18;
 $font-s-small: 11;
 
-$font-s-h1: 30;
+$font-s-number: 45;
+
+$font-s-h1: 36;
 $font-s-h1-medium: 34;
 $font-s-h2: 24;
 $font-s-h3: 20;
