@@ -1,11 +1,10 @@
 @include media('>tablet') {
 	.nav-main {
+		top: 0;
 		@at-root #{&}__quickbar {
 			display: flex;
 		}
 		@at-root #{&}--collapsed {
-
-			top: 0;
 			height: 4 * $u;
 			width: 280px;
 			.nav-main__header, .nav-main__content {

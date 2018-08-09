@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Roboto:900|Source+Sans+Pro:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Roboto:100,900|Source+Sans+Pro:300,400" rel="stylesheet">
 
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
 		$turi = get_template_directory_uri(); ?>

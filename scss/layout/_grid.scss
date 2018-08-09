@@ -1,0 +1,18 @@
+
+// Inline grid
+.igrid {
+	display: inline-grid;
+
+	&.ar { // auto-rows
+		grid-auto-rows: auto;
+	}
+}
+
+// flexbox grid
+.flex {
+	display: flex;
+
+	&.bottom, .bottom {
+		align-self: flex-end;
+	}
+}
