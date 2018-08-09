@@ -72,6 +72,15 @@ body {
 	touch-action: manipulation;
 }
 
+// Firefox renders text bolder than others
+@-moz-document url-prefix() {
+  body {
+    font-weight: lighter !important;
+    // font-weight: $font-w-light; // 300 vs normal: 400
+  }
+}
+
+
 // styles the scrollbar on supported browsers (chrome & webkit-based, IE)
 ::-webkit-scrollbar-thumb:vertical {
 	height: 10px;
