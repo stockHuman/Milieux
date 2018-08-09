@@ -97,3 +97,28 @@ function milieux_modify_image_tag( $image, $attachment_id, $image_size ) {
   return $r_image;
 }
 add_filter( 'the_content', 'milieux_inline_modify_images', 100 );
+
+function milieux_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/assets/css/login.css' );
+}
+add_action( 'login_enqueue_scripts', 'milieux_login_stylesheet' );
+
+/**
+ * Customize icons with Font Awesome
+ * Currently disabled as google forms is being retired
+ */
+// function milieux_fa_icons () {
+//   if (is_admin()) {
+//     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+
+//     $style = '
+//     <style>
+//       .menu-icon-wpgform .dashicons-before:before {
+//         font-family: FontAwesome, dashicons; content: "\f1c7"; font-size: 18px;
+//       }
+//       .menu-icon-wpgform img { display: none}
+//     </style>'; // fa-file-audio-o
+//     echo $style;
+//   }
+// }
+// add_action( 'admin_head', 'milieux_fa_icons', 10, 1 );
