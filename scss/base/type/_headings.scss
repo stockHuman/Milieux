@@ -39,4 +39,10 @@
 	letter-spacing: .02rem;
 }
 
-// event title is only applicable to events and thus found in the event styling
+.mono-title {
+	@extend %text-mono;
+	@extend %text-up;
+	@include font-size($font-s-large);
+	letter-spacing: .03rem;
+	font-weight: $font-w-light;
+}
