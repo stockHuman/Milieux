@@ -20,6 +20,9 @@ require_once(get_template_directory().'/functions/customizer.php');
 // Replace 'older/newer' post links with numbered navigation
 require_once(get_template_directory().'/functions/page-navi.php');
 
+// Add blocks to, and selective removal of, the Gutenberg Editor
+require_once(get_template_directory().'/functions/gutenberg.php');
+
 // Adds support for multiple languages
 // require_once(get_template_directory().'/translation/translation.php');
 
