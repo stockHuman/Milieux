@@ -27,6 +27,10 @@
 				<nav role="navigation" class="footer__nav">
 					<?php milieux_footer_links(); ?>
 				</nav>
+				<nav role="navigation" class="footer__clusters">
+					<h4><?= __( 'Clusters', 'milieux'); ?></h4>
+					<?php milieux_clusters_menu(); ?>
+				</nav>
 			</div>
 
 			<!-- TODO: make this into a menu, add social and page select -->
