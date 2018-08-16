@@ -2,20 +2,22 @@
 // Register menus
 register_nav_menus(
 	array(
-		'nav-main' => __( 'The Main Menu', 'milieux' ),   // Main nav in header
-		'footer-links' => __( 'Footer Links', 'milieux' ) // Secondary nav in footer
+		'main' => __( 'Main Menu', 'milieux' ),    // Main nav in header
+		'footer' => __( 'Footer Links', 'milieux' ), // Secondary nav in footer
+		'clusters' => __( 'Clusters Menu', 'milieux' ),
+		'social' => __( 'Social Media Menu', 'milieux' )
 	)
 );
 
 // The Off Canvas Menu
 function milieux_nav() {
 	 wp_nav_menu(array(
-		'container' => false,                           // Remove nav container
-		'menu_class' => 'nav-main__content',       // Adding custom nav class
+		'container' => false,
+		'menu_class' => 'nav-main__content',
 		'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-		'theme_location' => 'nav-main',        			// Where it's located in the theme
-		'depth' => 2,                                   // Limit the depth of the nav
-		'fallback_cb' => false,                         // Fallback function (see below)
+		'theme_location' => 'main',
+		'depth' => 2,
+		'fallback_cb' => false,
 		'walker' => new Off_Canvas_Menu_Walker()
 	));
 }
@@ -30,20 +32,44 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 // The Footer Menu
 function milieux_footer_links() {
 	wp_nav_menu(array(
-		'container' => 'false',
+		'container' => false,
 		'menu' => __( 'Footer Links', 'milieux' ),
 		'menu_class' => 'menu',
-		'theme_location' => 'footer-links',
+		'theme_location' => 'footer',
 	  'depth' => 0,
 		'fallback_cb' => ''
 	));
-} /* End Footer Menu */
+}
+
+// Clusters Menu, appears in the main nav and in the footer
+function milieux_clusters_menu() {
+	wp_nav_menu(array(
+		'container' => false,
+		'menu' => __( 'Clusters Menu', 'milieux' ),
+		'menu_class' => 'menu',
+		'theme_location' => 'clusters',
+		'depth' => 1,
+		'fallback_cb' => ''
+	));
+}
+
+// Social Menu, appears in various location around the theme as icons
+function milieux_social_menu() {
+	wp_nav_menu(array(
+		'container' => false,
+		'menu' => __( 'Social Menu', 'milieux' ),
+		'menu_class' => 'menu',
+		'theme_location' => 'social',
+		'depth' => 1,
+		'fallback_cb' => ''
+	));
+}
 
 // Header Fallback Menu
 function milieux_main_nav_fallback() {
 		wp_page_menu( array(
 			'show_home' => true,
-		'menu_class' => '',
+			'menu_class' => '',
 			'include'     => '',
 			'exclude'     => '',
 			'echo'        => true,
@@ -51,11 +77,6 @@ function milieux_main_nav_fallback() {
 		'link_after' => ''
 		)
 	);
-}
-
-// Footer Fallback Menu
-function milieux_footer_links_fallback() {
-	/* You can put a default here if you like */
 }
 
 // Add Foundation active class to menu
