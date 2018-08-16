@@ -1,4 +1,4 @@
-// Structure Variables
+  // Structure Variables
 $u: 1rem; // size unit
 
 // NAVIGATION
@@ -27,7 +27,7 @@ $white:               #FFFFFF;
 $black:               #000000;
 $off-black:						#1A1A1A;
 
-$gray-darker:         #181818;
+$gray-darker:         #151515;
 $gray-dark:           #6c767f;
 $gray:                #AFAFAF;
 $gray-light:          #F0F0F0;
@@ -103,8 +103,29 @@ $easeInOutExpo:  cubic-bezier(1.000, 0.000, 0.000, 1.000);
 $easeInOutCirc:  cubic-bezier(0.785, 0.135, 0.150, 0.860);
 $easeInOutBack:  cubic-bezier(0.680, 0, 0.265, 1);
 
-//Grid Variables
-$container-width: 960px !default;
+// Grid Variables
+$breakpoints: (
+	'phone': 			320px,
+	'phablet': 		550px,
+	'tablet': 		768px,
+	'desktop': 		1024px,
+	'ultrawide': 	1400px
+);
+
+@function m($key) {
+	@return map-get($breakpoints, $key)
+}
+
+$grid-breakpoints:
+	xs m('phone')   m('phablet'),
+  sm m('phablet') m('tablet'),
+  md m('tablet')  m('desktop'),
+  lg m('desktop') m('ultrawide') !default;
+
+$grid-gutter-width: $u;
+$grid-outer-margin: $u * 2;
+
+$container-width: m('ultrawide') !default;
 $container-width-larger-than-mobile: 85% !default;
 $container-width-larger-than-phablet: 80% !default;
 $total-columns: 12 !default;
@@ -114,15 +135,7 @@ $column-margin: 4% !default;
 // Misc
 $global-radius: 4px !default;
 
-
-$breakpoints: (
-	'phone': 320px,
-	'phablet': 550px,
-	'tablet': 768px,
-	'desktop': 1024px,
-	'ultrawide': 1200px
-);
-
+// Media Queries
 $media-expressions: (
 	'screen': 'screen',
 	'print': 'print',
