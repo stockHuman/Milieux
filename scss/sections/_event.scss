@@ -12,9 +12,6 @@ $event-baseline: 3.5 * $u;
 	}
 
 	@at-root #{&}__title {
-		@extend %text-mono;
-		@extend %text-up;
-		font-weight: $font-w-light;
 		background: $white;
 		margin: 0;
 		padding: $u;
@@ -24,13 +21,11 @@ $event-baseline: 3.5 * $u;
 		overflow: hidden;
 
 		.event__cta {
-			background: $color-brand;
+			@extend %b-blue;
+			@extend .cta; // in elements/_button.scss
+			height: $event-baseline;
 			span, a {
-				color: $white;
-				text-align: center;
-				display: block;
-				text-decoration: none;
-				text-transform: uppercase;
+				line-height: $event-baseline;
 			}
 		}
 
@@ -43,21 +38,16 @@ $event-baseline: 3.5 * $u;
 				.hero-container {
 					overflow-x: hidden;
 					img {
-						// width: 100vw;
-						height: 100vh;
+						min-height: 9 * $event-baseline; // 9 (lowest row in grid) * (grid row height)
+						width: 100%;
 						object-fit: cover;
 					}
 				}
 			}
 			.event__cta {
 				grid-column: 16 / span 5;
-				height: $event-baseline;
 				grid-row: 9;
 				align-self: end;
-				span, a {
-					line-height: $event-baseline;
-					width: 100%;
-				}
 			}
 
 			.event__title {
@@ -101,9 +91,6 @@ $event-baseline: 3.5 * $u;
 				@extend %text-low;
 				padding-bottom: $u / 2;
 				margin-top: - $u * 2;
-			}
-			.day {
-
 			}
 
 			.address {

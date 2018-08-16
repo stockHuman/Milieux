@@ -72,8 +72,16 @@
 	background: $black;
 }
 
+%b-blue {
+	background: $color-brand;
+}
+
 %b-white {
 	background: $white;
+}
+
+%b-gray {
+	background: $gray-lighter;
 }
 
 %c-white {
