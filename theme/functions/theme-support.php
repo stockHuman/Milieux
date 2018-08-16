@@ -7,7 +7,7 @@ function milieux_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Default thumbnail size
-	set_post_thumbnail_size(125, 125, true);
+	set_post_thumbnail_size(125, 300, true);
 
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );
