@@ -3,13 +3,15 @@
 /**
 	Theme Name: Milieux
 	Theme URI: https://github.com/stockHuman/Milieux
-	Description:
+	Description: A custom theme
 	Author: Michael Hemingway
 	Author URI: http://www.michaelhemingway.com
-	Version: 1.0.0
+	Version: 1.0.3
 	License: GNU General Public License & MIT
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Tags: Sass
+	Tags: Sass, Minimal
+
+	This theme, like WordPress, is licensed under the creative commons, and you may do with it as you please.
 */
 
 @import
@@ -31,9 +33,12 @@
 	'elements/tables';
 
 @import
+	'layout/base',
+	'layout/components',
 	'layout/grid',
 	'layout/base',
-	'layout/twitter';
+	'layout/twitter',
+	'layout/gutenberg';
 
 @import
 	'nav/nav',
@@ -43,7 +48,8 @@
 @import
 	'sections/home',
 	'sections/feature',
-	'sections/event';
+	'sections/event',
+	'sections/events-page';
 
 @import
 	'UX/animations',
