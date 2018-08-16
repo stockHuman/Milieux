@@ -1,5 +1,8 @@
 // Buttons
 //––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// See end of file for cta and post-edit button
+
 .button,
 button {
 	display: inline-block;
@@ -145,5 +148,17 @@ input {
 	padding: 15px;
 	svg * {
 		fill: white;
+	}
+}
+
+// Found primarily in event pages
+.cta {
+	span, a {
+		color: $white;
+		text-align: center;
+		display: block;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 100%;
 	}
 }
