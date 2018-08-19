@@ -1,8 +1,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-	// nav.onDOM()
-	// ui.onDOM()
 	let elem = document.createElement('div')
 	elem.id = 'twitter-toggle'
 	document.body.appendChild(elem)
@@ -17,13 +15,12 @@ function modifyTwitterStyles () {
   setTimeout( function() {
     var list = document.getElementsByTagName('iframe');
     if (list.length ) {
-      Array.prototype.forEach.call( list, element => {
-      });
+      Array.prototype.forEach.call( list, element => {})
     }
     hideTwitterAttempts++;
     if ( hideTwitterAttempts < 3 ) {
-     modifyTwitterStyles();
+     modifyTwitterStyles()
     }
   }, 1500);
 }
-modifyTwitterStyles();
+modifyTwitterStyles()

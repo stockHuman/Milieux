@@ -2,8 +2,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-  // nav.onDOM()
-  // ui.onDOM()
   var elem = document.createElement('div');
   elem.id = 'twitter-toggle';
   document.body.appendChild(elem);
