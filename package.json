@@ -1,14 +1,14 @@
 {
-  "name": "arthemWP",
-  "version": "1.1.0",
-  "description": "A development-ready WordPress starter theme using Foundation 6",
+  "name": "MilieuxWP",
+  "version": "1.0.5",
+  "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JeremyEnglert/arthemWP.git"
+    "url": "https://github.com/ArthemCo/milieux.git"
   },
   "author": "Michael Hemingway",
   "license": "GPL-2.0 AND MIT",
-  "homepage": "https://github.com/ArthemCo/arthemWP",
+  "homepage": "https://milieux.concordia.ca",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
