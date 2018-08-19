@@ -6,3 +6,41 @@
 		font-family: $font-number;
 	}
 }
+
+// featured content text style: it lokos great
+.fs {
+	padding-bottom: 6 * $u;
+	@extend %b-white;
+	padding-top: 21px;
+
+	h2, h3, h4, h5, h6, p {
+		max-width: 700px;
+		margin-right: auto;
+		margin-left: auto;
+		padding-left: $u;
+		padding-right: $u;
+	}
+
+	h3 {
+		padding-top: 3 * $u;
+		margin-bottom: $u;
+		opacity: 0.7;
+	}
+
+	p {
+		margin-top: 21px;
+		font-weight: $font-w-normal;
+		font-family: $font-sans-serif;
+		font-style: normal;
+		font-size: 18px;
+		letter-spacing: -.004em;
+		line-height: 1.58;
+	}
+
+	@include media('>tablet') {
+		& p { // magic numbers with a lot of Medium.com inspiration
+			font-size: 20px;
+			letter-spacing: -.003em;
+		}
+	}
+}

@@ -136,6 +136,7 @@ input {
 }
 
 .post-edit-link {
+
 	position: fixed;
 	bottom: 1rem;
 	right: 1rem;
@@ -148,6 +149,10 @@ input {
 	padding: 15px;
 	svg * {
 		fill: white;
+	}
+	// clear mobile nav
+	@include media('<tablet') {
+		bottom: 4rem;
 	}
 }
 

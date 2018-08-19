@@ -15,16 +15,17 @@
 		<footer class="footer" role="contentinfo">
 			<div class="footer__inner">
 				<div role="contact" class="footer__contact">
-					<h3>Contact</h3>
-					<p>
+					<h4><?= __('Contact', 'milieux'); ?></h4>
+					<p> <!-- TODO: make this a setting -->
 						Milieux Institute for Arts, Culture and Technology at Concordia University<br/>
 						1515 Rue Sainte-Catherine W.<br/>
 						EV Building, 11.455<br/>
 						Montréal, Quebec, Canada<br/>
-						H3G 2W1</p>
+						h4G 2W1</p>
 					<p><a href:mailto="milieux.institute@concordia.ca"></a></p>
 				</div>
 				<nav role="navigation" class="footer__nav">
+					<h4><?= __('Milieux', 'milieux'); ?></h4>
 					<?php milieux_footer_links(); ?>
 				</nav>
 				<nav role="navigation" class="footer__clusters">

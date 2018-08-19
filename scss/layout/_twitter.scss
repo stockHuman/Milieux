@@ -46,3 +46,7 @@
 		background-color: $color-twitter;
 	}
 }
+
+// TODO:
+// 1. Edge renders a full scrollbar, meaning a small portion of the twitter scroll is hidden,
+// remove the -50px rule above on edge

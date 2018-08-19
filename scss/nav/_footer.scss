@@ -4,15 +4,64 @@
 		padding: $u;
 		color: rgba($white, 0.64);
 		font-weight: $font-w-light;
-		line-height: 1.1;
+		line-height: 1.2;
 		font-size: 13px;
-		h3 {
+		display: flex;
+		flex-wrap: wrap;
+		h4 {
 			font-family: $font-sans-serif;
 			font-weight: $font-w-light;
 			text-transform: Capitalize;
 			letter-spacing: .01rem;
 			color: $white;
+			margin-bottom: 20px;
+			@include font-size(23);
 		}
+
+		ul {
+			list-style-type: none;
+			li a {
+				text-decoration: none;
+				color: rgba($white, 0.64);
+			}
+		}
+	}
+
+	@at-root #{&}__contact {
+		max-width: 300px;
+
+		@include media('>tablet') { & {
+
+		}}
+
+		@include media('>desktop') { & {
+
+		}}
+	}
+
+	@at-root #{&}__nav {
+		flex: 2 1 auto;
+
+		@include media('>tablet') { & {
+			ul {
+				columns: 2;
+			}
+		}}
+
+		@include media('>desktop') { & {
+
+		}}
+	}
+
+	@at-root #{&}__clusters {
+		flex: 2 1 auto;
+		@include media('>tablet') { & {
+
+		}}
+
+		@include media('>desktop') { & {
+
+		}}
 	}
 
 	@at-root #{&}__copyright {

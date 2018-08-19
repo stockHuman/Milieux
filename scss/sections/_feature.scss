@@ -44,32 +44,7 @@
 }
 
 .feature__content {
-	padding-bottom: 6 * $u;
-	@extend %b-white;
-	padding-top: 21px;
-
-	p {
-		margin-right: auto;
-		margin-left: auto;
-		margin-top: 21px;
-		max-width: 700px;
-		padding-left: $u;
-		padding-right: $u;
-		font-weight: $font-w-normal;
-		font-family: $font-sans-serif;
-		font-style: normal;
-		font-size: 18px;
-		letter-spacing: -.004em;
-		line-height: 1.58;
-	}
-
-	@include media('>tablet') {
-		& p { // magic numbers with a lot of Medium.com inspiration
-			font-size: 20px;
-			letter-spacing: -.003em;
-		}
-	}
-
+	@extend .fs;
 }
 
 .feature__featured-image {

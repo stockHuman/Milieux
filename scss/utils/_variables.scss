@@ -2,7 +2,7 @@
 $u: 1rem; // size unit
 
 // NAVIGATION
-$nav-height--mobile: 5* $u;
+$nav-height--mobile: 50px;
 
 // Usage: "z-index: map-get($z-index, 'nav');"
 // or z(index), z(index, expression)
