@@ -1,67 +1,166 @@
 .nav-main {
 	position: fixed;
+	bottom: 0;
 	z-index: z('nav');
 	font-family: $font-sans-serif;
 	font-weight: $font-w-light;
+	width: 100%;
+	height: auto;
 
 	@at-root #{&}__quickbar, #{&}__content  {
 		background: black;
 		color: white;
-		justify-content: space-between;
+	}
+
+	.cross {
+		opacity: 0;
+	}
+
+	.cross, .mag {
+		transition: opacity .2s ease;
+	}
+
+	@at-root #{&}__header {
+		display: none;
+		box-sizing: content-box;
+		border: (4 * $u) $black solid;
 	}
 
 	@at-root #{&}__inner {
-		padding: $u;
+		background-color: $black;
+		width: 100%;
+		transition: transform .2s $easeInOutQuad;
+		height: calc(100vh - #{$nav-height--mobile})
 	}
 
 	@at-root #{&}__content {
-		padding-top: 30vh;
-		padding-bottom: 10vh;
 		list-style-type: none;
+		padding: #{4 * $u} 2.5 * $u;
+		position: relative;
+		font-size: 120%;
 		li {
-			padding: .6em;
+			padding-top: .6em;
+		}
+		li ul {
+			list-style-type: none;
+			margin: 0;
+			li { padding: .6em 0 0 0; }
 		}
 		a {
 			color: white;
 			text-decoration: none;
 		}
+		.menu-item-has-children {
+			&::after {
+				content: ' › '
+			}
+		}
+		.vertical.menu {
+			position: absolute;
+			transform: translate3D(100vw, 0, 0);
+		}
 	}
 
 	@at-root #{&}__quickbar {
 		display: flex;
+		position: relative;
 		padding: 10px;
+		height: $nav-height--mobile; // 50px @ default
+		@at-root #{&}--search-open {
+			.mag { // magnifing glass icon within svg
+				opacity: 0;
+			}
+			.cross { // cross within svg
+				opacity: 1;
+			}
+			.nav-main__line {
+				opacity: 0.5;
+			}
+			.nav-main__search .field {
+				display: block
+			}
+		}
+	}
+
+	/* within quickbar */
+	@at-root #{&}__logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 15px;
+		width: 50px;
+		height: 50px;
+		user-select: none;
+		path {
+			fill: $white;
+		}
 	}
 
 	@at-root #{&}__toggle {
 		padding: 10px;
+		margin-top: -5px; // to center it vertically
+		margin-left: 30px;
 		display: block;
+		cursor: pointer;
+		user-select: none;
 	}
 
 	@at-root #{&}__search {
-		display: flex;
+		// display: flex;
 		width: 100%;
+		height: 0;
+		position: relative;
+		.search-icon {
+			user-select: none;
+			right: 0;
+			padding: 17px;
+			width: $nav-height--mobile;
+			position: absolute;
+			cursor: pointer;
+		}
 		.field {
 			display: none;
 			background: black;
 			width: 100%;
 			border: none;
-			border-bottom: 1px solid white;
 			color: white;
+			position: absolute;
+			top: -5px;
+			left: -51px;
 		}
 	}
 
+	// line that underlines 'open',
+	// then transitions to be the search input bottom border
+	@at-root #{&}__line {
+		display: block;
+		position: absolute;
+		height: 1px;
+		background: $white;
+		bottom: 15px;
+		width: calc(100% - 80px);
+		transition: transform .2s $easeInOutExpo;
+		transform-origin: left;
+		left:$nav-height--mobile
+	}
+	/* end quickbar contents */
+
 	// default state
 	@at-root #{&}--collapsed {
-		bottom: 0;
-		height: $nav-height--mobile;
-		width: 100%;
-		.nav-main__header, .nav-main__content {
+		.nav-main__inner {
 			display: none;
+			transform: translate3D(0, 100%, 0);
 		}
 	}
 
 	@at-root #{&}--expanded {
+		.nav-main__inner {
+			pointer-events: all;
+			transform: translate3D(0, 0, 0);
+		}
 	}
+
+
 }
 
 @import 'lt-tablet';

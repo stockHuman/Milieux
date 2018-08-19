@@ -52,10 +52,74 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 document.body.parentNode.className = 'js';
 
+var scheduledAnimationFrame = false;
+var requestResize = false;
+var requestScroll = false;
+
+var scroll = { lastY: null };
+var click = { last: null };
+var touch = { last: null };
+
 document.addEventListener('DOMContentLoaded', function () {
 	_navigation2.default.onDOM();
 	_ui2.default.onDOM();
+
+	document.addEventListener('scroll', scrollHandler, {
+		// https://alligator.io/js/speed-up-scroll-events/
+		capture: true,
+		passive: true
+	});
+	window.addEventListener('resize', resizeHandler);
 });
+
+document.addEventListener('touchend', function (event) {
+	if (scheduledAnimationFrame) return;
+
+	scheduledAnimationFrame = true;
+	touch.last = event.touches;
+	requestAnimationFrame(update);
+});
+
+document.addEventListener('click', function (event) {
+	if (scheduledAnimationFrame) return;
+
+	scheduledAnimationFrame = true;
+	click.last = { x: event.clientX, y: event.clientY };
+	requestAnimationFrame(update);
+});
+
+function scrollHandler(event) {
+	scroll.lastY = window.scrollY;
+	if (scheduledAnimationFrame) return;
+
+	scheduledAnimationFrame = true;
+	scroll.event = event;
+	requestScroll = true;
+	requestAnimationFrame(update);
+}
+
+function resizeHandler() {
+	scheduledAnimationFrame = true;
+	requestResize = true;
+	requestAnimationFrame(update);
+}
+
+function update() {
+	if (requestResize) {
+		requestResize = false;
+		// place resize event fns here
+
+		_navigation2.default.onResize();
+	}
+
+	if (requestScroll) {
+		requestScroll = false;
+
+		// place scroll event fns here
+		_navigation2.default.onScroll(scroll.lastY);
+	}
+	scheduledAnimationFrame = false;
+}
 
 },{"./navigation.js":3,"./ui.js":4}],3:[function(require,module,exports){
 'use strict';
@@ -63,29 +127,122 @@ document.addEventListener('DOMContentLoaded', function () {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _animejs = require('animejs');
+
+var _animejs2 = _interopRequireDefault(_animejs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var navIsOpen = false;
+
+// scroll vars
 /*
   Navigation
 */
 
-var Navigation = {
-	onDOM: function onDOM() {
-		var nav = document.getElementById('nav-main');
-		var navIsOpen = false;
+var navCloseTolerance = 20;
+var navToggleTolerance = 70;
 
-		nav.addEventListener('click', function () {
-			if (navIsOpen) {
-				nav.classList.replace('nav-main--expanded', 'nav-main--collapsed');
-			} else {
-				nav.classList.replace('nav-main--collapsed', 'nav-main--expanded');
-			}
-			navIsOpen = !navIsOpen;
+// navigation state
+var nav = {};
+
+var Navigation = {
+
+	that: undefined,
+
+	onDOM: function onDOM() {
+		var _this = this;
+
+		nav.main = document.getElementById('nav-main');
+		nav.line = document.getElementById('nav-line');
+		nav.linestate = 'closed';
+		nav.search = 'closed';
+
+		this.setLineStyle(nav.linestate);
+		document.getElementById('nav-toggle').addEventListener('click', function () {
+			_this.toggleNav();
 		});
+		document.getElementById('nav-search').addEventListener('click', function () {
+			_this.toggleSearch();
+		});
+
+		document.addEventListener('keydown', function (e) {
+			// ESCAPE key pressed
+			if (e.keyCode == 27 && nav.linestate == 'search') {
+				_this.toggleSearch();
+			}
+		});
+	},
+	onScroll: function onScroll(event) {
+		if (navIsOpen) {
+			// kinda silly but it works
+			if (navCloseTolerance != 0) {
+				navCloseTolerance -= 1;
+			} else {
+				navCloseTolerance = 20;
+				this.toggleNav();
+			}
+		}
+	},
+	onResize: function onResize() {
+		this.setLineStyle(nav.linestate);
+	},
+	animateNavOpen: function animateNavOpen() {},
+	animateNavClosed: function animateNavClosed() {},
+	animateSubMenu: function animateSubMenu() {},
+	toggleNav: function toggleNav() {
+		if (navIsOpen) {
+			nav.main.classList.replace('nav-main--expanded', 'nav-main--collapsed');
+			document.getElementById('nav-toggle').firstChild.innerHTML = 'open';
+			this.animateNavClosed();
+		} else {
+			nav.main.classList.replace('nav-main--collapsed', 'nav-main--expanded');
+			document.getElementById('nav-toggle').firstChild.innerHTML = 'close';
+			this.animateNavOpen();
+		}
+		navIsOpen = !navIsOpen;
+	},
+	toggleSearch: function toggleSearch() {
+		var qb = document.querySelector('.nav-main__quickbar').classList;
+
+		if (nav.search == 'closed') {
+			nav.search = 'open';
+
+			qb.add('nav-main__quickbar--search-open');
+			nav.linestate = 'search';
+		} else {
+			nav.search = 'closed';
+			qb.remove('nav-main__quickbar--search-open');
+			nav.linestate = 'closed';
+		}
+
+		this.setLineStyle(nav.linestate);
+	},
+	setLineStyle: function setLineStyle(state) {
+		var ns = function ns(scaleFactor) {
+			return 'transform: scaleX(' + scaleFactor + ')';
+		};
+
+		if (state == 'closed') {
+			var openW = document.getElementById('nav-toggle').firstChild.offsetWidth;
+			var navW = nav.main.offsetWidth;
+			var scale = openW / navW + openW / navW * 0.2;
+
+			nav.line.setAttribute('style', ns(scale));
+		}
+
+		if (state == 'search') {
+			nav.line.setAttribute('style', ns(0.9));
+		}
+
+		console.log('%cnav state: ' + nav.linestate, 'color: #aaa');
 	}
 };
 
 exports.default = Navigation;
 
-},{}],4:[function(require,module,exports){
+},{"animejs":1}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
