@@ -21,7 +21,8 @@
 function milieux_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-		'template-events.php'
+		'template-events.php',
+		'front-page.php'
 	);
 
 	$excluded_ids = array();

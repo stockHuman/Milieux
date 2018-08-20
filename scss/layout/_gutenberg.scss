@@ -4,3 +4,23 @@
  * @since Milieux v. 0.0.3
  */
 
+.wp-block {
+	@at-root #{&}-pullquote {
+		@extend .text-left;
+		p {
+			font-weight: $font-w-extra-bold;
+			letter-spacing: 0;
+			line-height: 30px;
+			font-family: $font-heading;
+			padding-bottom: 2rem;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			height: $u;
+			width: 50%;
+			background: black;
+		}
+	}
+}

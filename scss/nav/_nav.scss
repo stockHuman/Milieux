@@ -22,8 +22,7 @@
 
 	@at-root #{&}__header {
 		display: none;
-		box-sizing: content-box;
-		border: (4 * $u) $black solid;
+		width: 100%;
 	}
 
 	@at-root #{&}__inner {

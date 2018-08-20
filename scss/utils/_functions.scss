@@ -6,6 +6,12 @@
 	@return grid-column-width($n) + $column-margin;
 }
 
+/**
+ * Returns a specified z-index
+ * @param  {[type]} $index [description]
+ * @param  {[type]} $mod:  null          [description]
+ * @return {int}        [description]
+ */
 @function z ( $index, $mod: null ) {
 	$out: 0;
 	@if (map-has-key($z-index, $index)) {

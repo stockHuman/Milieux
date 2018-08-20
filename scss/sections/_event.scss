@@ -1,16 +1,9 @@
 $event-baseline: 3.5 * $u;
 .event {
-	@at-root #{&}__container {
 
-		@include media('>tablet') { & {
-
-		}}
-
-		@include media('>desktop') { & {
-
-		}}
+	.page-type-title {
+		padding: $u;
 	}
-
 	@at-root #{&}__title {
 		background: $white;
 		margin: 0;
@@ -36,7 +29,7 @@ $event-baseline: 3.5 * $u;
 			.event__hero {
 				grid-column: 8 / span 13;
 				.hero-container {
-					overflow-x: hidden;
+					// overflow-x: hidden;
 					img {
 						min-height: 9 * $event-baseline; // 9 (lowest row in grid) * (grid row height)
 						width: 100%;
@@ -57,8 +50,9 @@ $event-baseline: 3.5 * $u;
 				overflow: visible;
 			}
 			.page-type-title {
+				padding: 0;
 				position: absolute;
-				top: $event-baseline;
+				top: $u * 5;
 				left: $u;
 			}
 		}}
@@ -67,7 +61,7 @@ $event-baseline: 3.5 * $u;
 	@at-root #{&}__content {
 		margin-bottom: $u * 4;
 		&-inner {
-			padding: $u;
+			padding: $u * 2;
 			margin-top: $u * 2;
 			line-height: 1.55;
 		}
@@ -80,6 +74,12 @@ $event-baseline: 3.5 * $u;
 				grid-column: 2 / span 10;
 				grid-row: auto;
 				padding-top: 0;
+			}
+		}}
+
+		@include media('>desktop') { & {
+			&-inner {
+				padding: $u;
 			}
 		}}
 	}

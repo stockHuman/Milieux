@@ -17,6 +17,14 @@
 	}
 }
 
+.no-header {
+
+  padding: $u;
+  @include media('>desktop') { & {
+    padding-top: $u * 8;
+  }}
+}
+
 /**
  * Flexbox Grid System
  * Variables are configured in /util/_variables
@@ -146,7 +154,7 @@ $name: xs;
   .col-#{$name} {
     @extend %fbg-sass-col-common;
   }
-  @for $i from 1 through $total-columns {
+  @for $i from 0 through $total-columns {
     .col-#{$name}-#{$i} {
       @extend %fbg-sass-col-common;
     }
@@ -162,8 +170,8 @@ $name: xs;
 @each $breakpoint in $grid-breakpoints {
   $name: nth($breakpoint, 1);
   $size: nth($breakpoint, 2);
-  $container: nth($breakpoint, 3);
-  @media only screen and (min-width: $size) {
+  $container: nth($breakpoint, 2);
+  @include media('>' + $size) {
     .fc {
       width: $container;
     }

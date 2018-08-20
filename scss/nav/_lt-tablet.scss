@@ -1,6 +1,9 @@
 @include media('>tablet') {
 	.nav-main {
-		// top: 0;
+		top: $u;
+		left: $u;
+		width: 300px;
+		max-height: 700px;
 		@at-root #{&}__quickbar {
 			// display: flex;
 		}
@@ -12,17 +15,23 @@
 			}
 		}
 		@at-root #{&}--expanded {
-			// width: 300px;
-			// max-height: 700px;
+
 		}
 		@at-root #{&}__quickbar, #{&}__content  {
 			// background: black;
 			// color: white;
 			// justify-content: space-between;
+
 		}
+
 		@at-root #{&}__inner {
-			// padding: $u;
+			height: 700px;
 		}
+
+		@at-root #{&}__header {
+			display: block;
+		}
+
 		@at-root #{&}__search {
 			// display: flex;
 			// width: 100%;

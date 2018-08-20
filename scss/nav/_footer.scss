@@ -55,9 +55,7 @@
 
 	@at-root #{&}__clusters {
 		flex: 2 1 auto;
-		@include media('>tablet') { & {
 
-		}}
 
 		@include media('>desktop') { & {
 
@@ -70,5 +68,9 @@
 		@extend %white-on-black;
 		font-weight: $font-w-light;
 		font-size: 11px;
+		@extend .text-center;
+		@include media('>tablet') { & {
+			padding-bottom: $u;
+		}}
 	}
 }

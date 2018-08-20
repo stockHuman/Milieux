@@ -4,7 +4,7 @@
 
 <div id="content">
 
-	<div id="inner-content" class="row">
+	<div id="inner-content" class="">
 
 		<main id="main" class="large-8 medium-8 columns event" role="main">
 

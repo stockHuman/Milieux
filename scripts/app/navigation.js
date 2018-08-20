@@ -100,8 +100,6 @@ const Navigation = {
 		if (state == 'search') {
 			nav.line.setAttribute('style', ns(0.9))
 		}
-
-		console.log('%cnav state: ' +  nav.linestate, 'color: #aaa');
 	}
 }
 

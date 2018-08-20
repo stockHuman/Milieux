@@ -1,8 +1,10 @@
 'use strict';
 
+const elem = document.createElement('div')
+elem.id = 'twitter-toggle'
+
+
 document.addEventListener('DOMContentLoaded', () => {
-	let elem = document.createElement('div')
-	elem.id = 'twitter-toggle'
 	document.body.appendChild(elem)
 	elem.addEventListener('click', () => {
 		document.getElementById('twitter-panel').classList.toggle('--active')
@@ -24,3 +26,12 @@ function modifyTwitterStyles () {
   }, 1500);
 }
 modifyTwitterStyles()
+
+
+
+// Listen for click events on body
+document.body.addEventListener('click', event => {
+  if (!elem.contains(event.target)) {
+    document.getElementById('twitter-panel').classList.remove('--active')
+  }
+})

@@ -3,6 +3,9 @@
  *
  */
 function milieux_featured_image () {
+  if (!get_the_post_thumbnail_url()) {
+    return;
+  }
 	return '<noscript><img= src="' . get_the_post_thumbnail_url() . '"/></noscript>'
 	.'<div class="hero-container" style="padding-bottom: '
 	. _mlx_get_image_ratio_padding(get_post_thumbnail_id())

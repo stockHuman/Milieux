@@ -6,7 +6,7 @@
 					data-theme="dark"
 					data-link-color="#0093FF"
 					data-chrome="noheader nofooter transparent"
-					href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
+					href="https://twitter.com/milieux_news">Tweets by Milieux</a>
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</aside>

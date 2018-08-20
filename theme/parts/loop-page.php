@@ -1,18 +1,27 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/WebPage">
+<div class="page__banner">
+	<?= milieux_featured_image(); ?>
+</div>
 
-	<header class="article-header">
-		<h1 class="page-title"><?php the_title(); ?></h1>
-	</header> <!-- end article header -->
+<div class="page__area">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/WebPage">
 
-    <section class="entry-content fs" itemprop="articleBody">
-	    <?php the_content(); ?>
-	    <?php wp_link_pages(); ?>
-	</section> <!-- end article section -->
+		<header class="article-header">
+			<h1 class="page-title"><?php the_title(); ?></h1>
+		</header> <!-- end article header -->
 
-	<footer class="article-footer">
+	    <section class="entry-content fs" itemprop="articleBody">
+		    <?php the_content(); ?>
+		    <?php wp_link_pages(); ?>
+		</section> <!-- end article section -->
 
-	</footer> <!-- end article footer -->
+		<footer class="article-footer">
 
-	<?php comments_template(); ?>
+		</footer> <!-- end article footer -->
 
-</article> <!-- end article -->
+		<?php comments_template(); ?>
+
+	</article> <!-- end article -->
+
+	<?php get_sidebar(); ?>
+</div>
+

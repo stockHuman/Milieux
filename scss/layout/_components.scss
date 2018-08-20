@@ -2,3 +2,8 @@
  * Components: background colors, edges and other grouped atomic settings
  */
 
+.c-card {
+	background-color: $gray-lighter;
+	padding: $u;
+	margin-bottom: 2 * $u;
+}
