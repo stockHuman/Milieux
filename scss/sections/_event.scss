@@ -1,6 +1,7 @@
 $event-baseline: 3.5 * $u;
 .event {
 
+
 	.page-type-title {
 		padding: $u;
 	}
@@ -24,7 +25,7 @@ $event-baseline: 3.5 * $u;
 
 		@include media('>tablet') { & {
 			display: grid;
-			grid-template-columns: repeat(20, 5vw);
+			grid-template-columns: repeat(20, 5%); // vw causes horizontal overflow
 			grid-auto-rows: $event-baseline;
 			.event__hero {
 				grid-column: 8 / span 13;
@@ -67,7 +68,7 @@ $event-baseline: 3.5 * $u;
 		}
 		@include media('>tablet') { & {
 			display: grid;
-			grid-template-columns: repeat(20, 5vw);
+			grid-template-columns: repeat(20, 5%);
 			min-height: 50vh;
 			&-inner {
 				margin-top: $u * 5;
