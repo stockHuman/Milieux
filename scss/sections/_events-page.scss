@@ -44,10 +44,6 @@
 			}
 		}
 
-		@include media('>tablet') { & {
-
-		}}
-
 		@include media('>desktop') { & {
 			width: 25vw;
 			padding: #{7 * $u} $u * 2;
@@ -62,20 +58,32 @@
 
 	@at-root #{&}__hero-cta {
 		@extend %b-blue;
+		@extend %text-up;
+		@extend .text-center;
+		padding: $u;
+		display: block;
+		color: $white;
+		text-decoration: none;
 
 		@include media('>tablet') { & {
-
+			width: 25vw;
+			float: right;
 		}}
+	}
 
-		@include media('>desktop') { & {
+	@at-root #{&}__list {
 
+		grid-auto-rows: 1fr;
+		@include media('>tablet') { & {
 		}}
 	}
 
 	h1 { // 'Events, huge'
 		position: relative;
+		display: inline-block;
 		@include media('>desktop') { & {
 			top: -$u * 4.5;
+			left: $u /2;
 			@include font-size(134);
 		}}
 	}
@@ -88,6 +96,7 @@
 	padding: $u;
 	height: $u * 20;
 	width: 70vw;
+	grid-column: 2 / span 8;
 
 
 	@include media('>desktop') { & {
@@ -103,34 +112,15 @@
 			position: absolute;
 			bottom: 0;
 		}
-
-
-		@include media('>tablet') { & {
-
-		}}
-
-		@include media('>desktop') { & {
-		}}
 	}
 
 	@at-root #{&}__title {
 		@extend %text-mono;
-
-		@include media('>tablet') { & {
-
-		}}
-
-		@include media('>desktop') { & {
-		}}
 	}
 
 	@at-root #{&}__image {
 		max-height: 50vh;
 		padding: 0 !important;
-
-		@include media('>tablet') { & {
-
-		}}
 
 		@include media('>desktop') { & {
 			overflow: hidden;
