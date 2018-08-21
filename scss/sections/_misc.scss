@@ -1,0 +1,18 @@
+#content-not-found {
+}
+
+body {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	min-height: 100%;
+}
+.container {
+	grid-row: 1;
+}
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+html {
+  height: 100%;
+}
