@@ -54,6 +54,7 @@
 	<div class="innie" aria-hidden="true"></div>
 	<div class="outie" aria-hidden="true"></div>
 	<div id="background" aria-hidden="true"></div>
+	<noscript><style>#preloader{display: none}</style></noscript>
 
 
 	<?php get_template_part( 'parts/nav' ); ?>
