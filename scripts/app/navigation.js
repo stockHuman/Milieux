@@ -75,10 +75,12 @@ const Navigation = {
 
 			qb.add('nav-main__quickbar--search-open')
 			nav.linestate = 'search'
+			document.getElementById('s').focus()
 		}
 
 		else {
 			nav.search = 'closed'
+			document.getElementById('s').blur()
 			qb.remove('nav-main__quickbar--search-open')
 			nav.linestate = 'closed'
 		}

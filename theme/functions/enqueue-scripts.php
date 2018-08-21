@@ -17,13 +17,18 @@ function site_scripts() {
   global $wp_styles;
   $td_URI = get_template_directory_uri() . '/assets/';
 
-  wp_enqueue_script( 'site-js', $td_URI . 'js/app.min.js', 			array(), fmt('js/app.min.js'), 			true );
-  wp_enqueue_script( 'twitter', $td_URI . 'js/twitter.min.js',	array(), fmt('js/twitter.min.js'),	true );
+  wp_enqueue_script( 'site', $td_URI . 'js/app.min.js', array(), fmt('js/app.min.js'), true );
+  wp_enqueue_script( 'twitter', $td_URI . 'js/twitter.min.js', array(), fmt('js/twitter.min.js'),	true );
 
   wp_enqueue_style( 'milieux',  $td_URI . 'css/style.css', 			array(), fmt('css/style.css'), 'all' );
 
   if ( has_post_thumbnail() || is_page_template( 'template-events.php' )) {
   	wp_enqueue_script( 'lazysizes', $td_URI . 'js/lazysizes.min.js', array(), '4.0.3', true);
+  }
+
+  if ( is_search() ) {
+    // adds a small custom animation on search
+    wp_enqueue_script( 'search',  $td_URI . 'js/search.min.js', array(), fmt('js/search.min.js'), true);
   }
 }
 

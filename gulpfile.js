@@ -49,6 +49,10 @@ const paths = {
 		name: 'twitter',
 		main: 'social-feed/main.js',
 		glob: ['social-feed/*.js']
+	},{
+		name: 'search',
+		main: 'search.js',
+		glob: ['search.js']
 	}]
 }
 
