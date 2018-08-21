@@ -1,0 +1,8 @@
+.std-grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+
+	@include media('>tablet') { & {
+		grid-template-columns: repeat(20, 5%);
+	}}
+}

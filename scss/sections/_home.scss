@@ -1,14 +1,9 @@
 .fp-cta {
+	@extend .std-grid; // disp: grid ++
+	grid-auto-rows: 5vh;
 	max-height: 100vh;
 	position: relative;
-	display: grid;
-	grid-template-columns: repeat(8, 1fr);
-	grid-auto-rows: 5vh;
 	overflow: hidden;
-
-	@include media('>tablet') { & {
-		grid-template-columns: repeat(20, 5vw);
-	}}
 
 	@include media('>desktop') { & {
 		// height: 95vh;
