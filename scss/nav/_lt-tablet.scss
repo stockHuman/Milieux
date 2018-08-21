@@ -33,33 +33,16 @@
 		}
 
 		@at-root #{&}__search {
-			// display: flex;
-			// width: 100%;
 			.field {
-				// display: none;
-				// background: black;
-				// width: 100%;
-				// border: none;
-				// border-bottom: 1px solid white;
-				// color: white;
 			}
 		}
 		@at-root #{&}__content {
-
-			// li {
-			// 	padding: .6em;
-			// }
-			// a {
-			// 	color: white;
-			// 	text-decoration: none;
-			// }
+			padding: $u;
+			align-self: end;
 		}
 		@at-root #{&}__quickbar {
-			// padding: 10px;
 		}
 		@at-root #{&}__toggle {
-			// padding: 10px;
-			// display: block;
 		}
 	}
 }
