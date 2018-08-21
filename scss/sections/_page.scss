@@ -1,0 +1,34 @@
+.page-template-default {
+	.article-header {
+		padding: $u;
+	}
+
+	h2, h3, h4 {
+		padding-top: 5rem;
+	}
+
+	.page__banner {
+		max-height: 50vh;
+	}
+
+	@at-root .page__area {
+		background: $white;
+
+		@include media('>tablet') { & {
+
+		}}
+
+		@include media('>desktop') { & {
+			display: grid;
+			grid-template-columns: 1fr 700px 1fr 300px;
+
+			article {
+				grid-column: 2;
+			}
+
+			aside {
+				grid-column: 4;
+			}
+		}}
+	}
+}
