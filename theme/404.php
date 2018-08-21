@@ -1,17 +1,14 @@
 <?php get_header(); ?>
 
 	<div class="container">
-		<main id="main" class="" role="main">
+		<main id="main" class="no-header fc" role="main">
 
 			<article id="content-not-found">
 
 				<header class="article-header">
-					<h1><?php _e( 'Epic 404 - Article Not Found', 'milieux' ); ?></h1>
+					<h1><?php _e( '404', 'milieux' ); ?></h1>
+					<span class="text-mono">There ain't nothing here, son</span>
 				</header> <!-- end article header -->
-
-				<section class="entry-content">
-					<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'milieux' ); ?></p>
-				</section> <!-- end article section -->
 
 				<section class="search">
 				    <p><?php get_search_form(); ?></p>
