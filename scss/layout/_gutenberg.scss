@@ -23,4 +23,17 @@
 			background: black;
 		}
 	}
+
+	@at-root #{&}-columns {
+		max-width: 1400px;
+		padding: $u;
+		margin: $u auto;
+	}
+
+	@at-root #{&}-column {
+		margin: $u;
+		line-height: 1.32;
+		display: flex;
+		align-self: baseline;
+	}
 }
