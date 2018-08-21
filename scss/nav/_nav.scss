@@ -126,6 +126,9 @@
 			position: absolute;
 			top: -5px;
 			left: -51px;
+			&:focus {
+				border: none;
+			}
 		}
 	}
 
