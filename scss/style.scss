@@ -46,11 +46,13 @@
 	'nav/footer';
 
 @import
+	'sections/page',
 	'sections/home',
 	'sections/feature',
 	'sections/event',
 	'sections/events-page',
-	'sections/search';
+	'sections/search',
+	'sections/misc';
 
 @import
 	'UX/animations',

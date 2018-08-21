@@ -17,8 +17,9 @@
 	}
 }
 
+// utility class to clear nav and twitter button
+// on pages without banner graphics
 .no-header {
-
   padding: $u;
   @include media('>desktop') { & {
     padding-top: $u * 8;
