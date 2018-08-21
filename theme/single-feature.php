@@ -2,9 +2,9 @@
 
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content" class="container">
 
-	<div id="inner-content" class="row">
+	<div id="inner-content">
 
 		<main id="main" class="large-8 medium-8 columns feature" role="main">
 

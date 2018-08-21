@@ -2,11 +2,11 @@
 
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content" class="container">
 
-	<div id="inner-content" class="">
+	<div id="inner-content">
 
-		<main id="main" class="large-8 medium-8 columns event" role="main">
+		<main id="main" class="large-8 medium-8 event" role="main">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

@@ -38,12 +38,12 @@
 			<?php $meta = milieux_event_meta(); ?>
 
 			<div class="event__sidebar-details flex">
-			  <div class="row bottom text-right">
-			    <div class="col text-blend address"><?= $meta['address']; ?></div>
+			  <div class="bottom text-right">
+			    <div class=" text-blend address"><?= $meta['address']; ?></div>
 			  </div>
-			  <div class="row">
-			    <div class="col text-blend month"><?= $meta['month']; ?></div>
-			    <div class="col ts-number day"><?= $meta['day']; ?></div>
+			  <div class="">
+			    <div class="text-blend month"><?= $meta['month']; ?></div>
+			    <div class="ts-number day"><?= $meta['day']; ?></div>
 			  </div>
 			</div>
 		</aside>
