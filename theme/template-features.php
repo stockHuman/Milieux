@@ -1,8 +1,4 @@
-<?php
-/*
-Template Name: Full Width (No Sidebar)
-*/
-?>
+<?php /* Template Name: Features Page */ ?>
 
 <?php get_header(); ?>
 
@@ -17,5 +13,5 @@ Template Name: Full Width (No Sidebar)
 
   	</main> <!-- end #main -->
   </div>
-  
+
 <?php get_footer(); ?>
