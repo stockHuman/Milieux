@@ -70,3 +70,10 @@ function _milieux_order_callback( $a, $b ) {
 	}
 }
 add_action( 'admin_head-plugins.php', 'milieux_sort_plugins_by_status' );
+
+
+function load_custom_wp_admin_style() {
+  wp_register_style( 'custom_wp_admin', get_template_directory_uri() . '/assets/css/admin.css', false, '1.0.0' );
+  wp_enqueue_style( 'custom_wp_admin' );
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
