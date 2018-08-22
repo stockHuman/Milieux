@@ -23,6 +23,7 @@
 		img {
 			object-fit: cover;
 			height: 100%;
+			background-attachment: fixed;
 		}
 
 		@include media('>tablet') { & {
@@ -74,12 +75,13 @@
 
 		@include media('>tablet') { & {
 			background: transparent;
-			background-image: linear-gradient(to top, rgba(#000000, 0.2), rgba(#777777, 0.2), rgba(#ffffff, 0.1));
+			background-image: linear-gradient(to top, rgba(#000000, 0.3), rgba(#777777, 0.1), rgba(#ffffff, 0.0));
 			grid-column: 1 / span 20;
-			grid-row: 16 / span 3;
-			line-height: 15vh;
+			grid-row: 15 / span 4;
+			line-height: 25vh;
 			&__inner {
-				line-height: 15vh;
+				line-height: 25vh;
+				@include font-size(20);
 			}
 		}}
 
