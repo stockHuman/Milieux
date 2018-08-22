@@ -10,7 +10,7 @@
 - [ ] `UI & UX` Page Transition Animation and loader
 - [ ] `Functional` Mobile, Tablet MQ
 - [ ] `Deployment` Github Auto Updater Integration
-- [ ] `Front page` Search Results Template
+- [x] `Front page` Search Results Template
 - [ ] `Front page` Social Events block
 - [ ] `Front page` Announcements block
 - [ ] `Front page` Features Block
@@ -24,7 +24,7 @@
 #### Known bugs
 
 - [ ] `IE / Edge` twitter panel 50px padding is off
-- [ ] `All` Twitter panel not responsive in very small viewports
+- [x] `All` Twitter panel not responsive in very small viewports
 - [ ]
 - [ ]
 - [ ]
