@@ -133,6 +133,7 @@ function milieux_register_article_post_type () {
 			'query_var' => true,
 			'menu_position' => 8,
 			'menu_icon' => 'dashicons-format-aside',
+			'show_in_rest' => true,
 			'rewrite'	=> array(
 				'slug' => 'feature',
 				'with_front' => false
@@ -188,6 +189,7 @@ function milieux_register_event_post_type () {
 			'query_var' => true,
 			'menu_position' => 8,
 			'menu_icon' => 'dashicons-calendar',
+			'show_in_rest' => true,
 			'rewrite'	=> array(
 				'slug' => 'event',
 				'with_front' => false
