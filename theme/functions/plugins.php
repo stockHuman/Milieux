@@ -19,7 +19,11 @@ function milieux_acf_json_load_point( $paths ) {
 add_filter( 'acf/settings/load_json', 'milieux_acf_json_load_point', 1 );
 
 
-
+add_filter('site_transient_update_plugins', 'milieux_remove_update_nag');
+function milieux_remove_update_nag($value) {
+	unset($value->response[ 'advanced-custom-fields-pro/acf.php' ]);
+	return $value;
+}
 
 
 /**
