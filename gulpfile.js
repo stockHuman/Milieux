@@ -10,13 +10,14 @@
 		gulp-uglify
 		gulp-rename
 		gulp-sourcemaps
-		gulp-autoprefixer
+		gulp-postcss
+		cssnano
+		autoprefixer
 		browserify
 		babelify
 		browser-sync
 		vinyl-buffer
 		vinyl-source-stream
-
 
 	Note that this gulpfile uses Gulp 4 syntax
 */
@@ -29,9 +30,10 @@ const buffer = require('vinyl-buffer')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
-const browserify = require('browserify')
 const sourcemaps = require('gulp-sourcemaps')
-const autoprefixer = require('gulp-autoprefixer')
+const postcss = require('gulp-postcss')
+const browserify = require('browserify')
+const autoprefixer = require('autoprefixer')
 const browserSync = require('browser-sync').create()
 
 const paths = {
@@ -106,7 +108,7 @@ gulp.task('css', function (callback) {
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sass(config.sass))
 	.on('error', logError)
-	.pipe(autoprefixer(config.autoprefixer))
+	.pipe(postcss([autoprefixer(config.autoprefixer), require('cssnano')]))
 	.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest(paths.stylesBuild))
 	.pipe(browserSync.reload({stream: true}))
