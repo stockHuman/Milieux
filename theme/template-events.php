@@ -79,20 +79,26 @@
 				$the_query = new WP_Query( $args );
 				if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-					<article id="event-<?= the_ID(); ?>" class="event-item col-md-offset-2">
+					<article id="event-<?= the_ID(); ?>" class="event-item">
 
 						<?= milieux_event_featured_image(get_the_ID(), 'thumbnail', false, 'event-item__image'); ?>
 						<div class="event-item__details">
 							<h2 class="event-item__title mono-title"><?php the_title(); ?></h2>
 							<p class="event-item__desc text-blend"><?= get_the_excerpt(); ?></p>
 
-							<div class="date">
-								<?php $meta = milieux_event_meta(get_the_ID(), false, true); ?>
-								<div class="">
-									<div class="text-blend month"><?= $meta['month']; ?></div>
-									<div class="ts-number day"><?= $meta['day']; ?></div>
+							<div class="event-item__meta-container">
+								<div class="date">
+									<?php $meta = milieux_event_meta(get_the_ID(), false, true); ?>
+									<div class="">
+										<div class="text-blend month"><?= $meta['month']; ?></div>
+										<div class="ts-number day"><?= $meta['day']; ?></div>
+									</div>
+								</div>
+								<div class="event-item__link cta">
+									<span><a href="<?= the_permalink(get_the_ID()); ?>"><?= __('view the event', 'milieux'); ?></a></span>
 								</div>
 							</div>
+
 						</div>
 					</article>
 

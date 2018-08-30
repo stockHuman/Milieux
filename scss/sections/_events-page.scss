@@ -1,30 +1,30 @@
 .events {
 	@at-root #{&}__hero {
-		display: flex;
-
 
 		@include media('>tablet') { & {
+			display: flex;
 			max-height: 700px;
 			overflow: hidden;
 		}}
 
 		@include media('>desktop') { & {
 			.hero-container {
-				width: 75vw;
+				width: 100%;
 			}
 		}}
 	}
 
 	@at-root #{&}__hero-details {
 		background-color: $gray-lighter;
-		padding: $u;
+		padding: u();
 		position: relative;
+		flex-shrink: 0;
 
 		span { // 'featured'
 			@include font-size($font-s-small);
 			letter-spacing: 0.03rem;
 			opacity: 0.46;
-			margin-bottom: $u / 2;
+			margin-bottom: u(0.5);
 			display: block;
 		}
 
@@ -34,24 +34,31 @@
 		}
 
 		.date {
-			position: absolute;
-			bottom: $u;
-			right: $u;
+			padding-top: 1rem;
+			@include media('>tablet') { & {
+				position: absolute;
+				bottom: u();
+				right: u();
+			}}
 
 			.month {
-				margin-bottom: $u / 2;
+				margin-bottom: u(0.5);
 				color: $gray-dark;
 			}
 		}
 
+		@include media('>tablet') { & {
+			width: 30vw;
+			padding: u(7) u(2);
+		}}
+
 		@include media('>desktop') { & {
-			width: 25vw;
-			padding: #{7 * $u} $u * 2;
+			width: 30%;
 
 			.date {
 				font-size: larger;
-				bottom: $u * 2;
-				right: $u * 2;
+				bottom: u(2);
+				right: u(2);
 			}
 		}}
 	}
@@ -60,30 +67,46 @@
 		@extend %b-blue;
 		@extend %text-up;
 		@extend .text-center;
-		padding: $u;
+		padding: u();
 		display: block;
 		color: $white;
 		text-decoration: none;
 
 		@include media('>tablet') { & {
-			width: 25vw;
+			width: 30vw;
+			float: right;
+		}}
+		@include media('>desktop') { & {
 			float: right;
 		}}
 	}
 
 	@at-root #{&}__list {
-
+		display: block;
 		grid-auto-rows: 1fr;
+		margin-bottom: u(6);
+		max-width: 1300px;
+		margin: u(3) auto;
 		@include media('>tablet') { & {
+			display: grid;
 		}}
 	}
 
 	h1 { // 'Events, huge'
-		position: relative;
-		display: inline-block;
+		text-align: center;
+		padding-top: 4rem;
+		opacity: 0.2;
+		@include media('>tablet') { & {
+			position: relative;
+			display: inline-block;
+			opacity: 1;
+			text-align: left;
+			padding-top: 0;
+			left: u();
+		}}
 		@include media('>desktop') { & {
-			top: -$u * 4.5;
-			left: $u /2;
+			top: u(-4.5);
+			left: u(0.5);
 			@include font-size(134);
 		}}
 	}
@@ -92,46 +115,111 @@
 // large card-like events
 .event-item {
 	@extend %b-gray;
-	margin-top: $u;
-	padding: $u;
-	height: $u * 20;
-	width: 70vw;
-	grid-column: 2 / span 8;
+	margin-top: u(2);
+	padding: u();
 
-
-	@include media('>desktop') { & {
-		margin-right: 4 * $u;
-		padding: $u * 2;
+	@include media('>tablet') { & {
+		grid-column: 2 / span 16;
+		display: flex;
+		flex-direction: row-reverse;
+		padding: u(2);
 	}}
 
-	@at-root #{&}__details {
-		position: relative;
-		height: 100%;
-
-		.date {
-			position: absolute;
-			bottom: 0;
-		}
-	}
-
-	@at-root #{&}__title {
-		@extend %text-mono;
-	}
+	@include media('>desktop') { & {
+		grid-column: 6 / span 16;
+		margin-right: u(4);
+		padding: u(2);
+	}}
 
 	@at-root #{&}__image {
 		max-height: 50vh;
 		padding: 0 !important;
 
-		@include media('>desktop') { & {
-			overflow: hidden;
-			width: 30vw;
+
+		@include media('>tablet') { & {
 			position: relative;
-			right: -4 * $u;
-			height: $u * 16;
-			float: right;
+			right: u(-4);
+			flex-basis: u(30);
+			overflow: hidden;
 			img {
+				height: 100%;
+				width: auto;
 				max-height: 300px;
 			}
 		}}
 	}
+
+	@at-root #{&}__details {
+		position: relative;
+		height: 100%;
+		padding-right: u();
+
+		@include media('>tablet') { & {
+			flex-basis: 100%;
+		}}
+		@include media('>desktop') { & {
+			flex-basis: 40%;
+		}}
+	}
+
+	@at-root #{&}__title {
+		@extend %text-mono;
+		padding-top: 1rem;
+		@include media('>tablet') { & {
+			margin-bottom: u();
+			padding-top: 0;
+		}}
+	}
+
+	@at-root #{&}__desc {
+		display: none;
+		@include media('>tablet') { & {
+			display: block;
+			margin-bottom: u(6);
+		}}
+	}
+
+	@at-root #{&}__meta-container {
+		display: flex;
+		@include media('>tablet') { & {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}}
+
+		.date {
+			position: relative;
+		}
+	}
+
+	@at-root #{&}__link {
+		border: 1px $black solid;
+		background: transparent;
+		padding-left: u(2);
+		padding-right: u(2);
+		width: 100%;
+		margin-left: 15px;
+		display: flex;
+		align-items: center;
+		a {
+			color: $black;
+
+		}
+
+		&:hover {
+			background: $black;
+			a { color: $white; }
+		}
+		@include media('>tablet') { & {
+		}}
+
+		@include media('>desktop') { & {
+
+		}}
+	}
+}
+
+// css grid overflow problem fix
+.page-template-template-events {
+	display: block;
 }
