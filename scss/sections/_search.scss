@@ -5,12 +5,8 @@
 		@at-root #{&} {
 
 			@include media('>tablet') { & {
-				width: calc(50% - #{$u * 2});
-				margin: $u;
-			}}
-
-			@include media('>desktop') { & {
-
+				width: calc(50% - #{u() * 2});
+				margin: u();
 			}}
 		}
 		h2 a {
@@ -23,10 +19,10 @@
 	}}
 
 	h2 {
-		margin-bottom: $u;
+		margin-bottom: u();
 	}
 	.byline {
-		margin-bottom: $u * 2;
+		margin-bottom: u(2);
 	}
 }
 .search .container {

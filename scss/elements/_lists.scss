@@ -23,9 +23,9 @@ ol {
 }
 
 .page-navigation {
-  padding: $u;
-  margin-top: $u;
-  margin-bottom: $u;
+  padding: u();
+  margin-top: u();
+  margin-bottom: u();
   display: flex;
   @extend %b-gray;
 }

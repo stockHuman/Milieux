@@ -1,14 +1,14 @@
 @include media('>tablet') {
 	.nav-main {
-		top: $u;
-		left: $u;
+		top: u();
+		left: u();
 		width: 300px;
 		max-height: 700px;
 		@at-root #{&}__quickbar {
 			// display: flex;
 		}
 		@at-root #{&}--collapsed {
-			// height: 4 * $u;
+			// height: 4 * u();
 			// width: 280px;
 			.nav-main__header, .nav-main__content {
 				// display: none;
@@ -37,7 +37,7 @@
 			}
 		}
 		@at-root #{&}__content {
-			padding: $u;
+			padding: u();
 			align-self: end;
 		}
 		@at-root #{&}__quickbar {

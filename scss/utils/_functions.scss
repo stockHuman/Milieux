@@ -35,3 +35,12 @@
 		@return $out;
 	}
 }
+
+/**
+ * The unit function
+ * @param  {int} $multiplier: 1  int or string with math
+ * @return {CSS unit}            $u global, multiplied by argument
+ */
+@function u( $multiplier: 1 ) {
+	@return $u * $multiplier;
+}

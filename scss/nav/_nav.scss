@@ -34,7 +34,7 @@
 
 	@at-root #{&}__content {
 		list-style-type: none;
-		padding: #{4 * $u} 2.5 * $u;
+		padding: u(4) u(2.5);
 		position: relative;
 		font-size: 120%;
 		li {

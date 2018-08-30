@@ -9,7 +9,7 @@
 
 // featured content text style: it lokos great
 .fs {
-	padding-bottom: 6 * $u;
+	padding-bottom: u(6);
 	@extend %b-white;
 	padding-top: 21px;
 
@@ -17,13 +17,13 @@
 		max-width: 700px;
 		margin-right: auto;
 		margin-left: auto;
-		padding-left: $u;
-		padding-right: $u;
+		padding-left: u();
+		padding-right: u();
 	}
 
 	h3 {
-		padding-top: 3 * $u;
-		margin-bottom: $u;
+		padding-top: u(3);
+		margin-bottom: u();
 		opacity: 0.7;
 	}
 

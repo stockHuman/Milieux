@@ -1,14 +1,14 @@
-$event-baseline: 3.5 * $u;
+$event-baseline: u(3.5);
 .event {
 
 
 	.page-type-title {
-		padding: $u;
+		padding: u();
 	}
 	@at-root #{&}__title {
 		background: $white;
 		margin: 0;
-		padding: $u;
+		padding: u();
 	}
 
 	@at-root #{&}__header {
@@ -53,17 +53,17 @@ $event-baseline: 3.5 * $u;
 			.page-type-title {
 				padding: 0;
 				position: absolute;
-				top: $u * 5;
-				left: $u;
+				top: u(5);
+				left: u();
 			}
 		}}
 	}
 
 	@at-root #{&}__content {
-		margin-bottom: $u * 4;
+		margin-bottom: u(4);
 		&-inner {
-			padding: $u * 2;
-			margin-top: $u * 2;
+			padding: u2();
+			margin-top: u(2);
 			line-height: 1.55;
 		}
 		@include media('>tablet') { & {
@@ -71,7 +71,7 @@ $event-baseline: 3.5 * $u;
 			grid-template-columns: repeat(20, 5%);
 			min-height: 50vh;
 			&-inner {
-				margin-top: $u * 5;
+				margin-top: u(5);
 				grid-column: 2 / span 10;
 				grid-row: auto;
 				padding-top: 0;
@@ -80,32 +80,24 @@ $event-baseline: 3.5 * $u;
 
 		@include media('>desktop') { & {
 			&-inner {
-				padding: $u;
+				padding: u();
 			}
 		}}
 	}
 	@at-root #{&}__sidebar {
 		grid-column: 15 / span 5;
-		margin: ($u * 5 ) 0;
+		margin: u(5) 0;
 		&-details {
 			.month {
 				@extend %text-low;
-				padding-bottom: $u / 2;
-				margin-top: - $u * 2;
+				padding-bottom: u(0.5);
+				margin-top: u(-2);
 			}
 
 			.address {
-				margin-right: $u;
+				margin-right: u();
 				letter-spacing: .03rem;
 			}
 		}
-
-		@include media('>tablet') { & {
-
-		}}
-
-		@include media('>desktop') { & {
-
-		}}
 	}
 }

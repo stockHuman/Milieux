@@ -6,7 +6,7 @@
 		@include media('>desktop') { & { margin-top: 50vh; }}
 	}
 	.article-title {
-		padding: $u * 2;
+		padding: u() * 2;
 		max-width: 730px;
 		background: $white;
 		margin-bottom: 0;
@@ -14,13 +14,13 @@
 		margin-left: auto;
 		@include media('>phablet') {
 			& {
-				margin-top: - 3 * $u;
+				margin-top: u(-3);
 				z-index: 2;
 			}
 		}
 	}
 	.alignnone.size-large { // inline image
-		margin: $u 0 $u 0
+		margin: u() 0 u() 0
 	}
 }
 
@@ -52,5 +52,5 @@
 	position: fixed;
 	width: 100%;
 	top: 0;
-	z-index: -2;;
+	z-index: -2;
 }

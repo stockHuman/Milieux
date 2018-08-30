@@ -4,6 +4,6 @@
 
 .c-card {
 	background-color: $gray-lighter;
-	padding: $u;
-	margin-bottom: 2 * $u;
+	padding: u();
+	margin-bottom: u(2);
 }

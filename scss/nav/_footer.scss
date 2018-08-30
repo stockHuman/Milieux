@@ -1,7 +1,7 @@
 .footer {
 	@at-root #{&}__inner {
 		background: $color-nav-bg;
-		padding: $u;
+		padding: u();
 		color: rgba($white, 0.64);
 		font-weight: $font-w-light;
 		line-height: 1.2;
@@ -63,14 +63,14 @@
 	}
 
 	@at-root #{&}__copyright {
-		padding: $u;
+		padding: u();
 		padding-bottom: $nav-height--mobile;
 		@extend %white-on-black;
 		font-weight: $font-w-light;
 		font-size: 11px;
 		@extend .text-center;
 		@include media('>tablet') { & {
-			padding-bottom: $u;
+			padding-bottom: u();
 		}}
 	}
 }
