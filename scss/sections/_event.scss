@@ -18,6 +18,7 @@ $event-baseline: u(3.5);
 			@extend %b-blue;
 			@extend .cta; // in elements/_button.scss
 			height: $event-baseline;
+			text-transform: lowercase;
 			span, a {
 				line-height: $event-baseline;
 			}
@@ -42,6 +43,7 @@ $event-baseline: u(3.5);
 				grid-column: 16 / span 5;
 				grid-row: 9;
 				align-self: end;
+				@include font-size(12);
 			}
 
 			.event__title {
@@ -62,7 +64,7 @@ $event-baseline: u(3.5);
 	@at-root #{&}__content {
 		margin-bottom: u(4);
 		&-inner {
-			padding: u2();
+			padding: u(2);
 			margin-top: u(2);
 			line-height: 1.55;
 		}
