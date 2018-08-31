@@ -4,6 +4,7 @@
 // See end of file for cta and post-edit button
 
 .button,
+.btn,
 button {
 	display: inline-block;
 	height: 38px;
@@ -136,7 +137,6 @@ input {
 }
 
 .post-edit-link {
-
 	position: fixed;
 	bottom: 1rem;
 	right: 1rem;
@@ -165,5 +165,39 @@ input {
 		text-decoration: none;
 		text-transform: uppercase;
 		width: 100%;
+	}
+}
+
+// interactive highlight effect
+.btn--material-highlight {
+	position: relative;
+	// appearance: none;
+	border: none;
+	color: white;
+	font-size: 1.2em;
+	cursor: pointer;
+	outline: none;
+	overflow: hidden;
+
+	span, a {
+	  position: relative;
+	}
+
+	&::before {
+	  --size: 0;
+
+	  content: '';
+	  position: absolute;
+	  left: var(--x);
+	  top: var(--y);
+	  width: var(--size);
+	  height: var(--size);
+	  background: radial-gradient(circle closest-side, lighten($color-brand, 5%), transparent);
+	  transform: translate(-50%, -50%);
+	  transition: width .2s ease, height .2s ease;
+	}
+
+	&:hover::before {
+	  --size: 400px;
 	}
 }

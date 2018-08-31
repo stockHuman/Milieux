@@ -18,7 +18,7 @@
 
 		<?php $cta =  get_field('event_cta');
 		if ( $cta['enable'] == true ) : ?>
-			<div class="event__cta">
+			<div class="event__cta btn--material-highlight">
 				<?php $cta_link = $cta['link'];
 				if ( $cta_link != '' ) { ?>
 					<a href="<?= $cta_link; ?>"><?= $cta['text']; ?></a>
