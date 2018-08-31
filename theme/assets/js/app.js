@@ -127,20 +127,13 @@ function update() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-
-var _animejs = require('animejs');
-
-var _animejs2 = _interopRequireDefault(_animejs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var navIsOpen = false;
-
-// scroll vars
 /*
   Navigation
 */
 
+var navIsOpen = false;
+
+// scroll vars
 var navCloseTolerance = 20;
 var navToggleTolerance = 70;
 
@@ -164,10 +157,42 @@ var Navigation = {
 			_this.toggleSearch();
 		});
 
-		document.addEventListener('keydown', function (e) {
+		// Add support nested menus
+		nav.subMenuDOMItems = nav.main.querySelectorAll('.menu-item-has-children');
+		nav.subMenus = [];
+
+		var _loop = function _loop(i) {
+			nav.subMenus[i] = { dom: nav.subMenuDOMItems[i], active: false };
+			nav.subMenuDOMItems[i].addEventListener('click', function () {
+				_this.toggleSubMenu(i);
+			});
+		};
+
+		for (var i = 0; i < nav.subMenuDOMItems.length; i++) {
+			_loop(i);
+		}
+
+		// Listen for click events on body and dismiss if clicking outside
+		// of the nav when open
+		document.body.addEventListener('click', function (event) {
+			if (navIsOpen) {
+				if (!nav.main.contains(event.target)) {
+					_this.toggleNav();
+				}
+			}
+		});
+
+		window.addEventListener('keydown', function (e) {
 			// ESCAPE key pressed
-			if (e.keyCode == 27 && nav.linestate == 'search') {
-				_this.toggleSearch();
+			if (e.keyCode == 27) {
+				if (nav.linestate == 'search') {
+					_this.toggleSearch();
+					return;
+				}
+				if (navIsOpen) {
+					_this.toggleNav();
+					return;
+				}
 			}
 		});
 	},
@@ -187,7 +212,16 @@ var Navigation = {
 	},
 	animateNavOpen: function animateNavOpen() {},
 	animateNavClosed: function animateNavClosed() {},
-	animateSubMenu: function animateSubMenu() {},
+	toggleSubMenu: function toggleSubMenu(index) {
+		var menu = nav.subMenus[index];
+		var menuTitle = menu.dom.firstChild;
+		var menuContainer = nav.main.querySelector('.nav-main__content');
+
+		menuContainer.classList.toggle('nav-main__content--submenu-open');
+		menu.dom.classList.toggle('menu-item--active');
+
+		menu.active = !menu.active;
+	},
 	toggleNav: function toggleNav() {
 		if (navIsOpen) {
 			nav.main.classList.replace('nav-main--expanded', 'nav-main--collapsed');
@@ -239,7 +273,7 @@ var Navigation = {
 
 exports.default = Navigation;
 
-},{"animejs":1}],4:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -259,6 +293,18 @@ var UI = {
 				window.setTimeout(function () {
 						preloader.className = 'hidden';
 				}, 1500);
+
+				// via https://blog.prototypr.io/stunning-hover-effects-with-css-variables-f855e7b95330
+				// Set css variables for a cool hover effect on select buttons
+				document.querySelector('.btn--material-highlight').onmousemove = function (e) {
+						e.stopPropagation();
+
+						var x = e.pageX - e.target.offsetLeft;
+						var y = e.pageY - e.target.offsetTop;
+
+						e.target.style.setProperty('--x', x + 'px');
+						e.target.style.setProperty('--y', y + 'px');
+				};
 		}
 };
 
