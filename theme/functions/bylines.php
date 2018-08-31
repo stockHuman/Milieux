@@ -56,6 +56,6 @@ function byline ( $name ) {
 		return $name;
 	}
 }
-add_action( 'init', 'milieux_add_byline_taxonomy', 0 ); // Custom Bylines
+add_action( 'init', 'milieux_add_byline_taxonomy', 10 ); // Custom Bylines
 add_filter( 'the_author', 'byline' ); // Bylines display
 add_filter( 'get_the_author_display_name', 'byline' ); // Bylines setup

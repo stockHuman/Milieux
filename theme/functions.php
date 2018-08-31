@@ -52,3 +52,15 @@ require_once(get_template_directory().'/functions/admin.php');
 
 // Add in misc function
 require_once(get_template_directory().'/functions/theme-functions.php');
+
+/**
+ * @author Yahnis Elsts
+ * @link https://github.com/YahnisElsts/plugin-update-checker Repo
+ */
+require_once(get_template_directory().'/assets/lib/puc-4.4/plugin-update-checker.php');
+
+$updateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://live.arthem.co/update/v1/themes/milieux/details.json',
+	__FILE__, // Full path to the main plugin file or functions.php.
+	'milieux'
+);

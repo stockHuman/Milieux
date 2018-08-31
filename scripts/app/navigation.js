@@ -15,8 +15,6 @@ const nav = {}
 
 const Navigation = {
 
-	that: this,
-
 	onDOM () {
 		nav.main = document.getElementById('nav-main')
 		nav.line = document.getElementById('nav-line')

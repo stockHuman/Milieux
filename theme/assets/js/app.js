@@ -148,9 +148,6 @@ var navToggleTolerance = 70;
 var nav = {};
 
 var Navigation = {
-
-	that: undefined,
-
 	onDOM: function onDOM() {
 		var _this = this;
 
