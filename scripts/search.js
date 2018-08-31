@@ -1,3 +1,6 @@
+/**
+ * Search page JS
+ */
 (function () {
 	'use strict';
 	// easy out
