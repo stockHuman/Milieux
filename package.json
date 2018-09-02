@@ -47,6 +47,7 @@
     ]
   },
   "dependencies": {
-    "animejs": "^2.2.0"
+    "animejs": "^2.2.0",
+    "barba.js": "^1.0.0"
   }
 }
