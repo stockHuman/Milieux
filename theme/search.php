@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="container">
+	<div id="content" class="container">
 		<main id="main" class="fc no-header search" role="main">
 			<header>
 				<h1 class="archive-title"><?php _e( 'Search Results for', 'milieux' ); ?>

@@ -6,16 +6,18 @@ Template Name: Cluster
 
 <?php get_header(); ?>
 
-  <div class="container">
-    <main id="main" class="" role="main">
+	<div id="content" class="container">
+			<div id="inner-content" class="b-target">
+			<main id="main" class="" role="main">
 
-  		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-  			<?php get_template_part( 'parts/loop', 'page' ); ?>
+					<?php get_template_part( 'parts/loop', 'page' ); ?>
 
-  		<?php endwhile; endif; ?>
+				<?php endwhile; endif; ?>
 
-  	</main> <!-- end #main -->
-  </div>
+			</main> <!-- end #main -->
+		</div>
+	</div>
 
 <?php get_footer(); ?>

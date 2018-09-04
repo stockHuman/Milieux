@@ -15,15 +15,15 @@ taxonomy-shoes.php
 
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content" class="container">
 
-	<div id="inner-content" class="row">
+	<div id="inner-content" class="b-target">
 
-	    <main id="main" class="large-8 medium-8 columns first" role="main">
+			<main id="main" class="large-8 medium-8 columns first" role="main">
 
-		    <header>
-		    	<h1 class="page-title"><span><?php _e( 'Posts Categorized:', 'milieux' ); ?></span> <?php single_cat_title(); ?></h1>
-		    </header>
+				<header>
+					<h1 class="page-title"><span><?php _e( 'Posts Categorized:', 'milieux' ); ?></span> <?php single_cat_title(); ?></h1>
+				</header>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -40,9 +40,9 @@ taxonomy-shoes.php
 
 			<?php endif; ?>
 
-	    </main> <!-- end #main -->
+			</main> <!-- end #main -->
 
-	    <?php get_sidebar(); ?>
+			<?php get_sidebar(); ?>
 
 	</div> <!-- end #inner-content -->
 

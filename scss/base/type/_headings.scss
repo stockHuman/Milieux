@@ -22,13 +22,6 @@
 	font-weight: $font-w-bold;
 	font-family: $font-sans-serif;
 	@extend %text-up;
-
-	@at-root #{&}__element {
-		color: blue;
-	}
-	@at-root #{&}--modifier {
-		color: red;
-	}
 }
 
 // Cluster page title, the word 'event' on an event page

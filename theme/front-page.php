@@ -1,26 +1,27 @@
 <?php get_header(); ?>
 
-  <div class="container">
-    <main id="main" class="frontpage" role="main">
+	<div class="container">
+		<div id="inner-content" class="b-target">
+			<main id="main" class="frontpage" role="main">
 
-    	<?php get_template_part('parts/frontpage', 'hero'); ?>
+				<?php get_template_part('parts/frontpage', 'hero'); ?>
 
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?php the_content(); ?>
 
-      	<?php the_content(); ?>
+			<?php endwhile; ?>
 
-  	<?php endwhile; ?>
+				<?php //milieux_page_navi(); ?>
 
-  		<?php //milieux_page_navi(); ?>
+			<?php else : ?>
 
-  	<?php else : ?>
+				<?php get_template_part( 'parts/content', 'missing' ); ?>
 
-  		<?php get_template_part( 'parts/content', 'missing' ); ?>
+			<?php endif; ?>
 
-  	<?php endif; ?>
-
-    </main> <!-- end #main -->
-  </div>
+			</main> <!-- end #main -->
+		</div>
+	</div>
 
 <?php get_footer(); ?>

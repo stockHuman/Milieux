@@ -49,3 +49,13 @@
 		}
 	}
 }
+
+@media screen and ( min-width: 800px ) {
+	.nav-main {
+		@at-root #{&}--expanded {
+			.nav-main__inner {
+				max-height: 80vh; // short browsers
+			}
+		}
+	}
+}

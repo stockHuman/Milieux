@@ -73,9 +73,6 @@ const Navigation = {
 		this.setLineStyle(nav.linestate)
 	},
 
-	animateNavOpen () {},
-	animateNavClosed () {},
-
 	toggleSubMenu (index) {
 		const menu = nav.subMenus[index]
 		const menuTitle = menu.dom.firstChild
@@ -91,11 +88,9 @@ const Navigation = {
 		if (navIsOpen) {
 			nav.main.classList.replace('nav-main--expanded', 'nav-main--collapsed')
 			document.getElementById('nav-toggle').firstChild.innerHTML = 'open'
-			this.animateNavClosed()
 		} else {
 			nav.main.classList.replace('nav-main--collapsed', 'nav-main--expanded')
 			document.getElementById('nav-toggle').firstChild.innerHTML = 'close'
-			this.animateNavOpen()
 		}
 		navIsOpen = !navIsOpen
 	},

@@ -4,7 +4,7 @@
 
 <div id="content" class="container">
 
-	<div id="inner-content">
+	<div id="inner-content" class="b-target">
 
 		<main id="main" class="large-8 medium-8 columns feature" role="main">
 
