@@ -3,25 +3,50 @@
 */
 
 import Barba from 'barba.js'
-// import Navigation from './navigation.js'
 
+// Set Barba live container and wrapper for pjax page loading
 Barba.Pjax.Dom.containerClass = 'b-target'
 Barba.Pjax.Dom.wrapperId = 'content'
 
+const hideShowTransition = Barba.BaseTransition.extend({
+	start: function () {
+		this.newContainerLoading.then(this.finish.bind(this))
+		DOM.innie.classList.add('in')
+		DOM.outie.classList.add('in')
+	},
+
+	finish: function () {
+		DOM.innie.classList.remove('in')
+		DOM.outie.classList.remove('in')
+		window.scrollTo(0, 0)
+		this.done()
+	}
+})
+
+const DOM = {}
+
 const UI = {
 	onDOM () {
+		// link DOM
+		DOM.preloader = document.getElementById('preloader')
+		DOM.innie = document.querySelector('.innie')
+		DOM.outie = document.querySelector('.outie')
+
 		this.preloaderLoaded()
 		this.initAnimatedButtons()
 
-		Barba.Pjax.init();
-		Barba.Prefetch.init();
+		// Extend default Barba transition
+		Barba.Pjax.getTransition = () => {
+			return hideShowTransition
+		}
+
+		Barba.Pjax.init()
+		Barba.Prefetch.init()
 	},
 
 	preloaderLoaded () {
-		let preloader = document.getElementById('preloader')
-
-		preloader.className = 'loaded'
-		window.setTimeout( () => { preloader.className = 'hidden' } , 1500)
+		DOM.preloader.className = 'loaded'
+		window.setTimeout( () => { preloader.className = 'loaded' } , 1500)
 	},
 
 	initAnimatedButtons() {
