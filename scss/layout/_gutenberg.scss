@@ -28,12 +28,18 @@
 		max-width: 1400px;
 		padding: u();
 		margin: #{u()} auto;
+		flex-wrap: wrap;
 	}
 
 	@at-root #{&}-column {
 		margin: u();
 		line-height: 1.32;
+		flex-basis: 300px;
 		display: flex;
 		align-self: baseline;
+	}
+
+	@at-root #{&}-cover-image {
+		margin-top: u();
 	}
 }
