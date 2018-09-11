@@ -1,9 +1,13 @@
 .footer {
+	background: $color-nav-bg;
+	color: rgba($white, 0.64);
+	font-weight: $font-w-light;
+
 	@at-root #{&}__inner {
-		background: $color-nav-bg;
+		max-width: 1400px;
+		margin: 0 auto;
 		padding: u();
-		color: rgba($white, 0.64);
-		font-weight: $font-w-light;
+
 		line-height: 1.2;
 		font-size: 13px;
 		display: flex;

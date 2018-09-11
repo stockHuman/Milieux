@@ -1956,28 +1956,52 @@ var _barba2 = _interopRequireDefault(_barba);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Navigation from './navigation.js'
-
+// Set Barba live container and wrapper for pjax page loading
 _barba2.default.Pjax.Dom.containerClass = 'b-target'; /*
                                                         UI
                                                       */
 
 _barba2.default.Pjax.Dom.wrapperId = 'content';
 
+var hideShowTransition = _barba2.default.BaseTransition.extend({
+	start: function start() {
+		this.newContainerLoading.then(this.finish.bind(this));
+		DOM.innie.classList.add('in');
+		DOM.outie.classList.add('in');
+	},
+
+	finish: function finish() {
+		DOM.innie.classList.remove('in');
+		DOM.outie.classList.remove('in');
+		window.scrollTo(0, 0);
+		this.done();
+	}
+});
+
+var DOM = {};
+
 var UI = {
 	onDOM: function onDOM() {
+		// link DOM
+		DOM.preloader = document.getElementById('preloader');
+		DOM.innie = document.querySelector('.innie');
+		DOM.outie = document.querySelector('.outie');
+
 		this.preloaderLoaded();
 		this.initAnimatedButtons();
+
+		// Extend default Barba transition
+		_barba2.default.Pjax.getTransition = function () {
+			return hideShowTransition;
+		};
 
 		_barba2.default.Pjax.init();
 		_barba2.default.Prefetch.init();
 	},
 	preloaderLoaded: function preloaderLoaded() {
-		var preloader = document.getElementById('preloader');
-
-		preloader.className = 'loaded';
+		DOM.preloader.className = 'loaded';
 		window.setTimeout(function () {
-			preloader.className = 'hidden';
+			preloader.className = 'loaded';
 		}, 1500);
 	},
 	initAnimatedButtons: function initAnimatedButtons() {

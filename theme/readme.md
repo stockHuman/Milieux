@@ -5,8 +5,8 @@
 
 ### TODO:
 
-- [ ] `UI & UX` Desktop Nav
-- [ ] `Functional` Nav Clusters expands out
+- [x] `UI & UX` Desktop Nav
+- [x] `Functional` Nav Clusters expands out
 - [ ] `UI & UX` Page Transition Animation and loader
 - [ ] `Functional` Mobile, Tablet MQ
 - [ ] `Deployment` Github Auto Updater Integration
