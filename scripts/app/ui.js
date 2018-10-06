@@ -1,7 +1,6 @@
 /*
   UI
 */
-
 import Barba from 'barba.js'
 
 // Set Barba live container and wrapper for pjax page loading

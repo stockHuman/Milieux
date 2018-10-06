@@ -37,6 +37,27 @@ $mlx-features__total-columns: 4;
 			}
 		}
 
+		// The featured post
+		.featured {
+			grid-column: 1 / span 2;
+			.featured__image-container {
+				position: relative;
+				height: 0;
+				display: block;
+				width: 100%;
+
+				/* padding-bottom is calculated and rendered in to HTML */
+
+				img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					display: block;
+				}
+			}
+		}
 
 		// the article proper
 		article {
