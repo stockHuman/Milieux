@@ -1,7 +1,7 @@
 #twitter-panel {
 	top: 0;
 	right: 0;
-	background: $black;
+	background: lighten($black, 10%);
 	position: fixed;
 	bottom: 0;
 	min-height: 100vh;
@@ -30,6 +30,7 @@
 	margin-right: -50px; /* maximum width of scrollbar */
 	padding-right: 50px; /* maximum width of scrollbar */
 	overflow-y: scroll;
+	padding-left: u();
 }
 
 #twitter-toggle {
