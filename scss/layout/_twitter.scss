@@ -44,6 +44,7 @@
 	margin: 1em;
 	cursor: pointer;
 	z-index: z('super', 1);
+	transition: background-color .05s ease;
 	&:hover {
 		background-color: $color-twitter;
 	}
