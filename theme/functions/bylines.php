@@ -27,7 +27,7 @@ function milieux_add_byline_taxonomy () {
 		'hierarchical'			 => false,
 		'show_admin_column'	 => true,
 		'show_in_rest'       => true, // new!
-		'rest_base'          => 'byline',
+		'rest_base'          => 'bylines',
 		'publicly_queryable' => true,
 		'labels' => $labels,
 		'rewrite' => array(
