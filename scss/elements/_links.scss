@@ -1,16 +1,4 @@
 .entry-content p a {
 	text-decoration: none;
 	color: $color-tertiary;
-	position: relative;
-
-	&::after {
-		content: '';
-		display: block;
-		position: absolute;
-		height: 9px;
-		bottom: 0px;
-		width: 100%;
-		background: $color-brand;
-		opacity: 0.4;
-	}
 }
