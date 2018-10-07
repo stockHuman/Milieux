@@ -13,7 +13,7 @@
 - [x] `Front page` Search Results Template
 - [ ] `Front page` Social Events block
 - [ ] `Front page` Announcements block
-- [ ] `Front page` Features Block
+- [x] `Front page` Features Block
 - [ ] `Module` Newsletter block
 - [ ] `Functional` Related Posts in Features
 - [ ] `Functional` Widget Areas where appropriate
