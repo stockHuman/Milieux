@@ -13,7 +13,7 @@
 	@extend %b-white;
 	padding-top: 21px;
 
-	h2, h3, h4, h5, h6, p {
+	h2, h3, h4, h5, h6, p, ol, ul {
 		max-width: 700px;
 		margin-right: auto;
 		margin-left: auto;
@@ -27,7 +27,7 @@
 		opacity: 0.7;
 	}
 
-	p {
+	p, ul, ol {
 		margin-top: 21px;
 		font-weight: $font-w-normal;
 		font-family: $font-sans-serif;
@@ -38,9 +38,19 @@
 	}
 
 	@include media('>tablet') {
-		& p { // magic numbers with a lot of Medium.com inspiration
-			font-size: 20px;
+		& p, ul, ol { // magic numbers with a lot of Medium.com inspiration
+			font-size: 19px;
 			letter-spacing: -.003em;
+		}
+	}
+
+	ul {
+		list-style-type: disc;
+
+		li {
+			padding-left: u(0.5);
+			margin-left: u(1.5);
+			margin-bottom: u()
 		}
 	}
 }
