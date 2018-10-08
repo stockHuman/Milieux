@@ -15,8 +15,8 @@
 		<footer class="footer" role="contentinfo">
 			<div class="footer__inner">
 				<div class="footer__branding">
-					<img src="" alt="Milieux Logo">
-					<img src="" alt="Concordia Logo">
+					<img src="<?= get_template_directory_uri() . '/assets/images/milieux-logo.svg'; ?>" alt="Milieux Logo">
+					<img src="<?= get_template_directory_uri() . '/assets/images/concordia-logo.png'; ?>" alt="Concordia Logo">
 				</div>
 				<div role="contact" class="footer__contact">
 					<h4><?= __('Contact', 'milieux'); ?></h4>
