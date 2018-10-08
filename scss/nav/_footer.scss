@@ -7,6 +7,7 @@
 		max-width: 1400px;
 		margin: 0 auto;
 		padding: u();
+		padding-bottom: u(3);
 
 		line-height: 1.2;
 		font-size: 13px;
@@ -19,6 +20,7 @@
 			letter-spacing: .01rem;
 			color: $white;
 			margin-bottom: 20px;
+			padding-top: u() !important;
 			@include font-size(23);
 		}
 
@@ -43,13 +45,17 @@
 		}}
 	}
 
-	@at-root #{&}__nav {
-		flex: 2 1 auto;
+	@at-root #{&}__branding {
+		max-width: 150px;
+		align-self: center;
+		margin-right: u(3);
+
+		img {
+			padding-bottom: u();
+		}
 
 		@include media('>tablet') { & {
-			ul {
-				columns: 2;
-			}
+
 		}}
 
 		@include media('>desktop') { & {
@@ -57,9 +63,15 @@
 		}}
 	}
 
-	@at-root #{&}__clusters {
+	@at-root #{&}__nav, #{&}__clusters {
 		flex: 2 1 auto;
+		max-width: 280px;
 
+		@include media('>tablet') { & {
+			ul {
+				columns: 2;
+			}
+		}}
 
 		@include media('>desktop') { & {
 
