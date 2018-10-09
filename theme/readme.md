@@ -14,10 +14,12 @@
 - [ ] `Front page` Social Events block
 - [ ] `Front page` Announcements block
 - [x] `Front page` Features Block
+- [x] `Front page` Events Block
 - [ ] `Module` Newsletter block
 - [ ] `Functional` Related Posts in Features
 - [ ] `Functional` Widget Areas where appropriate
 - [ ] `Functional` Calendar by month template (Archive)
+- [ ] `UI & UX` Page templates
 
 ---
 
@@ -25,8 +27,3 @@
 
 - [ ] `IE / Edge` twitter panel 50px padding is off
 - [x] `All` Twitter panel not responsive in very small viewports
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
