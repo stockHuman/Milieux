@@ -63,14 +63,20 @@ $event-baseline: u(3.5);
 
 	@at-root #{&}__content {
 		margin-bottom: u(4);
+		max-width: 1400px;
+		margin: 0 auto;
 		&-inner {
+			max-width: 700px;
 			padding: u(2);
 			margin-top: u(2);
 			line-height: 1.55;
 		}
 		@include media('>tablet') { & {
-			display: grid;
-			grid-template-columns: repeat(20, 5%);
+			display:flex;
+			flex-wrap: wrap-reverse;
+			align-items: stretch;
+
+			//grid-template-columns: repeat(20, 5%);
 			min-height: 50vh;
 			&-inner {
 				margin-top: u(5);
