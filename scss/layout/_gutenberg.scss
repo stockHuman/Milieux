@@ -44,11 +44,14 @@
 	}
 
 	@at-root #{&}-quote {
-		padding-right: u(-1) !important;
 		padding-left: u(0.5) !important;
-		position: relative;
-		left: u();
-		border-left: 4px solid $black;
+
+		p {
+			margin-right: u(1);
+			position: relative;
+			left: u();
+			border-left: 4px solid $black;
+		}
 	}
 
 	@at-root #{&}-embed, #{&}-image {
