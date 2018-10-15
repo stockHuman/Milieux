@@ -57,4 +57,13 @@
 	@at-root #{&}-embed, #{&}-image {
 		margin-top: u(2);
 	}
+
+	@at-root #{&}-separator {
+		margin-top: u(2);
+		max-width: 500px;
+		margin: u(3) auto u(3) auto;
+		height: 1px;
+		border: solid 1px $gray;
+		opacity: 0.3;
+	}
 }
