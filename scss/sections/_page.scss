@@ -1,34 +1,40 @@
-.page-template-default {
-	// .article-header {
-	// 	padding: u();
-	// }
 
-	h2, h3, h4 {
-		padding-top: 5rem;
-	}
 
-	.page__banner {
-		max-height: 50vh;
-	}
-
-	@at-root .page__area {
-		background: $white;
-
-		@include media('>tablet') { & {
-
-		}}
-
-		@include media('>desktop') { & {
-			display: grid;
-			grid-template-columns: 1fr 700px 1fr 300px;
-
-			article {
-				grid-column: 2;
-			}
-
-			aside {
-				grid-column: 4;
-			}
-		}}
-	}
+.page__banner {
+	max-height: 50vh;
 }
+
+@at-root .page__area {
+	background: $white;
+
+	.page-title {
+		margin: u() u(2);
+	}
+
+	@include media('>1150px') { & {
+		display: grid;
+		grid-template-columns: 1fr 700px 1fr 200px;
+
+		article {
+			grid-column: 2;
+		}
+
+		aside {
+			grid-column: 4;
+		}
+
+		.article-header {
+			position: sticky;
+			top: 0em;
+			left: 0em;
+		}
+
+		.page-title {
+			transform: rotate(-90deg) translate3D(-400px, -400px, 0);
+			position: relative;
+			top: u();
+			text-align: right;
+		}
+	}}
+}
+
