@@ -43,7 +43,26 @@ function milieux_add_byline_taxonomy () {
 // Display the byline by replacing instances of the_author throughout most areas of the site
 function byline ( $name ) {
 	global $post;
-	$author = get_the_term_list($post->ID, 'byline', '', ', ', '');
+
+	// Test if request is being made via REST API
+	// see: https://wordpress.stackexchange.com/questions/221202/
+	$isRest = false;
+  if ( function_exists( 'rest_url' ) && !empty( $_SERVER[ 'REQUEST_URI' ] ) ) {
+    $sRestUrlBase = get_rest_url( get_current_blog_id(), '/' );
+		$sRestPath = trim( parse_url( $sRestUrlBase, PHP_URL_PATH ), '/' );
+		$sRequestPath = trim( $_SERVER[ 'REQUEST_URI' ], '/' );
+    $isRest = ( strpos( $sRequestPath, $sRestPath ) === 0 );
+  }
+
+	if (is_object($post)) {
+		$author = get_the_term_list($post->ID, 'byline', '', ', ', '');
+		if ($author == false) { // loose check for false values
+			$author = 'Milieux';
+		}
+	} else {
+		$author = 'Milieux';
+	}
+
 
 	if ($author && !is_admin() && !is_feed()) {
 		$name = $author;
@@ -54,6 +73,18 @@ function byline ( $name ) {
 	if ($author && is_feed()) {
 		$name = get_the_author();
 		return $name;
+	}
+
+	// if rest...
+	if ($isRest) {
+		$detailsArray = array();
+		$detailsArray['name'] = $author;
+		$detailsArray['byline'] = $author;
+		$detailsArray['link'] = ($author === 'Milieux') ? null : $author;
+		$detailsArray['user_nicename'] = get_the_author_meta('user_nicename');
+		$detailsArray['nickname'] = get_user_meta($post_author, 'nickname', true);
+
+		return $detailsArray;
 	}
 }
 add_action( 'init', 'milieux_add_byline_taxonomy', 10 ); // Custom Bylines
