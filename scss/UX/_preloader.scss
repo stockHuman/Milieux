@@ -24,13 +24,13 @@
 
 .innie {
 	background: $gray-darker;
-	transform: translate3D(0,100%, 0);
+	transform: translate3D(0,100vh, 0);
 	transition: transform 300ms ease-in;
 }
 
 .outie {
 	background: $color-brand;
-	transform: translate3D(0, 100%, 0);
+	transform: translate3D(0, 100vh, 0);
 	transition: transform 250ms ease-in;
 }
 
