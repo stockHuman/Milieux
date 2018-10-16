@@ -19,6 +19,7 @@ const hideShowTransition = Barba.BaseTransition.extend({
 		DOM.outie.classList.remove('in')
 		window.scrollTo(0, 0)
 		this.done()
+		document.dispatchEvent(new Event('closeNav')) // close the nav if open
 	}
 })
 

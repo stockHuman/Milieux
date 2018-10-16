@@ -56,6 +56,11 @@ const Navigation = {
 	      }
 			}
 		})
+
+		// listen for custom nav toggle event
+		document.addEventListener('closeNav', () => {
+			if (navIsOpen) { this.toggleNav() }
+		}, false)
 	},
 
 	onScroll (event) {
