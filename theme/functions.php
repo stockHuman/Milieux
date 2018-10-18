@@ -33,7 +33,7 @@ require_once(get_template_directory().'/functions/disable-emoji.php');
 //require_once(get_template_directory().'/functions/editor-styles.php');
 
 // Related post function - no need to rely on plugins
-// require_once(get_template_directory().'/functions/related-posts.php');
+require_once(get_template_directory().'/functions/related-posts.php');
 
 // Related post function - no need to rely on plugins
 require_once(get_template_directory().'/functions/plugins.php');

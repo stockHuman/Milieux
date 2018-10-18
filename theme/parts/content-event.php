@@ -36,15 +36,21 @@
 		<aside class="event__sidebar">
 
 			<?php $meta = milieux_event_meta(); ?>
-
 			<div class="event__sidebar-details flex">
 			  <div class="bottom text-right">
 			    <div class=" text-blend address"><?= $meta['address']; ?></div>
 			  </div>
+				<?php if (get_field('event_type') != 'multi') { ?>
 			  <div class="">
 			    <div class="text-blend month"><?= $meta['month']; ?></div>
 			    <div class="ts-number day"><?= $meta['day']; ?></div>
 			  </div>
+				<?php } else { ?>
+			  <div class="">
+			    <div class="text-blend month"><?= $meta['month']; ?></div>
+			    <div class="ts-number day"><?= $meta['days']; ?></div>
+			  </div>
+				<?php } ?>
 			</div>
 		</aside>
 	</section>

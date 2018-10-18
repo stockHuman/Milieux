@@ -19,6 +19,7 @@
 	<?php endif; ?>
 
 	<footer class="article-footer">
-
+		<?php milieux_related_posts(); ?>
+		<?php if ( function_exists( "get_yuzo_related_posts" ) ) { get_yuzo_related_posts(); } ?>
 	</footer>
 </article>

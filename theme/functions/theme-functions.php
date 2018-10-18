@@ -195,9 +195,15 @@ function milieux_event_meta ( $id = null, $showAddress = true, $longMonth = fals
   // grab details from ACF
 
   $date_type = get_field('event_type', $id);     // single, range, multiple
-  $date_string = get_field('event_date', $id);   // YYYYmd or 20180908
+  $date_string = get_field('event_date', $id);   // YYYYmd => 20180908
   $day_string = '';
-  $month_string = DateTime::createFromFormat('!m', substr($date_string, 4, 2))->format($monthFormat);
+  $days_string = '';
+
+  if (!($date_type == 'multi')) { // multiple dates are handled differently
+    $month_string = DateTime::createFromFormat('!m', substr($date_string, 4, 2))->format($monthFormat);
+  } else {
+    $month_string = DateTime::createFromFormat('!m', substr(get_field('event_dates')[0]['event_dates_date'], 4, 2))->format($monthFormat);
+  }
 
   if ($showAddress) {
     $addr_string = get_field('event_location', $id);
@@ -213,10 +219,25 @@ function milieux_event_meta ( $id = null, $showAddress = true, $longMonth = fals
     $day_string = substr($date_string, 6, 2) . ' - ' . substr(get_field('event_date_end', $id), 6, 2);
   }
 
-  // TODO: multiple dates
-  return array(
-    'day' => $day_string,
-    'month' => $month_string,
-    'address' => $addr_string
-  );
+  if ( $date_type == 'multi') {
+    $dates = get_field('event_dates');
+    foreach ($dates as $date) {
+      $days_string .= substr($date['event_dates_date'], 6, 2) . ', ';
+    }
+    $days_string = substr($days_string, 0, -2); // remove last comma
+  }
+
+  if (!($date_type == 'multi')) {
+    return array(
+      'day' => $day_string,
+      'month' => $month_string,
+      'address' => $addr_string
+    );
+  } else {
+    return array(
+      'days' => $days_string,
+      'month' => $month_string,
+      'address' => $addr_string
+    );
+  }
 }
