@@ -47,7 +47,7 @@ $event-baseline: u(3.5);
 			}
 
 			.event__title {
-				grid-column: 2 / span 9;
+				grid-column: 2 / span 7;
 				grid-row: 7 / span 2;
 				@include font-size(27);
 				overflow: visible;
@@ -62,21 +62,19 @@ $event-baseline: u(3.5);
 	}
 
 	@at-root #{&}__content {
-		margin-bottom: u(4);
 		max-width: 1400px;
-		margin: 0 auto;
+		margin: u(2) auto u(4) auto;
 		&-inner {
 			max-width: 700px;
 			padding: u(2);
-			margin-top: u(2);
 			line-height: 1.55;
 		}
 		@include media('>tablet') { & {
-			display:flex;
+			display:grid;
 			flex-wrap: wrap-reverse;
 			align-items: stretch;
 
-			//grid-template-columns: repeat(20, 5%);
+			grid-template-columns: repeat(20, 5%);
 			min-height: 50vh;
 			&-inner {
 				margin-top: u(5);

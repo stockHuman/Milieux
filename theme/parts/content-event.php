@@ -37,8 +37,8 @@
 
 			<?php $meta = milieux_event_meta(); ?>
 			<div class="event__sidebar-details flex">
-			  <div class="bottom text-right">
-			    <div class=" text-blend address"><?= $meta['address']; ?></div>
+			  <div class="text-right">
+			    <div class="text-blend address"><?= $meta['address']; ?></div>
 			  </div>
 				<?php if (get_field('event_type') != 'multi') { ?>
 			  <div class="">

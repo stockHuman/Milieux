@@ -31,14 +31,13 @@
 - [x] `All` Twitter panel not responsive in very small viewports
 - [x] `Modules` CSS overflow to the right on mobile sizes (features & events)
 ​- [ ] `Template/Event` CTA is awkwardly wide
-- [ ] `Template/Home` "open" on menu doen't open menu
-- [ ] `Template/Home` Twitter icon doesn't work
+- [x] `Template/Home` "open" on menu doen't open menu
+- [x] `Template/Home` Twitter icon doesn't work
 - [x] `Plugins` Yoast SEO box hovering over the editing panel in admin view
 - [x] `Plugins` there are some weird page formatting bugs throughout admin view w/ Yoast
 - [ ] `Safari` Interactivity in Safari 9.9
 - [ ] `Modules` Events Module displays date in inccorect order / does not respond to order changes
 
-// after cleaning the house
 2. make social media block
 3. nav issues
 4. Push to servers
