@@ -16,7 +16,7 @@
 		}
 		@at-root #{&}--expanded {
 			.nav-main__inner {
-				max-height: 700px;
+				max-height: 500px;
 				transition: max-height 0.25s ease-in;
 			}
 		}
@@ -24,7 +24,7 @@
 		}
 
 		@at-root #{&}__inner {
-			height: 700px;
+			height: 500px;
 			overflow: hidden;
 			display: flex;
 			flex-wrap: wrap;

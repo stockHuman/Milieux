@@ -8,7 +8,7 @@
 - [x] `UI & UX` Desktop Nav
 - [x] `Functional` Nav Clusters expands out
 - [ ] `UI & UX` Page Transition Animation and loader
-- [ ] `Functional` Mobile, Tablet MQ
+- [x] `Functional` Mobile, Tablet MQ
 - [x] `Deployment` Github Auto Updater Integration
 - [x] `Front page` Search Results Template
 - [ ] `Front page` Social Events block
@@ -20,7 +20,7 @@
 - [ ] `Functional` Widget Areas where appropriate
 - [ ] `Functional` Calendar by month template (Archive)
 - [x] `UI & UX` Page templates
-- [ ] `UI & UX` Shorten Nav to only necessary space on desktop
+- [x] `UI & UX` Shorten Nav to only necessary space on desktop
 - [ ] `UI & UX` Make EVENTS page title horizontal?
 
 ---
@@ -35,7 +35,7 @@
 - [x] `Template/Home` Twitter icon doesn't work
 - [x] `Plugins` Yoast SEO box hovering over the editing panel in admin view
 - [x] `Plugins` there are some weird page formatting bugs throughout admin view w/ Yoast
-- [ ] `Safari` Interactivity in Safari 9.9
+- [ ] `Safari` Interactivity in Safari 9.9 // Do we support this?
 - [ ] `Modules` Events Module displays date in inccorect order / does not respond to order changes
 
 2. make social media block
