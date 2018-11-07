@@ -9,7 +9,7 @@
 
 	@include media('>tablet') { & {
 		height: auto;
-		min-height: auto;
+		min-height: 80vh;
 		max-height: 100vh;
 		grid-auto-rows: 5vh;
 	}}
