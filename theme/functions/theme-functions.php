@@ -3,7 +3,7 @@
  *
  */
 function milieux_featured_image () {
-  if (!get_the_post_thumbnail_url()) {
+  if (!has_post_thumbnail()) {
     return;
   }
 	return '<noscript><img= src="' . get_the_post_thumbnail_url() . '"/></noscript>'
@@ -25,7 +25,8 @@ function milieux_featured_image () {
  * @return string     integer value representing the % height
  */
 function _mlx_get_image_ratio_padding ($ID) {
-	$meta = wp_get_attachment_metadata($ID);
+  $meta = wp_get_attachment_metadata($ID);
+  if (!$meta) return 0;
 	return ($meta['sizes']['medium']['height'] / $meta['sizes']['medium']['width']) * 100;
 }
 
