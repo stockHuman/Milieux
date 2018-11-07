@@ -1836,7 +1836,10 @@ var Navigation = {
 		nav.subMenus = [];
 
 		var _loop = function _loop(i) {
-			nav.subMenus[i] = { dom: nav.subMenuDOMItems[i], active: false };
+			nav.subMenus[i] = {
+				dom: nav.subMenuDOMItems[i],
+				active: false
+			};
 			nav.subMenuDOMItems[i].addEventListener('click', function () {
 				_this.toggleSubMenu(i);
 			});
@@ -1869,6 +1872,13 @@ var Navigation = {
 				}
 			}
 		});
+
+		// listen for custom nav toggle event
+		document.addEventListener('closeNav', function () {
+			if (navIsOpen) {
+				_this.toggleNav();
+			}
+		}, false);
 	},
 	onScroll: function onScroll(event) {
 		if (navIsOpen) {
@@ -1886,7 +1896,6 @@ var Navigation = {
 	},
 	toggleSubMenu: function toggleSubMenu(index) {
 		var menu = nav.subMenus[index];
-		var menuTitle = menu.dom.firstChild;
 		var menuContainer = nav.main.querySelector('.nav-main__content');
 
 		menuContainer.classList.toggle('nav-main__content--submenu-open');
@@ -1897,7 +1906,7 @@ var Navigation = {
 	toggleNav: function toggleNav() {
 		if (navIsOpen) {
 			nav.main.classList.replace('nav-main--expanded', 'nav-main--collapsed');
-			document.getElementById('nav-toggle').firstChild.innerHTML = 'open';
+			document.getElementById('nav-toggle').firstChild.innerHTML = 'menu';
 		} else {
 			nav.main.classList.replace('nav-main--collapsed', 'nav-main--expanded');
 			document.getElementById('nav-toggle').firstChild.innerHTML = 'close';
@@ -1908,7 +1917,7 @@ var Navigation = {
 		var qb = document.querySelector('.nav-main__quickbar').classList;
 
 		if (nav.search == 'closed') {
-			nav.search = 'open';
+			nav.search = 'menu';
 
 			qb.add('nav-main__quickbar--search-open');
 			nav.linestate = 'search';
@@ -1975,6 +1984,7 @@ var hideShowTransition = _barba2.default.BaseTransition.extend({
 		DOM.outie.classList.remove('in');
 		window.scrollTo(0, 0);
 		this.done();
+		document.dispatchEvent(new Event('closeNav')); // close the nav if open
 	}
 });
 

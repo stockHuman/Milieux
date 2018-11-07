@@ -2,8 +2,22 @@
 # Milieux
 
 
+### Priority Changes
+- [ ] `UI & UX` Copy changes: 'open' to 'menu'
+- [ ] `UI & UX` Smaller Nav
+- [ ] `UI & UX` Replace Milieux homepage logo with institute variant
+- [ ] `UI & UX` Bigger Homepage CTA
+- [ ] `Functional` FB Timeline
+- [ ] `Functional` Event ordering bug + time _PRIORITY_
+- [ ] `UI & UX` Cluster pages content to the right so as not to be covered by nav
+- [x] `Functional` Nav dismiss on click
+- [ ] `Functional` If featured, hide in features block
+- [ ] `UI & UX` SVG arrow in Chrome
+- [ ] `UI & UX` Event page styling
 
-### TODO:
+---
+
+### Enhancements / Features
 
 - [x] `UI & UX` Desktop Nav
 - [x] `Functional` Nav Clusters expands out
@@ -37,7 +51,3 @@
 - [x] `Plugins` there are some weird page formatting bugs throughout admin view w/ Yoast
 - [x] `Safari` Interactivity in Safari 9.9 // Do we support this? No.
 - [ ] `Modules` Events Module displays date in incorrect order / does not respond to order changes
-
-2. make social media block
-3. nav issues
-4. Push to servers
