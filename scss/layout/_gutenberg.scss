@@ -24,6 +24,7 @@
 		}
 	}
 
+	// default WP column flex column implementation
 	@at-root #{&}-columns {
 		max-width: 1400px;
 		padding: u();
@@ -31,12 +32,29 @@
 		flex-wrap: wrap;
 	}
 
+	// ... and the blocks therein
 	@at-root #{&}-column {
 		margin: u();
 		line-height: 1.32;
 		flex-basis: 300px;
 		display: flex;
 		align-self: baseline;
+		flex-grow: 1;
+	}
+
+	@at-root #{&}-cover {
+		margin: 0;
+		min-height: 500px;
+
+		// style the default tag inside the cover block
+		.wp-block-cover-text {
+			font-size: 2.6rem;
+			font-weight: 700;
+		}
+		// add margin to flow nicely in regular articles
+		& + p {
+			margin-bottom: u();
+		}
 	}
 
 	@at-root #{&}-cover-image {
