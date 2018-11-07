@@ -26,7 +26,7 @@
 				</svg>
 			</a>
 		</div>
-		<div class="nav-main__toggle" id="nav-toggle"><span><?= __('open', 'milieux'); ?></span></div>
+		<div class="nav-main__toggle" id="nav-toggle"><span><?= __('menu', 'milieux'); ?></span></div>
 		<div class="nav-main__search" >
 			<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<label for="s" class="screen-reader-text"><?php _e( 'Search', 'milieux' ); ?></label>

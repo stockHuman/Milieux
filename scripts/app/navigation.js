@@ -26,8 +26,12 @@ const Navigation = {
 		// Add support nested menus
 		nav.subMenuDOMItems = nav.main.querySelectorAll('.menu-item-has-children')
 		nav.subMenus = []
+
 		for (let i = 0; i < nav.subMenuDOMItems.length; i++) {
-			nav.subMenus[i] = { dom: nav.subMenuDOMItems[i], active: false }
+			nav.subMenus[i] = {
+				dom: nav.subMenuDOMItems[i],
+				active: false
+			}
 			nav.subMenuDOMItems[i].addEventListener('click', () => {
 				this.toggleSubMenu(i)
 			})
@@ -80,7 +84,6 @@ const Navigation = {
 
 	toggleSubMenu (index) {
 		const menu = nav.subMenus[index]
-		const menuTitle = menu.dom.firstChild
 		const menuContainer = nav.main.querySelector('.nav-main__content')
 
 		menuContainer.classList.toggle('nav-main__content--submenu-open')
@@ -92,7 +95,7 @@ const Navigation = {
 	toggleNav () {
 		if (navIsOpen) {
 			nav.main.classList.replace('nav-main--expanded', 'nav-main--collapsed')
-			document.getElementById('nav-toggle').firstChild.innerHTML = 'open'
+			document.getElementById('nav-toggle').firstChild.innerHTML = 'menu'
 		} else {
 			nav.main.classList.replace('nav-main--collapsed', 'nav-main--expanded')
 			document.getElementById('nav-toggle').firstChild.innerHTML = 'close'
@@ -104,7 +107,7 @@ const Navigation = {
 		let qb = document.querySelector('.nav-main__quickbar').classList
 
 		if (nav.search == 'closed') {
-			nav.search = 'open'
+			nav.search = 'menu'
 
 			qb.add('nav-main__quickbar--search-open')
 			nav.linestate = 'search'
