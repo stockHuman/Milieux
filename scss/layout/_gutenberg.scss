@@ -74,6 +74,7 @@
 
 	@at-root #{&}-embed, #{&}-image {
 		margin-top: u(2);
+		max-height: 80vh;
 	}
 
 	@at-root #{&}-separator {
