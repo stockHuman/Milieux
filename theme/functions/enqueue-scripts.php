@@ -5,12 +5,13 @@
  * @return string           Timestamp string to append as query var
  */
 function fmt ( $file_URL ) {
-	$fpath = get_template_directory_uri() . '/assets/' . $file_URL;
-	if (file_exists($fpath)) {
-		$t = filemtime( $fpath );
-			if ($t != false) { return $t; }
-			else return '';
-	} else return '';
+	$fpath = dirname(dirname( __FILE__ )) . "//assets/" . $file_URL;
+	$stat = stat($fpath);
+	if (!$stat) {
+		return '';
+	} else {
+		return $stat['mtime']; // file modification time
+	}
 }
 
 function site_scripts() {
