@@ -29,7 +29,7 @@ function site_scripts() {
 
 	//if ( is_search() ) {
 		// adds a small custom animation on search
-		wp_enqueue_script( 'search',  $td_URI . 'js/search.min.js', array(), fmt('js/search.min.js'), true);
+	//	wp_enqueue_script( 'search',  $td_URI . 'js/search.min.js', array(), fmt('js/search.min.js'), true);
 	//}
 
 	//if ( is_home() ) {
