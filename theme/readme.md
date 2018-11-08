@@ -3,16 +3,16 @@
 
 
 ### Priority Changes
-- [ ] `UI & UX` Copy changes: 'open' to 'menu'
-- [ ] `UI & UX` Smaller Nav
-- [ ] `UI & UX` Replace Milieux homepage logo with institute variant
-- [ ] `UI & UX` Bigger Homepage CTA
+- [x] `UI & UX` Copy changes: 'open' to 'menu'
+- [x] `UI & UX` Smaller Nav
+- [x] `UI & UX` Replace Milieux homepage logo with institute variant
+- [x] `UI & UX` Bigger Homepage CTA
 - [ ] `Functional` FB Timeline
 - [ ] `Functional` Event ordering bug + time _PRIORITY_
-- [ ] `UI & UX` Cluster pages content to the right so as not to be covered by nav
+- [x] `UI & UX` Cluster pages content to the right so as not to be covered by nav
 - [x] `Functional` Nav dismiss on click
 - [ ] `Functional` If featured, hide in features block
-- [ ] `UI & UX` SVG arrow in Chrome
+- [x] `UI & UX` SVG arrow in Chrome
 - [ ] `UI & UX` Event page styling
 
 ---

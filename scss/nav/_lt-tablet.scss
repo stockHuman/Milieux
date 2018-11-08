@@ -6,6 +6,7 @@
 		@at-root #{&}__quickbar {
 			z-index: z('nav', 1);
 			box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+			transition: cubic-bezier(0.075, 0.82, 0.165, 1) opacity .5s;
 		}
 		@at-root #{&}--collapsed {
 			.nav-main__inner {
@@ -17,15 +18,13 @@
 		}
 		@at-root #{&}--expanded {
 			.nav-main__inner {
-				max-height: 500px;
+				max-height: 450px;
 				transition: max-height 0.25s ease-in;
 			}
 		}
-		@at-root #{&}__quickbar, #{&}__content  {
-		}
 
 		@at-root #{&}__inner {
-			height: 500px;
+			height: 450px;
 			overflow: hidden;
 			display: flex;
 			flex-wrap: wrap;
@@ -44,8 +43,10 @@
 			align-self: end;
 			margin-bottom: 20%;
 		}
-		@at-root #{&}__quickbar {
+		@at-root #{&}__quickbar.transparent {
+			opacity: 0.5;
 		}
+
 		@at-root #{&}__toggle {
 		}
 	}

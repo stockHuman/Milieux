@@ -20,12 +20,15 @@ const hideShowTransition = Barba.BaseTransition.extend({
 		window.scrollTo(0, 0)
 		this.done()
 		document.dispatchEvent(new Event('closeNav')) // close the nav if open
+		UI.onLoadedNewDom()
 	}
 })
 
 const DOM = {}
 
 const UI = {
+	backgroundsourceset: null,
+
 	onDOM () {
 		// link DOM
 		DOM.preloader = document.getElementById('preloader')
@@ -47,6 +50,14 @@ const UI = {
 	preloaderLoaded () {
 		DOM.preloader.className = 'loaded'
 		window.setTimeout( () => { preloader.className = 'loaded' } , 1500)
+	},
+
+	onLoadedNewDom () {
+		if (this.backgroundsourceset) {
+			this.backgroundsourceset.init(".dynamic-bg", (a) => {
+				a.node.classList.add("loaded")
+			})
+		}
 	},
 
 	initAnimatedButtons() {

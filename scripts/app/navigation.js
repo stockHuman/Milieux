@@ -4,9 +4,14 @@
 
 let navIsOpen = false
 
+let navLeaveTimer = null
+const navLeaveTimerAction = () => {
+	if (navIsOpen) { Navigation.toggleNav() }
+}
+
 // scroll vars
 let navCloseTolerance = 20
-let navToggleTolerance = 70
+let navTranparentTolerance = 80
 
 // navigation state
 const nav = {}
@@ -16,12 +21,21 @@ const Navigation = {
 	onDOM () {
 		nav.main = document.getElementById('nav-main')
 		nav.line = document.getElementById('nav-line')
+		nav.quickbar = nav.main.querySelector('.nav-main__quickbar')
 		nav.linestate = 'closed'
 		nav.search = 'closed'
+		nav.transparent = false
 
 		this.setLineStyle(nav.linestate)
+
+
+
+		// Add DOM listeners
 		document.getElementById('nav-toggle').addEventListener('click', () => {this.toggleNav()})
 		document.getElementById('nav-search').addEventListener('click', () => {this.toggleSearch()})
+		nav.quickbar.addEventListener('mouseenter', () => { this.onHover(); })
+		nav.main.addEventListener('mouseenter', () => { if (navLeaveTimer != null) clearTimeout(navLeaveTimer) })
+		nav.main.addEventListener('mouseleave', () => { navLeaveTimer = setTimeout(navLeaveTimerAction, 900) })
 
 		// Add support nested menus
 		nav.subMenuDOMItems = nav.main.querySelectorAll('.menu-item-has-children')
@@ -70,16 +84,31 @@ const Navigation = {
 	onScroll (event) {
 		if (navIsOpen) { // kinda silly but it works
 			if (navCloseTolerance != 0) {
-				navCloseTolerance -= 1;
+				navCloseTolerance -= 1
 			} else {
 				navCloseTolerance = 20
 				this.toggleNav()
+			}
+		} else {
+			if (navTranparentTolerance != 0) {
+				navTranparentTolerance -= 1
+			} else {
+				nav.transparent = true
+				navTranparentTolerance = 80
+				nav.quickbar.classList.add('transparent')
 			}
 		}
 	},
 
 	onResize () {
 		this.setLineStyle(nav.linestate)
+	},
+
+	onHover () {
+		if (nav.transparent) {
+			nav.transparent = false
+			nav.quickbar.classList.remove('transparent')
+		}
 	},
 
 	toggleSubMenu (index) {
@@ -104,7 +133,7 @@ const Navigation = {
 	},
 
 	toggleSearch () {
-		let qb = document.querySelector('.nav-main__quickbar').classList
+		let qb = nav.main.classList
 
 		if (nav.search == 'closed') {
 			nav.search = 'menu'

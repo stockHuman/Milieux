@@ -1720,6 +1720,10 @@ var _ui = require('./ui.js');
 
 var _ui2 = _interopRequireDefault(_ui);
 
+var _home = require('./home.js');
+
+var _home2 = _interopRequireDefault(_home);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 'use strict';
@@ -1734,9 +1738,17 @@ var scroll = { lastY: null };
 var click = { last: null };
 var touch = { last: null };
 
+var bgss = new _home2.default();
+bgss.callonce = false;
+_ui2.default.backgroundsourceset = bgss;
+
 document.addEventListener('DOMContentLoaded', function () {
 	_navigation2.default.onDOM();
 	_ui2.default.onDOM();
+
+	bgss.init(".dynamic-bg", function (a) {
+		a.node.classList.add("loaded");
+	});
 
 	document.addEventListener('scroll', scrollHandler, {
 		// https://alligator.io/js/speed-up-scroll-events/
@@ -1795,7 +1807,318 @@ function update() {
 	scheduledAnimationFrame = false;
 }
 
-},{"./navigation.js":3,"./ui.js":4}],3:[function(require,module,exports){
+},{"./home.js":3,"./navigation.js":4,"./ui.js":5}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.dynamicSort = dynamicSort;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BGsrcset = function () {
+	function BGsrcset() {
+		_classCallCheck(this, BGsrcset);
+
+		this.called = false;
+		this.callonce = true;
+		this.compat();
+	}
+
+	_createClass(BGsrcset, [{
+		key: "init",
+		value: function init(target, callback) {
+			//retina bool
+			this.retina = window.devicePixelRatio > 1;
+
+			//storage for our elements
+			this.elements = [];
+
+			//global onload callback for imagery
+			this.callback = typeof callback === "function" ? callback : function () {};
+
+			//window width, for responsive handling
+			this.curwidth = this.getWidth();
+
+			//get our input and turn it into an element list of some sort
+			var elems = this.gather(target);
+
+			//parse the element input
+			for (var i = 0, l = elems.length; i < l; i++) {
+				this.parse(elems[i]);
+			}
+
+			this.set();
+			this.resize();
+		}
+
+		// Fix compatibility issues *only down to IE8*
+
+	}, {
+		key: "compat",
+		value: function compat() {
+			var _this = this;
+
+			var d = document;
+
+			// check for getElementsByClassName
+			if (typeof d.getElementsByClassName !== "function") {
+				d.getElementsByClassName = function (str) {
+					return d.querySelectorAll("." + str);
+				};
+			}
+
+			// check for .trim()
+			if (!String.prototype.trim) {
+				String.prototype.trim = function () {
+					return _this.replace(/^\s+|\s+$/g, "");
+				};
+			}
+
+			// Check for Event Listener
+			if (!d.addEventListener) {
+				this.addEvent = function (elem, evName, fn) {
+					elem.attachEvent("on" + evName, function (e) {
+						fn(e || window.event);
+					});
+				};
+			}
+		}
+	}, {
+		key: "gather",
+		value: function gather(target) {
+			var autotypes = ["HTMLCollection", "NodeList"];
+			var e = target;
+			var type = e.nodeType ? "Object" : Object.prototype.toString.call(e).replace(/^\[object |\]$/g, "");
+
+			var func = "parse" + type;
+
+			if (autotypes.indexOf(type) > -1) {
+				return e;
+			}
+
+			if (this[func]) {
+				return this[func](e);
+			}
+
+			return [];
+		}
+	}, {
+		key: "parseObject",
+		value: function parseObject(target) {
+			target.nodeType ? [target] : [];
+		}
+	}, {
+		key: "parseArray",
+		value: function parseArray(target) {
+			target;
+		}
+	}, {
+		key: "parseString",
+		value: function parseString(target) {
+			var d = document;
+			var e = target.trim();
+			var sel = e[0];
+			var elems = [];
+
+			switch (true) {
+				/* class */
+				case sel === ".":
+					elems = d.getElementsByClassName(e.substring(1));
+					break;
+				/* id */
+				case sel === "#":
+					elems.push(d.getElementById(e.substring(1)));
+					break;
+				/* tag */
+				case /^[a-zA-Z]+$/.test(e):
+					elems = d.getElementsByTagName(e);
+					break;
+				/* unknown */
+				default:
+					elems = [];
+			}
+
+			return elems;
+		}
+	}, {
+		key: "parse",
+		value: function parse(obj) {
+			//our data to parase
+			var bgss = obj.getAttribute("bg-srcset");
+			/* exit if no attribute */
+			if (attr === null) {
+				return false;
+			}
+
+			/* create new element object */
+			this.elements.push({});
+
+			/* split up sets */
+			var set = bgss.split(",");
+			var attr = "";
+			var curelem = this.elements[this.elements.length - 1];
+
+			curelem.node = obj;
+			curelem.srcset = [];
+
+			/* loop through sets to define breakpoints */
+			for (var i = 0, l = set.length; i < l; i++) {
+				curelem.srcset.push({});
+				attr = set[i].trim();
+				var attrs = attr.split(" ");
+				var a = void 0;
+				var e = void 0;
+				var t = void 0;
+				/* since we can't know the order of the values, starting another loop */
+				for (var attrc = 0, attrl = attrs.length; attrc < attrl; attrc++) {
+					a = attrs[attrc];
+					e = curelem.srcset[i]; //current attribute
+					t = a.length - 1;
+					switch (true) {
+						case a.trim() === "":
+							//in case of extra white spaces
+							continue;
+						case a[t] !== "w" && a[a.length - 1] !== "x":
+							e.src = a;
+							break;
+						case a[t] === "w":
+							e.width = parseInt(a.slice(0, -1));
+							break;
+						case a[t] === "x":
+							e.retina = parseInt(a.slice(0, -1)) > 1;
+							break;
+					}
+					if (!e.width) {
+						e.width = Number.POSITIVE_INFINITY;
+					} //set to the top
+					if (!e.retina) {
+						e.retina = false;
+					}
+				}
+			}
+		}
+	}, {
+		key: "set",
+		value: function set() {
+			for (var i = 0, l = this.elements.length; i < l; i++) {
+				this.setSingle(i);
+			}
+		}
+	}, {
+		key: "setSingle",
+		value: function setSingle(id) {
+			var _this2 = this;
+
+			var width = 0;
+			var elem = this.elements[id];
+			var comparray = [];
+			var best = 0;
+
+			width = this.getWidth(); // elem.node.offsetWidth;
+
+			elem.srcset = elem.srcset.sort(dynamicSort("width"));
+
+			for (var i = 0, l = elem.srcset.length; i < l; i++) {
+				if (elem.srcset[i].width < width) {
+					continue;
+				}
+				comparray.push(elem.srcset[i]);
+			}
+			if (comparray.length === 0) {
+				comparray.push(elem.srcset[elem.srcset.length - 1]);
+			}
+
+			best = comparray[0];
+
+			if (comparray.length > 1 && comparray[0].width === comparray[1].width) {
+				best = comparray[0].retina !== this.retina ? comparray[1] : comparray[0];
+			}
+
+			if (best.src !== undefined && best.src !== "null") {
+				var img = new Image();
+				var done = false;
+
+				img.onload = img.onreadystatechange = function () {
+					if (!done && (!_this2.readyState || _this2.readyState === "loaded" || _this2.readyState === "complete")) {
+						done = true;
+
+						elem.node.style.backgroundImage = "url('" + best.src + "')";
+
+						/* only fire the callback on initial load, not resize events */
+						if (!_this2.called) {
+							_this2.callback(elem);
+							_this2.called = _this2.callonce;
+						}
+					}
+				};
+
+				img.src = best.src;
+			} else {
+				elem.node.style.backgroundImage = "";
+			}
+		}
+	}, {
+		key: "resize",
+		value: function resize() {
+			var _this3 = this;
+
+			var resizeTimer = setTimeout(function () {}, 0);
+
+			this.addEvent(window, "resize", function () {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function () {
+					var w = _this3.getWidth();
+					if (w !== _this3.curwidth) {
+						_this3.curwidth = w;
+						_this3.set();
+					}
+				}, 250);
+			});
+		}
+	}, {
+		key: "addEvent",
+		value: function addEvent(elem, evName, fn) {
+			elem.addEventListener(evName, fn, false);
+		}
+	}, {
+		key: "getWidth",
+		value: function getWidth() {
+			var w = void 0,
+			    d = void 0,
+			    e = void 0,
+			    g = void 0;
+			w = window;
+			d = document;
+			e = d.documentElement;
+			g = d.getElementsByTagName("body")[0];
+
+			return w.innerWidth || e.clientWidth || g.clientWidth;
+		}
+	}]);
+
+	return BGsrcset;
+}();
+
+exports.default = BGsrcset;
+function dynamicSort(property) {
+	var sortOrder = 1;
+
+	if (property[0] === "-") {
+		sortOrder = -1;
+		property = property.substr(1);
+	}
+	return function (a, b) {
+		var result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+		return result * sortOrder;
+	};
+}
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1807,9 +2130,16 @@ Object.defineProperty(exports, "__esModule", {
 
 var navIsOpen = false;
 
+var navLeaveTimer = null;
+var navLeaveTimerAction = function navLeaveTimerAction() {
+	if (navIsOpen) {
+		Navigation.toggleNav();
+	}
+};
+
 // scroll vars
 var navCloseTolerance = 20;
-var navToggleTolerance = 70;
+var navTranparentTolerance = 80;
 
 // navigation state
 var nav = {};
@@ -1820,15 +2150,28 @@ var Navigation = {
 
 		nav.main = document.getElementById('nav-main');
 		nav.line = document.getElementById('nav-line');
+		nav.quickbar = nav.main.querySelector('.nav-main__quickbar');
 		nav.linestate = 'closed';
 		nav.search = 'closed';
+		nav.transparent = false;
 
 		this.setLineStyle(nav.linestate);
+
+		// Add DOM listeners
 		document.getElementById('nav-toggle').addEventListener('click', function () {
 			_this.toggleNav();
 		});
 		document.getElementById('nav-search').addEventListener('click', function () {
 			_this.toggleSearch();
+		});
+		nav.quickbar.addEventListener('mouseenter', function () {
+			_this.onHover();
+		});
+		nav.main.addEventListener('mouseenter', function () {
+			if (navLeaveTimer != null) clearTimeout(navLeaveTimer);
+		});
+		nav.main.addEventListener('mouseleave', function () {
+			navLeaveTimer = setTimeout(navLeaveTimerAction, 900);
 		});
 
 		// Add support nested menus
@@ -1889,10 +2232,24 @@ var Navigation = {
 				navCloseTolerance = 20;
 				this.toggleNav();
 			}
+		} else {
+			if (navTranparentTolerance != 0) {
+				navTranparentTolerance -= 1;
+			} else {
+				nav.transparent = true;
+				navTranparentTolerance = 80;
+				nav.quickbar.classList.add('transparent');
+			}
 		}
 	},
 	onResize: function onResize() {
 		this.setLineStyle(nav.linestate);
+	},
+	onHover: function onHover() {
+		if (nav.transparent) {
+			nav.transparent = false;
+			nav.quickbar.classList.remove('transparent');
+		}
 	},
 	toggleSubMenu: function toggleSubMenu(index) {
 		var menu = nav.subMenus[index];
@@ -1914,7 +2271,7 @@ var Navigation = {
 		navIsOpen = !navIsOpen;
 	},
 	toggleSearch: function toggleSearch() {
-		var qb = document.querySelector('.nav-main__quickbar').classList;
+		var qb = nav.main.classList;
 
 		if (nav.search == 'closed') {
 			nav.search = 'menu';
@@ -1952,7 +2309,7 @@ var Navigation = {
 
 exports.default = Navigation;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1985,12 +2342,15 @@ var hideShowTransition = _barba2.default.BaseTransition.extend({
 		window.scrollTo(0, 0);
 		this.done();
 		document.dispatchEvent(new Event('closeNav')); // close the nav if open
+		UI.onLoadedNewDom();
 	}
 });
 
 var DOM = {};
 
 var UI = {
+	backgroundsourceset: null,
+
 	onDOM: function onDOM() {
 		// link DOM
 		DOM.preloader = document.getElementById('preloader');
@@ -2013,6 +2373,13 @@ var UI = {
 		window.setTimeout(function () {
 			preloader.className = 'loaded';
 		}, 1500);
+	},
+	onLoadedNewDom: function onLoadedNewDom() {
+		if (this.backgroundsourceset) {
+			this.backgroundsourceset.init(".dynamic-bg", function (a) {
+				a.node.classList.add("loaded");
+			});
+		}
 	},
 	initAnimatedButtons: function initAnimatedButtons() {
 		// via https://blog.prototypr.io/stunning-hover-effects-with-css-variables-f855e7b95330

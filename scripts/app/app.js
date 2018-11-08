@@ -1,5 +1,6 @@
 import nav from './navigation.js'
 import ui from './ui.js'
+import BGsrcset, { dynamicSort } from './home.js'
 
 'use strict';
 
@@ -13,9 +14,17 @@ const scroll = { lastY : null }
 const click = { last : null }
 const touch = { last : null }
 
+const bgss = new BGsrcset()
+bgss.callonce = false
+ui.backgroundsourceset = bgss
+
 document.addEventListener('DOMContentLoaded', () => {
 	nav.onDOM()
 	ui.onDOM()
+
+	bgss.init(".dynamic-bg", (a) => {
+		a.node.classList.add("loaded")
+	})
 
 	document.addEventListener('scroll', scrollHandler, {
 		// https://alligator.io/js/speed-up-scroll-events/
