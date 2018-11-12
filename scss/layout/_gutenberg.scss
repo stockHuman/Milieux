@@ -111,7 +111,7 @@
 		opacity: 0.3;
 	}
 
-	@at-root #{&}--embed__wrapper {
+	@at-root #{&}-embed__wrapper {
 		text-align: center; // fixes wonky fb embed
 	}
 }

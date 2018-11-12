@@ -42,6 +42,7 @@ $event-baseline: u(3.5);
 			.event__cta {
 				grid-column: 16 / span 5;
 				grid-row: 9;
+				font-size: 120%;
 				align-self: end;
 				@include font-size(12);
 			}

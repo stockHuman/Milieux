@@ -18,12 +18,13 @@
 		margin-left: u(2);
 		z-index: z('base', 1);
 		pointer-events: none;
-		max-width: 500px;
+		max-width: 200px;
 
 		@include media('>tablet') { & {
 			padding-top: 0;
 			grid-column: 1 / span 6;
 			grid-row: 9 / span 2;
+			max-width: 500px;
 		}}
 
 		@include media('>desktop') { & {

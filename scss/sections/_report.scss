@@ -1,0 +1,46 @@
+.report {
+
+	.page__banner {
+		grid-column: 1 / span 5;
+		padding: u();
+		img {
+			max-height: 77vh;
+			width: auto;
+		}
+	}
+	.page__area {
+		grid-column: 6 / span 5;
+		display: block;
+		display: flex;
+		justify-content: center;
+
+		.article-header {
+			position: unset;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 700px;
+		}
+
+		.page-title {
+			transform: initial;
+			text-align: left;
+			position: unset;
+			margin: u();
+		}
+	}
+}
+
+@include media('>tablet') {
+	.report {
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		min-height: 80vh;
+		margin-top: u(5);
+	}
+}
+
+@include media('>desktop') {
+	.report .page__area article {
+		align-self: center;
+	}
+}
