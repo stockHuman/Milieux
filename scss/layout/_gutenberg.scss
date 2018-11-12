@@ -24,6 +24,28 @@
 		}
 	}
 
+	@at-root #{&}-button {
+		@extend .btn;
+		padding: unset;
+		height: auto;
+		margin-left: u(); // match copy column
+		margin-right: u();
+
+		&__link {
+			border-radius: 0 !important; // ovveride default wp styling
+			font-weight: 200;
+			background: inherit;
+			line-height: 38px;
+			height: 38px;
+		}
+
+		&:hover {
+			background: $color-brand;
+			text-decoration: none;
+		}
+	}
+
+
 	// default WP column flex column implementation
 	@at-root #{&}-columns {
 		max-width: 1400px;
@@ -72,9 +94,12 @@
 		}
 	}
 
-	@at-root #{&}-embed, #{&}-image {
+	@at-root #{&}-embed, #{&}-image, #{&}-image img {
 		margin-top: u(2);
 		max-height: 80vh;
+		& + p {
+			padding-top: u(2);
+		}
 	}
 
 	@at-root #{&}-separator {
@@ -84,5 +109,9 @@
 		height: 1px;
 		border: solid 1px $gray;
 		opacity: 0.3;
+	}
+
+	@at-root #{&}--embed__wrapper {
+		text-align: center; // fixes wonky fb embed
 	}
 }

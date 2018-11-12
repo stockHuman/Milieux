@@ -25,13 +25,13 @@
 .innie {
 	background: $gray-darker;
 	transform: translate3D(0,100vh, 0);
-	transition: transform 300ms ease-in;
+	//transition: transform 300ms ease-in;
 }
 
 .outie {
 	background: $color-brand;
 	transform: translate3D(0, 100vh, 0);
-	transition: transform 250ms ease-in;
+//	transition: transform 250ms ease-in;
 }
 
 .fade-out { animation: fade-out .5s ease forwards !important; }

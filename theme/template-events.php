@@ -30,8 +30,9 @@
 
 				<header>
 					<?php if ( $hero_enabled ) : ?>
-					<div class="events__hero">
+					<a href="<?= the_permalink($hero_event_ID); ?>" class="events__hero">
 						<?= milieux_event_featured_image($hero_event_ID); ?>
+
 						<div class="events__hero-details">
 							<span class="text-blend"><?= __('Featured', 'milieux') ?></span>
 							<h2 class="mono-title"><?= get_the_title($hero_event_ID); ?></h2>
@@ -47,7 +48,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 					<a class="events__hero-cta" href="<?= $hero['cta_link']; ?>">
 						<?= $hero['cta']; ?>
 					</a>

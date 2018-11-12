@@ -12,6 +12,14 @@
 		h2 a {
 			text-decoration: none;
 		}
+
+		a + p { // image link followed by copy
+			margin-top: u();
+		}
+		.excerpt-read-more {
+			margin-top: u();
+			display: block;
+		}
 	}
 
 	@include media('>desktop') { & {
@@ -25,6 +33,10 @@
 		margin-bottom: u(2);
 	}
 }
-.search .container {
-	transition: background-image 0.2s ease-in-out;
+
+.search h1 { // the page title with the search query
+	@include media('>tablet') { & {
+		padding: u();
+		margin-top: u(4); // clear the nav
+	}}
 }

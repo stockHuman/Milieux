@@ -11,6 +11,7 @@
 	height: 200px;
 	z-index: z('super');
 	will-change: transform;
+	-webkit-overflow-scrolling: touch;
 	transition: .5s $easeOutExpo transform;
 	transform: translate3D(110%, 0, 0);
 	&.--active {

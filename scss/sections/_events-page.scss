@@ -1,5 +1,7 @@
 .events {
 	@at-root #{&}__hero {
+		text-decoration: none;
+		color: inherit;
 
 		@include media('>tablet') { & {
 			display: flex;
