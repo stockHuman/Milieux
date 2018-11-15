@@ -106,6 +106,236 @@
 
 					<?php endwhile; endif; // events query ?>
 				</section>
+
+
+
+
+<?php // DEBUG
+
+	$events = get_posts(array(
+		'post_type' => 'event',
+		'posts_per_page' => 10,
+		'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key' => 'event_date',
+				'value' => $today,
+				'compare' => '>=' // truncate results older than today
+			),
+			array(
+				'key' => 'event_type',
+				'value' => 'multi',
+				'compare' => '!=' // exclude multi events
+			)
+		),
+		'meta_key' => 'event_date', // name of custom field
+		'orderby' => 'meta_value_num',
+		'order' => 'DESC'
+	));
+
+	if ($events) {
+		echo '<article class="feature__content">';
+		foreach ($events as $post) {
+			setup_postdata($post);
+			$printdate = DateTime::createFromFormat('Ymd', get_post_meta($post->ID, 'event_date', 'true'));
+
+			echo '<p style="line-height: 1.25; margin-bottom: 1em"><em>type : '. get_post_meta($post->ID, 'event_type', 'true') .'</em><br>';
+		//	echo 'title: '. get_the_title() . '</br>';
+			the_date('', 'date: ', '<br>', true);
+			print_r('ACF date: ' .$printdate->format('M d, Y'));
+			echo '</p>';
+		}
+		echo '</article>';
+
+		wp_reset_postdata();
+	}
+
+	// multi events
+	echo '<h3>Multi events</h3>';
+	$multievents = get_posts(array(
+		'post_type' => 'event',
+		'posts_per_page' => -1,
+		'meta_key' => 'event_dates', // name of custom field
+		'order' => 'DESC'
+	));
+
+	if ($multievents) {
+		echo '<article class="feature__content">';
+		foreach ($multievents as $post) {
+			setup_postdata($post);
+			$meta = get_post_meta($post->ID);
+			$numdates = $meta['event_dates'][0];
+
+			if ($numdates > 0) {
+				$dates = array();
+				for ($i=0; $i < $numdates; $i++) {
+					$dates[$i] = $meta['event_dates_' . $i . '_event_dates_date'][0];
+				}
+			}
+
+
+			$datesstring = '';
+			if ($dates) {
+				foreach ($dates as $date) {
+					$datesstring .= DateTime::createFromFormat('Ymd', $date)->format('M d, Y') . '<br>';
+				}
+			}
+
+
+			echo '<p style="line-height: 1.25; margin-bottom: 1em"><em>type : '. get_post_meta($post->ID, 'event_type', 'true') .'</em><br>';
+			the_date('', 'date: ', '<br>', true);
+			print_r('ACF dates:<br>' . $datesstring);
+			echo '</p>';
+		}
+		echo '</article>';
+
+		wp_reset_postdata();
+	}
+
+	// merge two requests into one and sort as per function
+	// returns a modified object with a normalised event date
+	function milieux_sort_events() {
+		$today = date('Ymd');
+		$events = array();
+
+		$events_single_and_range = get_posts(array(
+			'post_type' => 'event',
+			'posts_per_page' => 10,
+			'meta_query' => array(
+				'relation' => 'AND',
+				array(
+					'key' => 'event_date',
+					'value' => $today,
+					'compare' => '>=' // truncate results older than today
+				),
+				array(
+					'key' => 'event_type',
+					'value' => 'multi',
+					'compare' => '!=' // exclude multi events
+				)
+			),
+			'meta_key' => 'event_date', // name of custom field
+			'orderby' => 'meta_value_num',
+			'order' => 'DESC'
+		));
+
+
+		if ($events_single_and_range) {
+			// sort through posts for range events and determine what date to send back
+			foreach ($events_single_and_range as $event) {
+				$e_meta = get_post_meta($event->ID);
+
+				$formatted_event = array(
+					'ID' => $event->ID,
+					'event_author' => $event->post_author,
+					'event_content' => $event->post_content,
+					'event_title' => $event->post_title,
+					'event_name' => $event->post_name,
+					'event_excerpt' => $event->post_excerpt,
+					'event_date' => $e_meta['event_date'][0], // just in case
+					'event_type' => $e_meta['event_type'][0],
+					'order' => $e_meta['event_date'][0], // we're changing this
+					'event_meta' => array(
+						'location' => $e_meta['event_location'][0],
+						'cta_link' => $e_meta['event_cta_link'][0],
+						'cta_text' => $e_meta['event_cta_text'][0],
+						'time_start' => $e_meta['event_time'][0],
+						'time_end' => $e_meta['event_time_end'][0],
+					),
+				);
+
+				// handle edge case where ranged event could be in the middle of happening
+				if ($e_meta['event_type'] == 'range') {
+					if ($e_meta['event_date_end'] >= $today && $today >= $e_meta['event_date']) {
+						$formatted_event['order'] = $today;
+					} // else leave as is, event = start date
+				}
+				array_push($events, $formatted_event);
+			}
+		}
+
+		$events_multi = get_posts(array(
+			'post_type' => 'event',
+			'posts_per_page' => -1,
+			'meta_key' => 'event_dates', // name of custom field
+			'order' => 'DESC',
+			'meta_query' => array(
+				array(
+					'key' => 'event_type',
+					'value' => 'multi',
+					'compare' => '==' // exclude multi events
+				)
+			),
+		));
+
+		if ($events_multi) {
+			foreach ($events_multi as $event) {
+				$e_meta = get_post_meta($event->ID);
+				$numdates = $e_meta['event_dates'][0];
+
+				// add dates to array (formatted as Ymd) from acf generated keys
+				if ($numdates > 0) {
+					$dates = array();
+					$isCurrent = false;
+					for ($i = 0; $i < $numdates; $i++) {
+						$dates[$i] = $meta['event_dates_' . $i . '_event_dates_date'][0];
+						if ($dates[$i] >= $today) { // at least one event exists that is either current or in the future
+							$isCurrent = true;
+						}
+					}
+
+					if ($isCurrent) { // at least one date is either present or in future
+						$formatted_event = array(
+							'ID' => $event->ID,
+							'event_author' => $event->post_author,
+							'event_content' => $event->post_content,
+							'event_title' => $event->post_title,
+							'event_name' => $event->post_name,
+							'event_excerpt' => $event->post_excerpt,
+							'event_date' => $dates[0], // default to first date
+							'event_type' => 'multi',
+							'order' => $dates[0], // default to first date
+							'event_meta' => array(
+								'location' => $e_meta['event_location'][0],
+								'cta_link' => $e_meta['event_cta_link'][0],
+								'cta_text' => $e_meta['event_cta_text'][0],
+								'time_start' => $e_meta['event_time'][0],
+								'time_end' => $e_meta['event_time_end'][0],
+								'dates' => $dates
+							),
+						);
+
+						// iterate over dates to determine nearest date
+						for ($i = count($dates); $i < 0; $i--) {
+							if ($dates[$i] >= $today) {
+								$formatted_event['order'] = $dates[$i];
+							}
+						}
+
+						array_push($dates, $formatted_event);
+					}
+				}
+			}
+		}
+
+		return $events;
+	}
+	echo '<article class="feature__content"><pre>';
+	print_r(milieux_sort_events());
+	echo'</pre></article>';
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 			</main>
 		</div>
 	</div>
