@@ -8,7 +8,7 @@
 - [x] `UI & UX` Replace Milieux homepage logo with institute variant
 - [x] `UI & UX` Bigger Homepage CTA
 - [ ] `Functional` FB Timeline
-- [ ] `Functional` Event ordering bug + time _PRIORITY_
+- [x] `Functional` Event ordering bug + time _PRIORITY_
 - [x] `UI & UX` Cluster pages content to the right so as not to be covered by nav
 - [x] `Functional` Nav dismiss on click
 - [ ] `Functional` If featured, hide in features block

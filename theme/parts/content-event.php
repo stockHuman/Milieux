@@ -34,21 +34,19 @@
 			<?php the_content(); ?>
 		</article>
 		<aside class="event__sidebar">
-
-			<?php $meta = milieux_event_meta(); ?>
 			<div class="event__sidebar-details flex">
 			  <div class="text-right">
-			    <div class="text-blend address"><?= $meta['address']; ?></div>
+			    <div class="text-blend address"><?= get_field('event_location'); ?></div>
 			  </div>
 				<?php if (get_field('event_type') != 'multi') { ?>
 			  <div class="">
-			    <div class="text-blend month"><?= $meta['month']; ?></div>
-			    <div class="ts-number day"><?= $meta['day']; ?></div>
+			    <div class="text-blend month"><?= get_field('event_date'); ?></div>
+			    <div class="ts-number day"><?= get_field('address'); ?></div>
 			  </div>
 				<?php } else { ?>
 			  <div class="">
-			    <div class="text-blend month"><?= $meta['month']; ?></div>
-			    <div class="ts-number day"><?= $meta['days']; ?></div>
+			    <div class="text-blend month"><?php //get_field('event_dates'); ?></div>
+			    <div class="ts-number day"><?= get_field('address'); // TODO: replace with actual values ?></div>
 			  </div>
 				<?php } ?>
 			</div>
