@@ -257,7 +257,6 @@
 		$events_multi = get_posts(array(
 			'post_type' => 'event',
 			'posts_per_page' => -1,
-			'meta_key' => 'event_dates', // name of custom field
 			'order' => 'DESC',
 			'meta_query' => array(
 				array(
@@ -278,7 +277,7 @@
 					$dates = array();
 					$isCurrent = false;
 					for ($i = 0; $i < $numdates; $i++) {
-						$dates[$i] = $meta['event_dates_' . $i . '_event_dates_date'][0];
+						$dates[$i] = $e_meta['event_dates_' . $i . '_event_dates_date'][0];
 						if ($dates[$i] >= $today) { // at least one event exists that is either current or in the future
 							$isCurrent = true;
 						}
@@ -296,23 +295,18 @@
 							'event_type' => 'multi',
 							'order' => $dates[0], // default to first date
 							'event_meta' => array(
-								'location' => $e_meta['event_location'][0],
-								'cta_link' => $e_meta['event_cta_link'][0],
-								'cta_text' => $e_meta['event_cta_text'][0],
-								'time_start' => $e_meta['event_time'][0],
-								'time_end' => $e_meta['event_time_end'][0],
 								'dates' => $dates
 							),
 						);
 
 						// iterate over dates to determine nearest date
-						for ($i = count($dates); $i < 0; $i--) {
-							if ($dates[$i] >= $today) {
-								$formatted_event['order'] = $dates[$i];
+						for ($i = count($dates); $i > 0; $i--) {
+							if ($dates[$i - 1] >= $today) {
+								$formatted_event['order'] = $dates[$i - 1];
 							}
 						}
 
-						array_push($dates, $formatted_event);
+						array_push($events, $formatted_event);
 					}
 				}
 			}
