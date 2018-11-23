@@ -44,7 +44,7 @@
 
 								<div class="text-right">
 									<div class="text-blend month"><?= $meta['month']; ?></div>
-									<div class="ts-number day"><?= $meta['day']; ?></div>
+									<div class="ts-number day"><?= (isset($meta['day'])) ? $meta['day'] : $meta['days']; ?></div>
 								</div>
 							</div>
 						</div>

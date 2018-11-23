@@ -31,7 +31,6 @@ function _mlx_get_image_ratio_padding ($ID) {
 }
 
 
-
 /**
  * Return the featured image for an event (within the loop automatically will get event ID).
  *
@@ -69,7 +68,6 @@ function milieux_event_featured_image( $post_id = null, $size = 'full', $link = 
     . '" data-sizes="auto'
     . '" alt="'. esc_html( get_the_post_thumbnail_caption(get_post_thumbnail_id( $post_id )) ) . '"></div>';
 }
-
 
 
 /**
@@ -154,7 +152,6 @@ function milieux_inline_modify_images( $content ) {
 }
 
 
-
 /**
  * Customize icons with Font Awesome
  * Currently disabled as google forms is being retired
@@ -203,7 +200,7 @@ function milieux_event_meta ( $id = null, $showAddress = true, $longMonth = fals
   if (!($date_type == 'multi')) { // multiple dates are handled differently
     $month_string = DateTime::createFromFormat('!m', substr($date_string, 4, 2))->format($monthFormat);
   } else {
-    $month_string = ''; // TODO: migrate logic from milieux_get_events()
+    $month_string = DateTime::createFromFormat('!m', substr(get_field('event_dates', $id)[0]['event_dates_date'], 4, 2))->format($monthFormat); // can result in odd stuff when dates cross months
   }
 
   if ($showAddress) {
@@ -221,7 +218,7 @@ function milieux_event_meta ( $id = null, $showAddress = true, $longMonth = fals
   }
 
   if ( $date_type == 'multi') {
-    $dates = get_field('event_dates');
+    $dates = get_field('event_dates', $id);
     foreach ($dates as $date) {
       $days_string .= substr($date['event_dates_date'], 6, 2) . ', ';
     }
@@ -374,7 +371,6 @@ function milieux_get_events () {
 
   return $events;
 }
-
 
 function milieux_get_event( $id = null ) {
   error_reporting(0); // ignore notices of undefined indeces
