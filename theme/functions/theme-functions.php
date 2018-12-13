@@ -244,8 +244,9 @@ function milieux_event_meta ( $id = null, $showAddress = true, $longMonth = fals
  * Makes two requests and sorts all event types into one coherent list
  * @return array of normalised events, sorted by date
  */
-function milieux_get_events () {
-  $today = date('Ymd');
+function milieux_get_events ($showOldPosts = false) {
+  error_reporting(0);
+  $today = $showOldPosts ? '00000000': date('Ymd');
   $events = array();
 
   $events_single_and_range = get_posts(array(
@@ -312,7 +313,7 @@ function milieux_get_events () {
       array(
         'key' => 'event_type',
         'value' => 'multi',
-        'compare' => '==' // exclude multi events
+        'compare' => '==' // exclude all but multi events
       )
     ),
   ));
@@ -361,6 +362,7 @@ function milieux_get_events () {
       }
     }
   }
+  error_reporting(E_ALL);
 
   // sort all posts by order field, returns in ascending order,
   // nearest to furthest into the future

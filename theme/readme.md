@@ -13,7 +13,7 @@
 - [x] `Functional` Nav dismiss on click
 - [ ] `Functional` If featured, hide in features block
 - [x] `UI & UX` SVG arrow in Chrome
-- [ ] `UI & UX` Event page styling
+- [ ] `UI & UX` Event page styling (move the EVENTS header to vertical)
 
 ---
 
@@ -36,6 +36,7 @@
 - [x] `UI & UX` Page templates
 - [x] `UI & UX` Shorten Nav to only necessary space on desktop
 - [ ] `UI & UX` Make EVENTS page title horizontal?
+- [ ] `UI & UX` Make homepage hero prettier.
 
 ---
 
@@ -51,3 +52,4 @@
 - [x] `Plugins` there are some weird page formatting bugs throughout admin view w/ Yoast
 - [x] `Safari` Interactivity in Safari 9.9 // Do we support this? No.
 - [ ] `Modules` Events Module displays date in incorrect order / does not respond to order changes
+- [x] `Modules` Gutenberg breaks search
