@@ -9,7 +9,7 @@
 		}
 
 		$hero_type = gf('layout'); // hero, split, slide, none
-		if ($hero_type == 'hero') : $hero_img_ID = gf('hero_image'); ?>
+		/*if ($hero_type == 'hero') :*/ $hero_img_ID = gf('hero_image'); ?>
 
 			<div class="fp-cta__container dynamic-bg" bg-srcset="<?= esc_attr(wp_get_attachment_image_srcset( $hero_img_ID )); ?>">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 429.34 138.29" class="fp-cta__logo-text">
@@ -73,6 +73,6 @@
 
 			<?= gf('hero_link') ? '</a>' : '</div>'; endif;
 		echo '</div>'; // close cta container
-	endif; ?>
+	/*endif;*/ ?>
 
 </section>
