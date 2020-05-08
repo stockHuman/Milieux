@@ -10,12 +10,12 @@
   "license": "GPL-2.0 AND MIT",
   "homepage": "https://milieux.concordia.ca",
   "devDependencies": {
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.6",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
-    "browserify": "^16.5.0",
+    "browserify": "^16.5.1",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -23,7 +23,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "localtunnel": "git+https://github.com/andrewmiller1/localtunnel.git",
@@ -47,7 +47,7 @@
     ]
   },
   "dependencies": {
-    "animejs": "^3.1.0",
+    "animejs": "^3.2.0",
     "barba.js": "^1.0.0"
   }
 }
